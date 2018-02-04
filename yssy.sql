@@ -1,23 +1,25 @@
 -- phpMyAdmin SQL Dump
--- version phpStudy 2014
--- http://www.phpmyadmin.net
+-- version 4.7.7
+-- https://www.phpmyadmin.net/
 --
--- 主机: localhost
--- 生成日期: 2018 �?02 �?03 �?14:08
--- 服务器版本: 5.5.53
--- PHP 版本: 5.5.38
+-- Host: localhost
+-- Generation Time: 2018-02-04 21:18:33
+-- 服务器版本： 5.6.39
+-- PHP Version: 7.2.2
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- 数据库: `yssy`
+-- Database: `yssy`
 --
 
 -- --------------------------------------------------------
@@ -26,11 +28,11 @@ SET time_zone = "+00:00";
 -- 表的结构 `cmf_admin_menu`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_admin_menu` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '父菜单id',
-  `type` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '菜单类型;1:有界面可访问菜单,2:无界面可访问菜单,0:只作为菜单',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '状态;1:显示,0:不显示',
+CREATE TABLE `cmf_admin_menu` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '父菜单id',
+  `type` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '菜单类型;1:有界面可访问菜单,2:无界面可访问菜单,0:只作为菜单',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '状态;1:显示,0:不显示',
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
   `app` varchar(40) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '应用名',
   `controller` varchar(30) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '控制器名',
@@ -38,12 +40,8 @@ CREATE TABLE IF NOT EXISTS `cmf_admin_menu` (
   `param` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '额外参数',
   `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '菜单名称',
   `icon` varchar(20) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '菜单图标',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注',
-  PRIMARY KEY (`id`),
-  KEY `status` (`status`),
-  KEY `parent_id` (`parent_id`),
-  KEY `controller` (`controller`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='后台菜单表' AUTO_INCREMENT=162 ;
+  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='后台菜单表';
 
 --
 -- 转存表中的数据 `cmf_admin_menu`
@@ -218,22 +216,31 @@ INSERT INTO `cmf_admin_menu` (`id`, `parent_id`, `type`, `status`, `list_order`,
 -- 表的结构 `cmf_asset`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_asset` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
-  `file_size` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '文件大小,单位B',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '上传时间',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态;1:可用,0:不可用',
-  `download_times` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '下载次数',
+CREATE TABLE `cmf_asset` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '用户id',
+  `file_size` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '文件大小,单位B',
+  `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '上传时间',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态;1:可用,0:不可用',
+  `download_times` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '下载次数',
   `file_key` varchar(64) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '文件惟一码',
   `filename` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '文件名',
   `file_path` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '文件路径,相对于upload目录,可以为url',
   `file_md5` varchar(32) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '文件md5值',
   `file_sha1` varchar(40) CHARACTER SET utf8 NOT NULL DEFAULT '',
   `suffix` varchar(10) NOT NULL DEFAULT '' COMMENT '文件后缀名,不包括点',
-  `more` text COMMENT '其它详细信息,JSON格式',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='资源表' AUTO_INCREMENT=1 ;
+  `more` text COMMENT '其它详细信息,JSON格式'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='资源表';
+
+--
+-- 转存表中的数据 `cmf_asset`
+--
+
+INSERT INTO `cmf_asset` (`id`, `user_id`, `file_size`, `create_time`, `status`, `download_times`, `file_key`, `filename`, `file_path`, `file_md5`, `file_sha1`, `suffix`, `more`) VALUES
+(1, 1, 1438811, 1517744107, 1, 0, '6e35c239bff3513537f81cca6ce599bdd7ac318f70bc0a3f7462467580648d3f', '01.png', 'portal/20180204/921b6af12f2f86621f0f4bdb28e55c1a.png', '6e35c239bff3513537f81cca6ce599bd', '4d25f048340f8d5ef70da4a063770d5a9436421c', 'png', NULL),
+(2, 1, 4524, 1517749736, 1, 0, '8b2e9e7855e9975ec37bb7971043cf2896093953c4a542a01a3e7dcd70b571b0', 'logo.png', 'admin/20180204/39eb4e974a37c29e71fc3eddd669d9ad.png', '8b2e9e7855e9975ec37bb7971043cf28', 'dc78916d838e34733ba12cdae235ff8126a1773d', 'png', NULL),
+(3, 1, 4691, 1517749894, 1, 0, 'e3efbc655af1d4d7be960b87742d83ed5cbbc8b095d81bba197210fd8b85c43c', 'logo-piao.png', 'admin/20180204/b3099f26d8d9e47cc3216b635609a142.png', 'e3efbc655af1d4d7be960b87742d83ed', 'e82fb150955eea7b4ef04d73a866b0d6b019ce36', 'png', NULL),
+(4, 1, 27269, 1517749902, 1, 0, '9cf21409d4ed08a74cf581fb9d39160e61bb4329239861184c7c88954e62b426', 'logo2.png', 'admin/20180204/205566a13488d45e3a4ed12e986f69d8.png', '9cf21409d4ed08a74cf581fb9d39160e', '19942d4305f99201f439c005214d3f2e1647677b', 'png', NULL);
 
 -- --------------------------------------------------------
 
@@ -241,15 +248,12 @@ CREATE TABLE IF NOT EXISTS `cmf_asset` (
 -- 表的结构 `cmf_auth_access`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_auth_access` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `role_id` int(10) unsigned NOT NULL COMMENT '角色',
+CREATE TABLE `cmf_auth_access` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL COMMENT '角色',
   `rule_name` varchar(100) NOT NULL DEFAULT '' COMMENT '规则唯一英文标识,全小写',
-  `type` varchar(30) NOT NULL DEFAULT '' COMMENT '权限规则分类,请加应用前缀,如admin_',
-  PRIMARY KEY (`id`),
-  KEY `role_id` (`role_id`),
-  KEY `rule_name` (`rule_name`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限授权表' AUTO_INCREMENT=1 ;
+  `type` varchar(30) NOT NULL DEFAULT '' COMMENT '权限规则分类,请加应用前缀,如admin_'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限授权表';
 
 -- --------------------------------------------------------
 
@@ -257,19 +261,16 @@ CREATE TABLE IF NOT EXISTS `cmf_auth_access` (
 -- 表的结构 `cmf_auth_rule`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_auth_rule` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '规则id,自增主键',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '是否有效(0:无效,1:有效)',
+CREATE TABLE `cmf_auth_rule` (
+  `id` int(10) UNSIGNED NOT NULL COMMENT '规则id,自增主键',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '是否有效(0:无效,1:有效)',
   `app` varchar(15) NOT NULL COMMENT '规则所属module',
   `type` varchar(30) NOT NULL DEFAULT '' COMMENT '权限规则分类，请加应用前缀,如admin_',
   `name` varchar(100) NOT NULL DEFAULT '' COMMENT '规则唯一英文标识,全小写',
   `param` varchar(100) NOT NULL DEFAULT '' COMMENT '额外url参数',
   `title` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '规则描述',
-  `condition` varchar(200) NOT NULL DEFAULT '' COMMENT '规则附加条件',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`) USING BTREE,
-  KEY `module` (`app`,`status`,`type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='权限规则表' AUTO_INCREMENT=162 ;
+  `condition` varchar(200) NOT NULL DEFAULT '' COMMENT '规则附加条件'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='权限规则表';
 
 --
 -- 转存表中的数据 `cmf_auth_rule`
@@ -444,33 +445,27 @@ INSERT INTO `cmf_auth_rule` (`id`, `status`, `app`, `type`, `name`, `param`, `ti
 -- 表的结构 `cmf_comment`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_comment` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `parent_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '被回复的评论id',
-  `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '发表评论的用户id',
-  `to_user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '被评论的用户id',
-  `object_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '评论内容 id',
-  `like_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '点赞数',
-  `dislike_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '不喜欢数',
-  `floor` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '楼层数',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '评论时间',
-  `delete_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '删除时间',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态,1:已审核,0:未审核',
-  `type` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '评论类型；1实名评论',
+CREATE TABLE `cmf_comment` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `parent_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '被回复的评论id',
+  `user_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '发表评论的用户id',
+  `to_user_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '被评论的用户id',
+  `object_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '评论内容 id',
+  `like_count` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '点赞数',
+  `dislike_count` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '不喜欢数',
+  `floor` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '楼层数',
+  `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '评论时间',
+  `delete_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '删除时间',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态,1:已审核,0:未审核',
+  `type` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '评论类型；1实名评论',
   `table_name` varchar(64) NOT NULL DEFAULT '' COMMENT '评论内容所在表，不带表前缀',
   `full_name` varchar(50) NOT NULL DEFAULT '' COMMENT '评论者昵称',
   `email` varchar(255) NOT NULL DEFAULT '' COMMENT '评论者邮箱',
   `path` varchar(255) NOT NULL DEFAULT '' COMMENT '层级关系',
   `url` text COMMENT '原文地址',
   `content` text CHARACTER SET utf8mb4 COMMENT '评论内容',
-  `more` text CHARACTER SET utf8mb4 COMMENT '扩展属性',
-  PRIMARY KEY (`id`),
-  KEY `table_id_status` (`table_name`,`object_id`,`status`),
-  KEY `object_id` (`object_id`) USING BTREE,
-  KEY `status` (`status`) USING BTREE,
-  KEY `parent_id` (`parent_id`) USING BTREE,
-  KEY `create_time` (`create_time`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='评论表' AUTO_INCREMENT=1 ;
+  `more` text CHARACTER SET utf8mb4 COMMENT '扩展属性'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='评论表';
 
 -- --------------------------------------------------------
 
@@ -478,16 +473,15 @@ CREATE TABLE IF NOT EXISTS `cmf_comment` (
 -- 表的结构 `cmf_hook`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_hook` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `type` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '钩子类型(1:系统钩子;2:应用钩子;3:模板钩子;4:后台模板钩子)',
-  `once` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '是否只允许一个插件运行(0:多个;1:一个)',
+CREATE TABLE `cmf_hook` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `type` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '钩子类型(1:系统钩子;2:应用钩子;3:模板钩子;4:后台模板钩子)',
+  `once` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '是否只允许一个插件运行(0:多个;1:一个)',
   `name` varchar(50) NOT NULL DEFAULT '' COMMENT '钩子名称',
   `hook` varchar(50) NOT NULL DEFAULT '' COMMENT '钩子',
   `app` varchar(15) NOT NULL DEFAULT '' COMMENT '应用名(只有应用钩子才用)',
-  `description` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='系统钩子表' AUTO_INCREMENT=36 ;
+  `description` varchar(255) NOT NULL DEFAULT '' COMMENT '描述'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='系统钩子表';
 
 --
 -- 转存表中的数据 `cmf_hook`
@@ -536,14 +530,13 @@ INSERT INTO `cmf_hook` (`id`, `type`, `once`, `name`, `hook`, `app`, `descriptio
 -- 表的结构 `cmf_hook_plugin`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_hook_plugin` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cmf_hook_plugin` (
+  `id` int(10) UNSIGNED NOT NULL,
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态(0:禁用,1:启用)',
   `hook` varchar(50) NOT NULL DEFAULT '' COMMENT '钩子名',
-  `plugin` varchar(50) NOT NULL DEFAULT '' COMMENT '插件',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='系统钩子插件表' AUTO_INCREMENT=1 ;
+  `plugin` varchar(50) NOT NULL DEFAULT '' COMMENT '插件'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='系统钩子插件表';
 
 -- --------------------------------------------------------
 
@@ -551,9 +544,9 @@ CREATE TABLE IF NOT EXISTS `cmf_hook_plugin` (
 -- 表的结构 `cmf_link`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_link` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态;1:显示;0:不显示',
+CREATE TABLE `cmf_link` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态;1:显示;0:不显示',
   `rating` int(11) NOT NULL DEFAULT '0' COMMENT '友情链接评级',
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
   `description` varchar(255) NOT NULL DEFAULT '' COMMENT '友情链接描述',
@@ -561,17 +554,8 @@ CREATE TABLE IF NOT EXISTS `cmf_link` (
   `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '友情链接名称',
   `image` varchar(100) NOT NULL DEFAULT '' COMMENT '友情链接图标',
   `target` varchar(10) NOT NULL DEFAULT '' COMMENT '友情链接打开方式',
-  `rel` varchar(50) NOT NULL DEFAULT '' COMMENT '链接与网站的关系',
-  PRIMARY KEY (`id`),
-  KEY `status` (`status`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='友情链接表' AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `cmf_link`
---
-
-INSERT INTO `cmf_link` (`id`, `status`, `rating`, `list_order`, `description`, `url`, `name`, `image`, `target`, `rel`) VALUES
-(1, 1, 1, 8, 'thinkcmf官网', 'http://www.thinkcmf.com', 'ThinkCMF', '', '_blank', '');
+  `rel` varchar(50) NOT NULL DEFAULT '' COMMENT '链接与网站的关系'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='友情链接表';
 
 -- --------------------------------------------------------
 
@@ -579,13 +563,12 @@ INSERT INTO `cmf_link` (`id`, `status`, `rating`, `list_order`, `description`, `
 -- 表的结构 `cmf_nav`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_nav` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `is_main` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '是否为主导航;1:是;0:不是',
+CREATE TABLE `cmf_nav` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `is_main` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '是否为主导航;1:是;0:不是',
   `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '导航位置名称',
-  `remark` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '备注',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='前台导航位置表' AUTO_INCREMENT=3 ;
+  `remark` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '备注'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='前台导航位置表';
 
 --
 -- 转存表中的数据 `cmf_nav`
@@ -601,19 +584,18 @@ INSERT INTO `cmf_nav` (`id`, `is_main`, `name`, `remark`) VALUES
 -- 表的结构 `cmf_nav_menu`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_nav_menu` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cmf_nav_menu` (
+  `id` int(11) NOT NULL,
   `nav_id` int(11) NOT NULL COMMENT '导航 id',
   `parent_id` int(11) NOT NULL COMMENT '父 id',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态;1:显示;0:隐藏',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态;1:显示;0:隐藏',
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '菜单名称',
   `target` varchar(10) NOT NULL DEFAULT '' COMMENT '打开方式',
   `href` varchar(100) NOT NULL DEFAULT '' COMMENT '链接',
   `icon` varchar(20) NOT NULL DEFAULT '' COMMENT '图标',
-  `path` varchar(255) NOT NULL DEFAULT '' COMMENT '层级关系',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='前台导航菜单表' AUTO_INCREMENT=2 ;
+  `path` varchar(255) NOT NULL DEFAULT '' COMMENT '层级关系'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='前台导航菜单表';
 
 --
 -- 转存表中的数据 `cmf_nav_menu`
@@ -628,24 +610,23 @@ INSERT INTO `cmf_nav_menu` (`id`, `nav_id`, `parent_id`, `status`, `list_order`,
 -- 表的结构 `cmf_option`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_option` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `autoload` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '是否自动加载;1:自动加载;0:不自动加载',
+CREATE TABLE `cmf_option` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `autoload` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '是否自动加载;1:自动加载;0:不自动加载',
   `option_name` varchar(64) NOT NULL DEFAULT '' COMMENT '配置名',
-  `option_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '配置值',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='全站配置表' AUTO_INCREMENT=5 ;
+  `option_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '配置值'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='全站配置表' ROW_FORMAT=COMPACT;
 
 --
 -- 转存表中的数据 `cmf_option`
 --
 
 INSERT INTO `cmf_option` (`id`, `autoload`, `option_name`, `option_value`) VALUES
-(1, 1, 'site_info', '{"site_name":"\\u6709\\u6570\\u6444\\u5f71","site_seo_title":"\\u6709\\u6570\\u6444\\u5f71","site_seo_keywords":"\\u6709\\u6570\\u5e7f\\u544a\\uff0c\\u5546\\u4e1a\\u6444\\u5f71","site_seo_description":"\\u6709\\u6570\\u5e7f\\u544a\\u662f\\u4e00\\u5bb6\\u6df1\\u8015\\u5546\\u4e1a\\u6444\\u5f71\\u9886\\u57df\\u591a\\u5e74\\u7684\\u89c6\\u89c9\\u670d\\u52a1\\u5546","site_icp":"","site_admin_email":"","site_analytics":"","urlmode":"1","html_suffix":""}'),
-(2, 1, 'cmf_settings', '{"open_registration":"0","banned_usernames":""}'),
-(3, 1, 'cdn_settings', '{"cdn_static_root":""}'),
-(4, 1, 'admin_settings', '{"admin_password":"","admin_style":"flatadmin"}');
+(1, 1, 'site_info', '{\"site_name\":\"\\u6709\\u6570\\u6444\\u5f71\",\"site_seo_title\":\"\\u6709\\u6570\\u6444\\u5f71\",\"site_seo_keywords\":\"\\u6709\\u6570\\u5e7f\\u544a\\uff0c\\u5546\\u4e1a\\u6444\\u5f71\",\"site_seo_description\":\"\\u6709\\u6570\\u5e7f\\u544a\\u662f\\u4e00\\u5bb6\\u6df1\\u8015\\u5546\\u4e1a\\u6444\\u5f71\\u9886\\u57df\\u591a\\u5e74\\u7684\\u89c6\\u89c9\\u670d\\u52a1\\u5546\",\"site_icp\":\"\",\"site_admin_email\":\"\",\"site_analytics\":\"\",\"urlmode\":\"1\",\"html_suffix\":\"\",\"site_logo\":\"admin\\/20180204\\/39eb4e974a37c29e71fc3eddd669d9ad.png\",\"site_logo_p\":\"admin\\/20180204\\/b3099f26d8d9e47cc3216b635609a142.png\",\"site_logo_z\":\"admin\\/20180204\\/205566a13488d45e3a4ed12e986f69d8.png\"}'),
+(2, 1, 'cmf_settings', '{\"open_registration\":\"0\",\"banned_usernames\":\"\"}'),
+(3, 1, 'cdn_settings', '{\"cdn_static_root\":\"\"}'),
+(4, 1, 'admin_settings', '{\"admin_password\":\"\",\"admin_style\":\"flatadmin\"}'),
+(5, 1, 'admin_dashboard_widgets', '[{\"name\":\"CmfHub\",\"is_system\":1},{\"name\":\"MainContributors\",\"is_system\":1},{\"name\":\"Contributors\",\"is_system\":1},{\"name\":\"Custom1\",\"is_system\":1},{\"name\":\"Custom2\",\"is_system\":1},{\"name\":\"Custom3\",\"is_system\":1},{\"name\":\"Custom4\",\"is_system\":1},{\"name\":\"Custom5\",\"is_system\":1}]');
 
 -- --------------------------------------------------------
 
@@ -653,12 +634,12 @@ INSERT INTO `cmf_option` (`id`, `autoload`, `option_name`, `option_value`) VALUE
 -- 表的结构 `cmf_plugin`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_plugin` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
-  `type` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '插件类型;1:网站;8:微信',
-  `has_admin` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '是否有后台管理,0:没有;1:有',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态;1:开启;0:禁用',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '插件安装时间',
+CREATE TABLE `cmf_plugin` (
+  `id` int(11) UNSIGNED NOT NULL COMMENT '自增id',
+  `type` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '插件类型;1:网站;8:微信',
+  `has_admin` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '是否有后台管理,0:没有;1:有',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态;1:开启;0:禁用',
+  `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '插件安装时间',
   `name` varchar(50) NOT NULL DEFAULT '' COMMENT '插件标识名,英文字母(惟一)',
   `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '插件名称',
   `demo_url` varchar(50) NOT NULL DEFAULT '' COMMENT '演示地址，带协议',
@@ -667,9 +648,8 @@ CREATE TABLE IF NOT EXISTS `cmf_plugin` (
   `author_url` varchar(50) NOT NULL DEFAULT '' COMMENT '作者网站链接',
   `version` varchar(20) NOT NULL DEFAULT '' COMMENT '插件版本号',
   `description` varchar(255) NOT NULL COMMENT '插件描述',
-  `config` text COMMENT '插件配置',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='插件表' AUTO_INCREMENT=1 ;
+  `config` text COMMENT '插件配置'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='插件表';
 
 -- --------------------------------------------------------
 
@@ -677,12 +657,12 @@ CREATE TABLE IF NOT EXISTS `cmf_plugin` (
 -- 表的结构 `cmf_portal_category`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_portal_category` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类id',
-  `parent_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '分类父id',
-  `post_count` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '分类文章数',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态,1:发布,0:不发布',
-  `delete_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '删除时间',
+CREATE TABLE `cmf_portal_category` (
+  `id` bigint(20) UNSIGNED NOT NULL COMMENT '分类id',
+  `parent_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '分类父id',
+  `post_count` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '分类文章数',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态,1:发布,0:不发布',
+  `delete_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '删除时间',
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
   `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '分类名称',
   `description` text NOT NULL COMMENT '分类描述',
@@ -694,20 +674,22 @@ CREATE TABLE IF NOT EXISTS `cmf_portal_category` (
   `seo_description` varchar(255) NOT NULL DEFAULT '',
   `list_tpl` varchar(50) NOT NULL DEFAULT '' COMMENT '分类列表模板',
   `one_tpl` varchar(50) NOT NULL DEFAULT '' COMMENT '分类文章页模板',
-  `more` text COMMENT '扩展属性',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='portal应用 文章分类表' AUTO_INCREMENT=6 ;
+  `more` text COMMENT '扩展属性'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='portal应用 文章分类表';
 
 --
 -- 转存表中的数据 `cmf_portal_category`
 --
 
 INSERT INTO `cmf_portal_category` (`id`, `parent_id`, `post_count`, `status`, `delete_time`, `list_order`, `name`, `description`, `description_cn`, `description_en`, `path`, `seo_title`, `seo_keywords`, `seo_description`, `list_tpl`, `one_tpl`, `more`) VALUES
-(1, 0, 0, 1, 0, 10000, '首页英文大标题', 'FOCUS ON&lt;br/&gt;COMMERCIAL PHOTOGRAPHY', '', '', '0-1', '', '', '', 'list', 'article', '{"thumbnail":""}'),
-(2, 0, 0, 1, 0, 10000, '首页中文大标题', '特别有数的商业摄影', '', '', '0-2', '', '', '', 'list', 'article', '{"thumbnail":""}'),
-(3, 0, 0, 1, 0, 10000, '首页中文简介', '有数广告是一家深耕商业摄影领域多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国内外领先企业提供着专业的传统广告拍摄和线上商品展示服务。在一味追求差异化视觉表达的当下，有数广告强调事无巨细地前期沟通，坚持从项目核心诉求出发，充分考虑视觉受众，在满足易用性的前提下，以小而美的创意提升画面趣味。秉持这种平衡的创作理念，有数广告致力于为客户打造既适应营销又兼具观赏性的优质商业影像。”', '', '', '0-3', '', '', '', 'list', 'article', '{"thumbnail":""}'),
-(4, 0, 0, 1, 0, 10000, '首页英文简介', '&quot;A number of advertising is a deep field of commercial photography for many years in the field of visual service providers, since its inception in Chengdu, China since 2011, has been for a number of clothing from footwear, space design, retail department stores at home and abroad leading enterprises to provide professional traditional advertising And online goods display services in the blind pursuit of differentiated visual expression of the moment, there are several ads stressed that the size of the early communication, insisted from the project core demands, fully consider the visual audience, to meet the premise of ease of use to small And the creativity of the United States to enhance the picture fun. Uphold the balance of the creative concept, there are several ads committed to customers to create both to adapt to both marketing and ornamental high - quality commercial images.', '', '', '0-4', '', '', '', 'list', 'article', '{"thumbnail":""}'),
-(5, 0, 0, 1, 0, 10000, 'ABOUT US', '', '有数广告是一家深耕商业摄影领域多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国 多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国 多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国', '2our website, it is our understanding that you are granting your consent website, it is our understanding that you are granting your consent website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th our website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th our website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th our website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th', '0-5', '', '', '', 'list', 'article', '{"thumbnail":""}');
+(1, 0, 0, 1, 0, 10000, '首页大标题', 'FOCUS ON', '特别有数的商业摄影', 'COMMERCIAL PHOTOGRAPHY', '0-1', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(2, 0, 0, 1, 1517743953, 10000, '首页中文大标题', '特别有数的商业摄影', '', '', '0-2', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(3, 0, 0, 1, 1517743960, 10000, '首页中文简介', '有数广告是一家深耕商业摄影领域多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国内外领先企业提供着专业的传统广告拍摄和线上商品展示服务。在一味追求差异化视觉表达的当下，有数广告强调事无巨细地前期沟通，坚持从项目核心诉求出发，充分考虑视觉受众，在满足易用性的前提下，以小而美的创意提升画面趣味。秉持这种平衡的创作理念，有数广告致力于为客户打造既适应营销又兼具观赏性的优质商业影像。”', '', '', '0-3', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(4, 0, 0, 1, 0, 10000, '首页简介', '', '有数广告是一家深耕商业摄影领域多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国内外领先企业提供着专业的传统广告拍摄和线上商品展示服务。在一味追求差异化视觉表达的当下，有数广告强调事无巨细地前期沟通，坚持从项目核心诉求出发，充分考虑视觉受众，在满足易用性的前提下，以小而美的创意提升画面趣味。秉持这种平衡的创作理念，有数广告致力于为客户打造既适应营销又兼具观赏性的优质商业影像。”', '&quot;A number of advertising is a deep field of commercial photography for many years in the field of visual service providers, since its inception in Chengdu, China since 2011, has been for a number of clothing from footwear, space design, retail department stores at home and abroad leading enterprises to provide professional traditional advertising And online goods display services in the blind pursuit of differentiated visual expression of the moment, there are several ads stressed that the size of the early communication, insisted from the project core demands, fully consider the visual audience, to meet the premise of ease of use to small And the creativity of the United States to enhance the picture fun. Uphold the balance of the creative concept, there are several ads committed to customers to create both to adapt to both marketing and ornamental high - quality commercial images.', '0-4', '', '', '', 'list', 'article', '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\"}'),
+(5, 0, 0, 1, 0, 10000, 'ABOUT US', '', '有数广告是一家深耕商业摄影领域多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国 多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国 多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国', '2our website, it is our understanding that you are granting your consent website, it is our understanding that you are granting your consent website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th our website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th our website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th our website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th', '0-5', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(6, 0, 0, 1, 0, 10000, 'CONTACT US', '', '', '', '0-6', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(7, 0, 0, 1, 0, 10000, 'JOIN US', 'WE ARE A PASSIONATE AND SUBJECTIVE INITIATIVE OF THE TEAM, FOUNDED IN 2016THE COMPANY, YOU ARE WELCOME TO JOIN 我们是一个富有热情和主观能动性的团队创办于2016年的公司，欢迎您的加入,以下是我们的招聘职位', '', '', '0-7', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(8, 0, 0, 1, 0, 10000, 'COPYRIGHT', '', '本网站版权属成都有数广告有限责任公司所有，未经成都有数广告有限责任公司书面授权，任何企业、网站、个人不得转载、摘编、镜像或利用其它方式使用本站内容。违者本网站将依法追究其法律责任。', 'The copyright of this website is owned by Chengdu USURE CREATION Co., Ltd. Without the written authori-zation of Chengdu USURE CREATION Co., Ltd. any en-terprise, website or individual may not reproduce, ex-cerpt, mirror or otherwise use the contents of this website. Violators of this site will be held legally respon-sible.', '0-8', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}');
 
 -- --------------------------------------------------------
 
@@ -715,15 +697,25 @@ INSERT INTO `cmf_portal_category` (`id`, `parent_id`, `post_count`, `status`, `d
 -- 表的结构 `cmf_portal_category_post`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_portal_category_post` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `post_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '文章id',
-  `category_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '分类id',
+CREATE TABLE `cmf_portal_category_post` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `post_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '文章id',
+  `category_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '分类id',
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态,1:发布;0:不发布',
-  PRIMARY KEY (`id`),
-  KEY `term_taxonomy_id` (`category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='portal应用 分类文章对应表' AUTO_INCREMENT=1 ;
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态,1:发布;0:不发布'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='portal应用 分类文章对应表';
+
+--
+-- 转存表中的数据 `cmf_portal_category_post`
+--
+
+INSERT INTO `cmf_portal_category_post` (`id`, `post_id`, `category_id`, `list_order`, `status`) VALUES
+(1, 1, 6, 10000, 1),
+(2, 2, 6, 10000, 1),
+(3, 3, 6, 10000, 1),
+(4, 4, 7, 10000, 1),
+(5, 5, 7, 10000, 1),
+(6, 6, 7, 10000, 1);
 
 -- --------------------------------------------------------
 
@@ -731,36 +723,44 @@ CREATE TABLE IF NOT EXISTS `cmf_portal_category_post` (
 -- 表的结构 `cmf_portal_post`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_portal_post` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `parent_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '父级id',
-  `post_type` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '类型,1:文章;2:页面',
-  `post_format` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '内容格式;1:html;2:md',
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '发表者用户id',
-  `post_status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态;1:已发布;0:未发布;',
-  `comment_status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '评论状态;1:允许;0:不允许',
-  `is_top` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '是否置顶;1:置顶;0:不置顶',
-  `recommended` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '是否推荐;1:推荐;0:不推荐',
-  `post_hits` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '查看数',
-  `post_like` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '点赞数',
-  `comment_count` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '评论数',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
-  `update_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
-  `published_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '发布时间',
-  `delete_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '删除时间',
+CREATE TABLE `cmf_portal_post` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `parent_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '父级id',
+  `post_type` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '类型,1:文章;2:页面',
+  `post_format` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '内容格式;1:html;2:md',
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '发表者用户id',
+  `post_status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态;1:已发布;0:未发布;',
+  `comment_status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '评论状态;1:允许;0:不允许',
+  `is_top` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '是否置顶;1:置顶;0:不置顶',
+  `recommended` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '是否推荐;1:推荐;0:不推荐',
+  `post_hits` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '查看数',
+  `post_like` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '点赞数',
+  `comment_count` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '评论数',
+  `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '更新时间',
+  `published_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '发布时间',
+  `delete_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '删除时间',
   `post_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'post标题',
+  `post_title_fu` varchar(255) NOT NULL,
   `post_keywords` varchar(150) NOT NULL DEFAULT '' COMMENT 'seo keywords',
   `post_excerpt` varchar(500) NOT NULL DEFAULT '' COMMENT 'post摘要',
-  `post_source` varchar(150) NOT NULL DEFAULT '' COMMENT '转载文章的来源',
+  `post_source` varchar(500) NOT NULL DEFAULT '' COMMENT '转载文章的来源',
   `post_content` text COMMENT '文章内容',
   `post_content_filtered` text COMMENT '处理过的文章内容',
-  `more` text COMMENT '扩展属性,如缩略图;格式为json',
-  PRIMARY KEY (`id`),
-  KEY `type_status_date` (`post_type`,`post_status`,`create_time`,`id`),
-  KEY `parent_id` (`parent_id`),
-  KEY `user_id` (`user_id`),
-  KEY `create_time` (`create_time`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='portal应用 文章表' AUTO_INCREMENT=1 ;
+  `more` text COMMENT '扩展属性,如缩略图;格式为json'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='portal应用 文章表' ROW_FORMAT=COMPACT;
+
+--
+-- 转存表中的数据 `cmf_portal_post`
+--
+
+INSERT INTO `cmf_portal_post` (`id`, `parent_id`, `post_type`, `post_format`, `user_id`, `post_status`, `comment_status`, `is_top`, `recommended`, `post_hits`, `post_like`, `comment_count`, `create_time`, `update_time`, `published_time`, `delete_time`, `post_title`, `post_title_fu`, `post_keywords`, `post_excerpt`, `post_source`, `post_content`, `post_content_filtered`, `more`) VALUES
+(1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748229, 1517748606, 1517748120, 0, '电话&amp;邮箱', '', '', 'usure@foxmail.com', '+86 028 68333800', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}'),
+(2, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748265, 1517748278, 1517748240, 0, '公司', '', '', 'Chengdu USURE CREATION Co., Ltd.', '成都有数广告有限责任公司', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}'),
+(3, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748294, 1517748294, 1517748280, 0, '地址', '', '', '1502, W2 Zone, Global Center, High-Tech District, Chengdu', '成都市高新区环球中心W2区1502室', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}'),
+(4, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748953, 1517748953, 1517748884, 0, '设计师', 'DESIGNER', '', '', '去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}'),
+(5, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748983, 1517748983, 1517748957, 0, '设计师', 'DESIGNER', '', '', '去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}'),
+(6, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748999, 1517748999, 1517748986, 0, '设计师', 'DESIGNER', '', '', '去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}');
 
 -- --------------------------------------------------------
 
@@ -768,14 +768,13 @@ CREATE TABLE IF NOT EXISTS `cmf_portal_post` (
 -- 表的结构 `cmf_portal_tag`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_portal_tag` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类id',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态,1:发布,0:不发布',
-  `recommended` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '是否推荐;1:推荐;0:不推荐',
-  `post_count` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '标签文章数',
-  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '标签名称',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='portal应用 文章标签表' AUTO_INCREMENT=1 ;
+CREATE TABLE `cmf_portal_tag` (
+  `id` bigint(20) UNSIGNED NOT NULL COMMENT '分类id',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态,1:发布,0:不发布',
+  `recommended` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '是否推荐;1:推荐;0:不推荐',
+  `post_count` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '标签文章数',
+  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '标签名称'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='portal应用 文章标签表';
 
 -- --------------------------------------------------------
 
@@ -783,14 +782,12 @@ CREATE TABLE IF NOT EXISTS `cmf_portal_tag` (
 -- 表的结构 `cmf_portal_tag_post`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_portal_tag_post` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `tag_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '标签 id',
-  `post_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '文章 id',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态,1:发布;0:不发布',
-  PRIMARY KEY (`id`),
-  KEY `post_id` (`post_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='portal应用 标签文章对应表' AUTO_INCREMENT=1 ;
+CREATE TABLE `cmf_portal_tag_post` (
+  `id` bigint(20) NOT NULL,
+  `tag_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '标签 id',
+  `post_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '文章 id',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态,1:发布;0:不发布'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='portal应用 标签文章对应表';
 
 -- --------------------------------------------------------
 
@@ -798,15 +795,22 @@ CREATE TABLE IF NOT EXISTS `cmf_portal_tag_post` (
 -- 表的结构 `cmf_recycle_bin`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_recycle_bin` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cmf_recycle_bin` (
+  `id` bigint(20) UNSIGNED NOT NULL,
   `object_id` int(11) DEFAULT '0' COMMENT '删除内容 id',
-  `create_time` int(10) unsigned DEFAULT '0' COMMENT '创建时间',
+  `create_time` int(10) UNSIGNED DEFAULT '0' COMMENT '创建时间',
   `table_name` varchar(60) DEFAULT '' COMMENT '删除内容所在表名',
   `name` varchar(255) DEFAULT '' COMMENT '删除内容名称',
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=' 回收站' AUTO_INCREMENT=1 ;
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '用户id'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=' 回收站';
+
+--
+-- 转存表中的数据 `cmf_recycle_bin`
+--
+
+INSERT INTO `cmf_recycle_bin` (`id`, `object_id`, `create_time`, `table_name`, `name`, `user_id`) VALUES
+(1, 2, 1517743953, 'portal_category', '首页中文大标题', 0),
+(2, 3, 1517743960, 'portal_category', '首页中文简介', 0);
 
 -- --------------------------------------------------------
 
@@ -814,19 +818,16 @@ CREATE TABLE IF NOT EXISTS `cmf_recycle_bin` (
 -- 表的结构 `cmf_role`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_role` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '父角色ID',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '状态;0:禁用;1:正常',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
-  `update_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+CREATE TABLE `cmf_role` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '父角色ID',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '状态;0:禁用;1:正常',
+  `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `update_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '更新时间',
   `list_order` float NOT NULL DEFAULT '0' COMMENT '排序',
   `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '角色名称',
-  `remark` varchar(255) NOT NULL DEFAULT '' COMMENT '备注',
-  PRIMARY KEY (`id`),
-  KEY `parent_id` (`parent_id`),
-  KEY `status` (`status`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='角色表' AUTO_INCREMENT=3 ;
+  `remark` varchar(255) NOT NULL DEFAULT '' COMMENT '备注'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='角色表';
 
 --
 -- 转存表中的数据 `cmf_role`
@@ -842,14 +843,11 @@ INSERT INTO `cmf_role` (`id`, `parent_id`, `status`, `create_time`, `update_time
 -- 表的结构 `cmf_role_user`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_role_user` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `role_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '角色 id',
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `role_id` (`role_id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户角色对应表' AUTO_INCREMENT=1 ;
+CREATE TABLE `cmf_role_user` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '角色 id',
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '用户id'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户角色对应表';
 
 -- --------------------------------------------------------
 
@@ -857,15 +855,14 @@ CREATE TABLE IF NOT EXISTS `cmf_role_user` (
 -- 表的结构 `cmf_route`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_route` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '路由id',
+CREATE TABLE `cmf_route` (
+  `id` int(11) NOT NULL COMMENT '路由id',
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
   `status` tinyint(2) NOT NULL DEFAULT '1' COMMENT '状态;1:启用,0:不启用',
   `type` tinyint(4) NOT NULL DEFAULT '1' COMMENT 'URL规则类型;1:用户自定义;2:别名添加',
   `full_url` varchar(255) NOT NULL DEFAULT '' COMMENT '完整url',
-  `url` varchar(255) NOT NULL DEFAULT '' COMMENT '实际显示的url',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='url路由表' AUTO_INCREMENT=1 ;
+  `url` varchar(255) NOT NULL DEFAULT '' COMMENT '实际显示的url'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='url路由表';
 
 -- --------------------------------------------------------
 
@@ -873,14 +870,13 @@ CREATE TABLE IF NOT EXISTS `cmf_route` (
 -- 表的结构 `cmf_slide`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_slide` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态,1:显示,0不显示',
-  `delete_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '删除时间',
+CREATE TABLE `cmf_slide` (
+  `id` int(11) NOT NULL,
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态,1:显示,0不显示',
+  `delete_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '删除时间',
   `name` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '幻灯片分类',
-  `remark` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '分类备注',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='幻灯片表' AUTO_INCREMENT=1 ;
+  `remark` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '分类备注'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='幻灯片表';
 
 -- --------------------------------------------------------
 
@@ -888,10 +884,10 @@ CREATE TABLE IF NOT EXISTS `cmf_slide` (
 -- 表的结构 `cmf_slide_item`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_slide_item` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cmf_slide_item` (
+  `id` int(10) UNSIGNED NOT NULL,
   `slide_id` int(11) NOT NULL DEFAULT '0' COMMENT '幻灯片id',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态,1:显示;0:隐藏',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态,1:显示;0:隐藏',
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
   `title` varchar(50) NOT NULL DEFAULT '' COMMENT '幻灯片名称',
   `image` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '幻灯片图片',
@@ -899,10 +895,8 @@ CREATE TABLE IF NOT EXISTS `cmf_slide_item` (
   `target` varchar(10) NOT NULL DEFAULT '' COMMENT '友情链接打开方式',
   `description` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '幻灯片描述',
   `content` text CHARACTER SET utf8 COMMENT '幻灯片内容',
-  `more` text COMMENT '链接打开方式',
-  PRIMARY KEY (`id`),
-  KEY `slide_id` (`slide_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='幻灯片子项表' AUTO_INCREMENT=1 ;
+  `more` text COMMENT '链接打开方式'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='幻灯片子项表';
 
 -- --------------------------------------------------------
 
@@ -910,12 +904,12 @@ CREATE TABLE IF NOT EXISTS `cmf_slide_item` (
 -- 表的结构 `cmf_theme`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_theme` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '安装时间',
-  `update_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最后升级时间',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '模板状态,1:正在使用;0:未使用',
-  `is_compiled` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '是否为已编译模板',
+CREATE TABLE `cmf_theme` (
+  `id` int(11) NOT NULL,
+  `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '安装时间',
+  `update_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '最后升级时间',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '模板状态,1:正在使用;0:未使用',
+  `is_compiled` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '是否为已编译模板',
   `theme` varchar(20) NOT NULL DEFAULT '' COMMENT '主题目录名，用于主题的维一标识',
   `name` varchar(20) NOT NULL DEFAULT '' COMMENT '主题名称',
   `version` varchar(20) NOT NULL DEFAULT '' COMMENT '主题版本号',
@@ -925,9 +919,8 @@ CREATE TABLE IF NOT EXISTS `cmf_theme` (
   `author_url` varchar(50) NOT NULL DEFAULT '' COMMENT '作者网站链接',
   `lang` varchar(10) NOT NULL DEFAULT '' COMMENT '支持语言',
   `keywords` varchar(50) NOT NULL DEFAULT '' COMMENT '主题关键字',
-  `description` varchar(100) NOT NULL DEFAULT '' COMMENT '主题描述',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `description` varchar(100) NOT NULL DEFAULT '' COMMENT '主题描述'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `cmf_theme`
@@ -943,8 +936,8 @@ INSERT INTO `cmf_theme` (`id`, `create_time`, `update_time`, `status`, `is_compi
 -- 表的结构 `cmf_theme_file`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_theme_file` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cmf_theme_file` (
+  `id` int(11) NOT NULL,
   `is_public` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否公共的模板文件',
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
   `theme` varchar(20) NOT NULL DEFAULT '' COMMENT '模板名称',
@@ -954,31 +947,30 @@ CREATE TABLE IF NOT EXISTS `cmf_theme_file` (
   `description` varchar(100) NOT NULL DEFAULT '' COMMENT '模板文件描述',
   `more` text COMMENT '模板更多配置,用户自己后台设置的',
   `config_more` text COMMENT '模板更多配置,来源模板的配置文件',
-  `draft_more` text COMMENT '模板更多配置,用户临时保存的配置',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+  `draft_more` text COMMENT '模板更多配置,用户临时保存的配置'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `cmf_theme_file`
 --
 
 INSERT INTO `cmf_theme_file` (`id`, `is_public`, `list_order`, `theme`, `name`, `action`, `file`, `description`, `more`, `config_more`, `draft_more`) VALUES
-(1, 0, 10, 'simpleboot3', '文章页', 'portal/Article/index', 'portal/article', '文章页模板文件', '{"vars":{"hot_articles_category_id":{"title":"Hot Articles\\u5206\\u7c7bID","value":"1","type":"text","tip":"","rule":[]}}}', '{"vars":{"hot_articles_category_id":{"title":"Hot Articles\\u5206\\u7c7bID","value":"1","type":"text","tip":"","rule":[]}}}', NULL),
-(2, 0, 10, 'simpleboot3', '联系我们页', 'portal/Page/index', 'portal/contact', '联系我们页模板文件', '{"vars":{"baidu_map_info_window_text":{"title":"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57","name":"baidu_map_info_window_text","value":"ThinkCMF<br\\/><span class=''''>\\u5730\\u5740\\uff1a\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def2601\\u53f7<\\/span>","type":"text","tip":"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57,\\u652f\\u6301\\u7b80\\u5355html\\u4ee3\\u7801","rule":[]},"company_location":{"title":"\\u516c\\u53f8\\u5750\\u6807","value":"","type":"location","tip":"","rule":{"require":true}},"address_cn":{"title":"\\u516c\\u53f8\\u5730\\u5740","value":"\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def0001\\u53f7","type":"text","tip":"","rule":{"require":true}},"address_en":{"title":"\\u516c\\u53f8\\u5730\\u5740\\uff08\\u82f1\\u6587\\uff09","value":"NO.0001 Xie Tu Road, Shanghai China","type":"text","tip":"","rule":{"require":true}},"email":{"title":"\\u516c\\u53f8\\u90ae\\u7bb1","value":"catman@thinkcmf.com","type":"text","tip":"","rule":{"require":true}},"phone_cn":{"title":"\\u516c\\u53f8\\u7535\\u8bdd","value":"021 1000 0001","type":"text","tip":"","rule":{"require":true}},"phone_en":{"title":"\\u516c\\u53f8\\u7535\\u8bdd\\uff08\\u82f1\\u6587\\uff09","value":"+8621 1000 0001","type":"text","tip":"","rule":{"require":true}},"qq":{"title":"\\u8054\\u7cfbQQ","value":"478519726","type":"text","tip":"\\u591a\\u4e2a QQ\\u4ee5\\u82f1\\u6587\\u9017\\u53f7\\u9694\\u5f00","rule":{"require":true}}}}', '{"vars":{"baidu_map_info_window_text":{"title":"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57","name":"baidu_map_info_window_text","value":"ThinkCMF<br\\/><span class=''''>\\u5730\\u5740\\uff1a\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def2601\\u53f7<\\/span>","type":"text","tip":"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57,\\u652f\\u6301\\u7b80\\u5355html\\u4ee3\\u7801","rule":[]},"company_location":{"title":"\\u516c\\u53f8\\u5750\\u6807","value":"","type":"location","tip":"","rule":{"require":true}},"address_cn":{"title":"\\u516c\\u53f8\\u5730\\u5740","value":"\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def0001\\u53f7","type":"text","tip":"","rule":{"require":true}},"address_en":{"title":"\\u516c\\u53f8\\u5730\\u5740\\uff08\\u82f1\\u6587\\uff09","value":"NO.0001 Xie Tu Road, Shanghai China","type":"text","tip":"","rule":{"require":true}},"email":{"title":"\\u516c\\u53f8\\u90ae\\u7bb1","value":"catman@thinkcmf.com","type":"text","tip":"","rule":{"require":true}},"phone_cn":{"title":"\\u516c\\u53f8\\u7535\\u8bdd","value":"021 1000 0001","type":"text","tip":"","rule":{"require":true}},"phone_en":{"title":"\\u516c\\u53f8\\u7535\\u8bdd\\uff08\\u82f1\\u6587\\uff09","value":"+8621 1000 0001","type":"text","tip":"","rule":{"require":true}},"qq":{"title":"\\u8054\\u7cfbQQ","value":"478519726","type":"text","tip":"\\u591a\\u4e2a QQ\\u4ee5\\u82f1\\u6587\\u9017\\u53f7\\u9694\\u5f00","rule":{"require":true}}}}', NULL),
-(3, 0, 5, 'simpleboot3', '首页', 'portal/Index/index', 'portal/index', '首页模板文件', '{"vars":{"top_slide":{"title":"\\u9876\\u90e8\\u5e7b\\u706f\\u7247","value":"","type":"text","dataSource":{"api":"admin\\/Slide\\/index","multi":false},"placeholder":"\\u8bf7\\u9009\\u62e9\\u9876\\u90e8\\u5e7b\\u706f\\u7247","tip":"\\u9876\\u90e8\\u5e7b\\u706f\\u7247","rule":{"require":true}}},"widgets":{"features":{"title":"\\u5feb\\u901f\\u4e86\\u89e3ThinkCMF","display":"1","vars":{"sub_title":{"title":"\\u526f\\u6807\\u9898","value":"Quickly understand the ThinkCMF","type":"text","placeholder":"\\u8bf7\\u8f93\\u5165\\u526f\\u6807\\u9898","tip":"","rule":{"require":true}},"features":{"title":"\\u7279\\u6027\\u4ecb\\u7ecd","value":[{"title":"MVC\\u5206\\u5c42\\u6a21\\u5f0f","icon":"bars","content":"\\u4f7f\\u7528MVC\\u5e94\\u7528\\u7a0b\\u5e8f\\u88ab\\u5206\\u6210\\u4e09\\u4e2a\\u6838\\u5fc3\\u90e8\\u4ef6\\uff1a\\u6a21\\u578b\\uff08M\\uff09\\u3001\\u89c6\\u56fe\\uff08V\\uff09\\u3001\\u63a7\\u5236\\u5668\\uff08C\\uff09\\uff0c\\u4ed6\\u4e0d\\u662f\\u4e00\\u4e2a\\u65b0\\u7684\\u6982\\u5ff5\\uff0c\\u53ea\\u662fThinkCMF\\u5c06\\u5176\\u53d1\\u6325\\u5230\\u4e86\\u6781\\u81f4\\u3002"},{"title":"\\u7528\\u6237\\u7ba1\\u7406","icon":"group","content":"ThinkCMF\\u5185\\u7f6e\\u4e86\\u7075\\u6d3b\\u7684\\u7528\\u6237\\u7ba1\\u7406\\u65b9\\u5f0f\\uff0c\\u5e76\\u53ef\\u76f4\\u63a5\\u4e0e\\u7b2c\\u4e09\\u65b9\\u7ad9\\u70b9\\u8fdb\\u884c\\u4e92\\u8054\\u4e92\\u901a\\uff0c\\u5982\\u679c\\u4f60\\u613f\\u610f\\u751a\\u81f3\\u53ef\\u4ee5\\u5bf9\\u5355\\u4e2a\\u7528\\u6237\\u6216\\u7fa4\\u4f53\\u7528\\u6237\\u7684\\u884c\\u4e3a\\u8fdb\\u884c\\u8bb0\\u5f55\\u53ca\\u5206\\u4eab\\uff0c\\u4e3a\\u60a8\\u7684\\u8fd0\\u8425\\u51b3\\u7b56\\u63d0\\u4f9b\\u6709\\u6548\\u53c2\\u8003\\u6570\\u636e\\u3002"},{"title":"\\u4e91\\u7aef\\u90e8\\u7f72","icon":"cloud","content":"\\u901a\\u8fc7\\u9a71\\u52a8\\u7684\\u65b9\\u5f0f\\u53ef\\u4ee5\\u8f7b\\u677e\\u652f\\u6301\\u4e91\\u5e73\\u53f0\\u7684\\u90e8\\u7f72\\uff0c\\u8ba9\\u4f60\\u7684\\u7f51\\u7ad9\\u65e0\\u7f1d\\u8fc1\\u79fb\\uff0c\\u5185\\u7f6e\\u5df2\\u7ecf\\u652f\\u6301SAE\\u3001BAE\\uff0c\\u6b63\\u5f0f\\u7248\\u5c06\\u5bf9\\u4e91\\u7aef\\u90e8\\u7f72\\u8fdb\\u884c\\u8fdb\\u4e00\\u6b65\\u4f18\\u5316\\u3002"},{"title":"\\u5b89\\u5168\\u7b56\\u7565","icon":"heart","content":"\\u63d0\\u4f9b\\u7684\\u7a33\\u5065\\u7684\\u5b89\\u5168\\u7b56\\u7565\\uff0c\\u5305\\u62ec\\u5907\\u4efd\\u6062\\u590d\\uff0c\\u5bb9\\u9519\\uff0c\\u9632\\u6cbb\\u6076\\u610f\\u653b\\u51fb\\u767b\\u9646\\uff0c\\u7f51\\u9875\\u9632\\u7be1\\u6539\\u7b49\\u591a\\u9879\\u5b89\\u5168\\u7ba1\\u7406\\u529f\\u80fd\\uff0c\\u4fdd\\u8bc1\\u7cfb\\u7edf\\u5b89\\u5168\\uff0c\\u53ef\\u9760\\uff0c\\u7a33\\u5b9a\\u7684\\u8fd0\\u884c\\u3002"},{"title":"\\u5e94\\u7528\\u6a21\\u5757\\u5316","icon":"cubes","content":"\\u63d0\\u51fa\\u5168\\u65b0\\u7684\\u5e94\\u7528\\u6a21\\u5f0f\\u8fdb\\u884c\\u6269\\u5c55\\uff0c\\u4e0d\\u7ba1\\u662f\\u4f60\\u5f00\\u53d1\\u4e00\\u4e2a\\u5c0f\\u529f\\u80fd\\u8fd8\\u662f\\u4e00\\u4e2a\\u5168\\u65b0\\u7684\\u7ad9\\u70b9\\uff0c\\u5728ThinkCMF\\u4e2d\\u4f60\\u53ea\\u662f\\u589e\\u52a0\\u4e86\\u4e00\\u4e2aAPP\\uff0c\\u6bcf\\u4e2a\\u72ec\\u7acb\\u8fd0\\u884c\\u4e92\\u4e0d\\u5f71\\u54cd\\uff0c\\u4fbf\\u4e8e\\u7075\\u6d3b\\u6269\\u5c55\\u548c\\u4e8c\\u6b21\\u5f00\\u53d1\\u3002"},{"title":"\\u514d\\u8d39\\u5f00\\u6e90","icon":"certificate","content":"\\u4ee3\\u7801\\u9075\\u5faaApache2\\u5f00\\u6e90\\u534f\\u8bae\\uff0c\\u514d\\u8d39\\u4f7f\\u7528\\uff0c\\u5bf9\\u5546\\u4e1a\\u7528\\u6237\\u4e5f\\u65e0\\u4efb\\u4f55\\u9650\\u5236\\u3002"}],"type":"array","item":{"title":{"title":"\\u6807\\u9898","value":"","type":"text","rule":{"require":true}},"icon":{"title":"\\u56fe\\u6807","value":"","type":"text"},"content":{"title":"\\u63cf\\u8ff0","value":"","type":"textarea"}},"tip":""}}},"last_news":{"title":"\\u6700\\u65b0\\u8d44\\u8baf","display":"1","vars":{"last_news_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/Category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', '{"vars":{"top_slide":{"title":"\\u9876\\u90e8\\u5e7b\\u706f\\u7247","value":"","type":"text","dataSource":{"api":"admin\\/Slide\\/index","multi":false},"placeholder":"\\u8bf7\\u9009\\u62e9\\u9876\\u90e8\\u5e7b\\u706f\\u7247","tip":"\\u9876\\u90e8\\u5e7b\\u706f\\u7247","rule":{"require":true}}},"widgets":{"features":{"title":"\\u5feb\\u901f\\u4e86\\u89e3ThinkCMF","display":"1","vars":{"sub_title":{"title":"\\u526f\\u6807\\u9898","value":"Quickly understand the ThinkCMF","type":"text","placeholder":"\\u8bf7\\u8f93\\u5165\\u526f\\u6807\\u9898","tip":"","rule":{"require":true}},"features":{"title":"\\u7279\\u6027\\u4ecb\\u7ecd","value":[{"title":"MVC\\u5206\\u5c42\\u6a21\\u5f0f","icon":"bars","content":"\\u4f7f\\u7528MVC\\u5e94\\u7528\\u7a0b\\u5e8f\\u88ab\\u5206\\u6210\\u4e09\\u4e2a\\u6838\\u5fc3\\u90e8\\u4ef6\\uff1a\\u6a21\\u578b\\uff08M\\uff09\\u3001\\u89c6\\u56fe\\uff08V\\uff09\\u3001\\u63a7\\u5236\\u5668\\uff08C\\uff09\\uff0c\\u4ed6\\u4e0d\\u662f\\u4e00\\u4e2a\\u65b0\\u7684\\u6982\\u5ff5\\uff0c\\u53ea\\u662fThinkCMF\\u5c06\\u5176\\u53d1\\u6325\\u5230\\u4e86\\u6781\\u81f4\\u3002"},{"title":"\\u7528\\u6237\\u7ba1\\u7406","icon":"group","content":"ThinkCMF\\u5185\\u7f6e\\u4e86\\u7075\\u6d3b\\u7684\\u7528\\u6237\\u7ba1\\u7406\\u65b9\\u5f0f\\uff0c\\u5e76\\u53ef\\u76f4\\u63a5\\u4e0e\\u7b2c\\u4e09\\u65b9\\u7ad9\\u70b9\\u8fdb\\u884c\\u4e92\\u8054\\u4e92\\u901a\\uff0c\\u5982\\u679c\\u4f60\\u613f\\u610f\\u751a\\u81f3\\u53ef\\u4ee5\\u5bf9\\u5355\\u4e2a\\u7528\\u6237\\u6216\\u7fa4\\u4f53\\u7528\\u6237\\u7684\\u884c\\u4e3a\\u8fdb\\u884c\\u8bb0\\u5f55\\u53ca\\u5206\\u4eab\\uff0c\\u4e3a\\u60a8\\u7684\\u8fd0\\u8425\\u51b3\\u7b56\\u63d0\\u4f9b\\u6709\\u6548\\u53c2\\u8003\\u6570\\u636e\\u3002"},{"title":"\\u4e91\\u7aef\\u90e8\\u7f72","icon":"cloud","content":"\\u901a\\u8fc7\\u9a71\\u52a8\\u7684\\u65b9\\u5f0f\\u53ef\\u4ee5\\u8f7b\\u677e\\u652f\\u6301\\u4e91\\u5e73\\u53f0\\u7684\\u90e8\\u7f72\\uff0c\\u8ba9\\u4f60\\u7684\\u7f51\\u7ad9\\u65e0\\u7f1d\\u8fc1\\u79fb\\uff0c\\u5185\\u7f6e\\u5df2\\u7ecf\\u652f\\u6301SAE\\u3001BAE\\uff0c\\u6b63\\u5f0f\\u7248\\u5c06\\u5bf9\\u4e91\\u7aef\\u90e8\\u7f72\\u8fdb\\u884c\\u8fdb\\u4e00\\u6b65\\u4f18\\u5316\\u3002"},{"title":"\\u5b89\\u5168\\u7b56\\u7565","icon":"heart","content":"\\u63d0\\u4f9b\\u7684\\u7a33\\u5065\\u7684\\u5b89\\u5168\\u7b56\\u7565\\uff0c\\u5305\\u62ec\\u5907\\u4efd\\u6062\\u590d\\uff0c\\u5bb9\\u9519\\uff0c\\u9632\\u6cbb\\u6076\\u610f\\u653b\\u51fb\\u767b\\u9646\\uff0c\\u7f51\\u9875\\u9632\\u7be1\\u6539\\u7b49\\u591a\\u9879\\u5b89\\u5168\\u7ba1\\u7406\\u529f\\u80fd\\uff0c\\u4fdd\\u8bc1\\u7cfb\\u7edf\\u5b89\\u5168\\uff0c\\u53ef\\u9760\\uff0c\\u7a33\\u5b9a\\u7684\\u8fd0\\u884c\\u3002"},{"title":"\\u5e94\\u7528\\u6a21\\u5757\\u5316","icon":"cubes","content":"\\u63d0\\u51fa\\u5168\\u65b0\\u7684\\u5e94\\u7528\\u6a21\\u5f0f\\u8fdb\\u884c\\u6269\\u5c55\\uff0c\\u4e0d\\u7ba1\\u662f\\u4f60\\u5f00\\u53d1\\u4e00\\u4e2a\\u5c0f\\u529f\\u80fd\\u8fd8\\u662f\\u4e00\\u4e2a\\u5168\\u65b0\\u7684\\u7ad9\\u70b9\\uff0c\\u5728ThinkCMF\\u4e2d\\u4f60\\u53ea\\u662f\\u589e\\u52a0\\u4e86\\u4e00\\u4e2aAPP\\uff0c\\u6bcf\\u4e2a\\u72ec\\u7acb\\u8fd0\\u884c\\u4e92\\u4e0d\\u5f71\\u54cd\\uff0c\\u4fbf\\u4e8e\\u7075\\u6d3b\\u6269\\u5c55\\u548c\\u4e8c\\u6b21\\u5f00\\u53d1\\u3002"},{"title":"\\u514d\\u8d39\\u5f00\\u6e90","icon":"certificate","content":"\\u4ee3\\u7801\\u9075\\u5faaApache2\\u5f00\\u6e90\\u534f\\u8bae\\uff0c\\u514d\\u8d39\\u4f7f\\u7528\\uff0c\\u5bf9\\u5546\\u4e1a\\u7528\\u6237\\u4e5f\\u65e0\\u4efb\\u4f55\\u9650\\u5236\\u3002"}],"type":"array","item":{"title":{"title":"\\u6807\\u9898","value":"","type":"text","rule":{"require":true}},"icon":{"title":"\\u56fe\\u6807","value":"","type":"text"},"content":{"title":"\\u63cf\\u8ff0","value":"","type":"textarea"}},"tip":""}}},"last_news":{"title":"\\u6700\\u65b0\\u8d44\\u8baf","display":"1","vars":{"last_news_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/Category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', NULL),
-(4, 0, 10, 'simpleboot3', '文章列表页', 'portal/List/index', 'portal/list', '文章列表模板文件', '{"vars":[],"widgets":{"hottest_articles":{"title":"\\u70ed\\u95e8\\u6587\\u7ae0","display":"1","vars":{"hottest_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}},"last_articles":{"title":"\\u6700\\u65b0\\u53d1\\u5e03","display":"1","vars":{"last_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', '{"vars":[],"widgets":{"hottest_articles":{"title":"\\u70ed\\u95e8\\u6587\\u7ae0","display":"1","vars":{"hottest_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}},"last_articles":{"title":"\\u6700\\u65b0\\u53d1\\u5e03","display":"1","vars":{"last_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', NULL),
-(5, 0, 10, 'simpleboot3', '单页面', 'portal/Page/index', 'portal/page', '单页面模板文件', '{"widgets":{"hottest_articles":{"title":"\\u70ed\\u95e8\\u6587\\u7ae0","display":"1","vars":{"hottest_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}},"last_articles":{"title":"\\u6700\\u65b0\\u53d1\\u5e03","display":"1","vars":{"last_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', '{"widgets":{"hottest_articles":{"title":"\\u70ed\\u95e8\\u6587\\u7ae0","display":"1","vars":{"hottest_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}},"last_articles":{"title":"\\u6700\\u65b0\\u53d1\\u5e03","display":"1","vars":{"last_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', NULL),
-(6, 0, 10, 'simpleboot3', '搜索页面', 'portal/search/index', 'portal/search', '搜索模板文件', '{"vars":{"varName1":{"title":"\\u70ed\\u95e8\\u641c\\u7d22","value":"1","type":"text","tip":"\\u8fd9\\u662f\\u4e00\\u4e2atext","rule":{"require":true}}}}', '{"vars":{"varName1":{"title":"\\u70ed\\u95e8\\u641c\\u7d22","value":"1","type":"text","tip":"\\u8fd9\\u662f\\u4e00\\u4e2atext","rule":{"require":true}}}}', NULL),
-(7, 1, 0, 'simpleboot3', '模板全局配置', 'public/Config', 'public/config', '模板全局配置文件', '{"vars":{"enable_mobile":{"title":"\\u624b\\u673a\\u6ce8\\u518c","value":1,"type":"select","options":{"1":"\\u5f00\\u542f","0":"\\u5173\\u95ed"},"tip":""}}}', '{"vars":{"enable_mobile":{"title":"\\u624b\\u673a\\u6ce8\\u518c","value":1,"type":"select","options":{"1":"\\u5f00\\u542f","0":"\\u5173\\u95ed"},"tip":""}}}', NULL),
-(8, 1, 1, 'simpleboot3', '导航条', 'public/Nav', 'public/nav', '导航条模板文件', '{"vars":{"company_name":{"title":"\\u516c\\u53f8\\u540d\\u79f0","name":"company_name","value":"ThinkCMF","type":"text","tip":"","rule":[]}}}', '{"vars":{"company_name":{"title":"\\u516c\\u53f8\\u540d\\u79f0","name":"company_name","value":"ThinkCMF","type":"text","tip":"","rule":[]}}}', NULL),
-(9, 0, 10, 'yssy', '文章页', 'portal/Article/index', 'portal/article', '文章页模板文件', '{"vars":{"hot_articles_category_id":{"title":"Hot Articles\\u5206\\u7c7bID","value":"1","type":"text","tip":"","rule":[]}}}', '{"vars":{"hot_articles_category_id":{"title":"Hot Articles\\u5206\\u7c7bID","value":"1","type":"text","tip":"","rule":[]}}}', NULL),
-(10, 0, 10, 'yssy', '联系我们页', 'portal/Page/index', 'portal/contact', '联系我们页模板文件', '{"vars":{"baidu_map_info_window_text":{"title":"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57","name":"baidu_map_info_window_text","value":"ThinkCMF<br\\/><span class=''''>\\u5730\\u5740\\uff1a\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def2601\\u53f7<\\/span>","type":"text","tip":"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57,\\u652f\\u6301\\u7b80\\u5355html\\u4ee3\\u7801","rule":[]},"company_location":{"title":"\\u516c\\u53f8\\u5750\\u6807","value":"","type":"location","tip":"","rule":{"require":true}},"address_cn":{"title":"\\u516c\\u53f8\\u5730\\u5740","value":"\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def0001\\u53f7","type":"text","tip":"","rule":{"require":true}},"address_en":{"title":"\\u516c\\u53f8\\u5730\\u5740\\uff08\\u82f1\\u6587\\uff09","value":"NO.0001 Xie Tu Road, Shanghai China","type":"text","tip":"","rule":{"require":true}},"email":{"title":"\\u516c\\u53f8\\u90ae\\u7bb1","value":"catman@thinkcmf.com","type":"text","tip":"","rule":{"require":true}},"phone_cn":{"title":"\\u516c\\u53f8\\u7535\\u8bdd","value":"021 1000 0001","type":"text","tip":"","rule":{"require":true}},"phone_en":{"title":"\\u516c\\u53f8\\u7535\\u8bdd\\uff08\\u82f1\\u6587\\uff09","value":"+8621 1000 0001","type":"text","tip":"","rule":{"require":true}},"qq":{"title":"\\u8054\\u7cfbQQ","value":"478519726","type":"text","tip":"\\u591a\\u4e2a QQ\\u4ee5\\u82f1\\u6587\\u9017\\u53f7\\u9694\\u5f00","rule":{"require":true}}}}', '{"vars":{"baidu_map_info_window_text":{"title":"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57","name":"baidu_map_info_window_text","value":"ThinkCMF<br\\/><span class=''''>\\u5730\\u5740\\uff1a\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def2601\\u53f7<\\/span>","type":"text","tip":"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57,\\u652f\\u6301\\u7b80\\u5355html\\u4ee3\\u7801","rule":[]},"company_location":{"title":"\\u516c\\u53f8\\u5750\\u6807","value":"","type":"location","tip":"","rule":{"require":true}},"address_cn":{"title":"\\u516c\\u53f8\\u5730\\u5740","value":"\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def0001\\u53f7","type":"text","tip":"","rule":{"require":true}},"address_en":{"title":"\\u516c\\u53f8\\u5730\\u5740\\uff08\\u82f1\\u6587\\uff09","value":"NO.0001 Xie Tu Road, Shanghai China","type":"text","tip":"","rule":{"require":true}},"email":{"title":"\\u516c\\u53f8\\u90ae\\u7bb1","value":"catman@thinkcmf.com","type":"text","tip":"","rule":{"require":true}},"phone_cn":{"title":"\\u516c\\u53f8\\u7535\\u8bdd","value":"021 1000 0001","type":"text","tip":"","rule":{"require":true}},"phone_en":{"title":"\\u516c\\u53f8\\u7535\\u8bdd\\uff08\\u82f1\\u6587\\uff09","value":"+8621 1000 0001","type":"text","tip":"","rule":{"require":true}},"qq":{"title":"\\u8054\\u7cfbQQ","value":"478519726","type":"text","tip":"\\u591a\\u4e2a QQ\\u4ee5\\u82f1\\u6587\\u9017\\u53f7\\u9694\\u5f00","rule":{"require":true}}}}', NULL),
-(11, 0, 5, 'yssy', '首页', 'portal/Index/index', 'portal/index', '首页模板文件', '{"vars":{"top_slide":{"title":"\\u9876\\u90e8\\u5e7b\\u706f\\u7247","value":"","type":"text","dataSource":{"api":"admin\\/Slide\\/index","multi":false},"placeholder":"\\u8bf7\\u9009\\u62e9\\u9876\\u90e8\\u5e7b\\u706f\\u7247","tip":"\\u9876\\u90e8\\u5e7b\\u706f\\u7247","rule":{"require":true}}},"widgets":{"features":{"title":"\\u5feb\\u901f\\u4e86\\u89e3ThinkCMF","display":"1","vars":{"sub_title":{"title":"\\u526f\\u6807\\u9898","value":"Quickly understand the ThinkCMF","type":"text","placeholder":"\\u8bf7\\u8f93\\u5165\\u526f\\u6807\\u9898","tip":"","rule":{"require":true}},"features":{"title":"\\u7279\\u6027\\u4ecb\\u7ecd","value":[{"title":"MVC\\u5206\\u5c42\\u6a21\\u5f0f","icon":"bars","content":"\\u4f7f\\u7528MVC\\u5e94\\u7528\\u7a0b\\u5e8f\\u88ab\\u5206\\u6210\\u4e09\\u4e2a\\u6838\\u5fc3\\u90e8\\u4ef6\\uff1a\\u6a21\\u578b\\uff08M\\uff09\\u3001\\u89c6\\u56fe\\uff08V\\uff09\\u3001\\u63a7\\u5236\\u5668\\uff08C\\uff09\\uff0c\\u4ed6\\u4e0d\\u662f\\u4e00\\u4e2a\\u65b0\\u7684\\u6982\\u5ff5\\uff0c\\u53ea\\u662fThinkCMF\\u5c06\\u5176\\u53d1\\u6325\\u5230\\u4e86\\u6781\\u81f4\\u3002"},{"title":"\\u7528\\u6237\\u7ba1\\u7406","icon":"group","content":"ThinkCMF\\u5185\\u7f6e\\u4e86\\u7075\\u6d3b\\u7684\\u7528\\u6237\\u7ba1\\u7406\\u65b9\\u5f0f\\uff0c\\u5e76\\u53ef\\u76f4\\u63a5\\u4e0e\\u7b2c\\u4e09\\u65b9\\u7ad9\\u70b9\\u8fdb\\u884c\\u4e92\\u8054\\u4e92\\u901a\\uff0c\\u5982\\u679c\\u4f60\\u613f\\u610f\\u751a\\u81f3\\u53ef\\u4ee5\\u5bf9\\u5355\\u4e2a\\u7528\\u6237\\u6216\\u7fa4\\u4f53\\u7528\\u6237\\u7684\\u884c\\u4e3a\\u8fdb\\u884c\\u8bb0\\u5f55\\u53ca\\u5206\\u4eab\\uff0c\\u4e3a\\u60a8\\u7684\\u8fd0\\u8425\\u51b3\\u7b56\\u63d0\\u4f9b\\u6709\\u6548\\u53c2\\u8003\\u6570\\u636e\\u3002"},{"title":"\\u4e91\\u7aef\\u90e8\\u7f72","icon":"cloud","content":"\\u901a\\u8fc7\\u9a71\\u52a8\\u7684\\u65b9\\u5f0f\\u53ef\\u4ee5\\u8f7b\\u677e\\u652f\\u6301\\u4e91\\u5e73\\u53f0\\u7684\\u90e8\\u7f72\\uff0c\\u8ba9\\u4f60\\u7684\\u7f51\\u7ad9\\u65e0\\u7f1d\\u8fc1\\u79fb\\uff0c\\u5185\\u7f6e\\u5df2\\u7ecf\\u652f\\u6301SAE\\u3001BAE\\uff0c\\u6b63\\u5f0f\\u7248\\u5c06\\u5bf9\\u4e91\\u7aef\\u90e8\\u7f72\\u8fdb\\u884c\\u8fdb\\u4e00\\u6b65\\u4f18\\u5316\\u3002"},{"title":"\\u5b89\\u5168\\u7b56\\u7565","icon":"heart","content":"\\u63d0\\u4f9b\\u7684\\u7a33\\u5065\\u7684\\u5b89\\u5168\\u7b56\\u7565\\uff0c\\u5305\\u62ec\\u5907\\u4efd\\u6062\\u590d\\uff0c\\u5bb9\\u9519\\uff0c\\u9632\\u6cbb\\u6076\\u610f\\u653b\\u51fb\\u767b\\u9646\\uff0c\\u7f51\\u9875\\u9632\\u7be1\\u6539\\u7b49\\u591a\\u9879\\u5b89\\u5168\\u7ba1\\u7406\\u529f\\u80fd\\uff0c\\u4fdd\\u8bc1\\u7cfb\\u7edf\\u5b89\\u5168\\uff0c\\u53ef\\u9760\\uff0c\\u7a33\\u5b9a\\u7684\\u8fd0\\u884c\\u3002"},{"title":"\\u5e94\\u7528\\u6a21\\u5757\\u5316","icon":"cubes","content":"\\u63d0\\u51fa\\u5168\\u65b0\\u7684\\u5e94\\u7528\\u6a21\\u5f0f\\u8fdb\\u884c\\u6269\\u5c55\\uff0c\\u4e0d\\u7ba1\\u662f\\u4f60\\u5f00\\u53d1\\u4e00\\u4e2a\\u5c0f\\u529f\\u80fd\\u8fd8\\u662f\\u4e00\\u4e2a\\u5168\\u65b0\\u7684\\u7ad9\\u70b9\\uff0c\\u5728ThinkCMF\\u4e2d\\u4f60\\u53ea\\u662f\\u589e\\u52a0\\u4e86\\u4e00\\u4e2aAPP\\uff0c\\u6bcf\\u4e2a\\u72ec\\u7acb\\u8fd0\\u884c\\u4e92\\u4e0d\\u5f71\\u54cd\\uff0c\\u4fbf\\u4e8e\\u7075\\u6d3b\\u6269\\u5c55\\u548c\\u4e8c\\u6b21\\u5f00\\u53d1\\u3002"},{"title":"\\u514d\\u8d39\\u5f00\\u6e90","icon":"certificate","content":"\\u4ee3\\u7801\\u9075\\u5faaApache2\\u5f00\\u6e90\\u534f\\u8bae\\uff0c\\u514d\\u8d39\\u4f7f\\u7528\\uff0c\\u5bf9\\u5546\\u4e1a\\u7528\\u6237\\u4e5f\\u65e0\\u4efb\\u4f55\\u9650\\u5236\\u3002"}],"type":"array","item":{"title":{"title":"\\u6807\\u9898","value":"","type":"text","rule":{"require":true}},"icon":{"title":"\\u56fe\\u6807","value":"","type":"text"},"content":{"title":"\\u63cf\\u8ff0","value":"","type":"textarea"}},"tip":""}}},"last_news":{"title":"\\u6700\\u65b0\\u8d44\\u8baf","display":"1","vars":{"last_news_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/Category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', '{"vars":{"top_slide":{"title":"\\u9876\\u90e8\\u5e7b\\u706f\\u7247","value":"","type":"text","dataSource":{"api":"admin\\/Slide\\/index","multi":false},"placeholder":"\\u8bf7\\u9009\\u62e9\\u9876\\u90e8\\u5e7b\\u706f\\u7247","tip":"\\u9876\\u90e8\\u5e7b\\u706f\\u7247","rule":{"require":true}}},"widgets":{"features":{"title":"\\u5feb\\u901f\\u4e86\\u89e3ThinkCMF","display":"1","vars":{"sub_title":{"title":"\\u526f\\u6807\\u9898","value":"Quickly understand the ThinkCMF","type":"text","placeholder":"\\u8bf7\\u8f93\\u5165\\u526f\\u6807\\u9898","tip":"","rule":{"require":true}},"features":{"title":"\\u7279\\u6027\\u4ecb\\u7ecd","value":[{"title":"MVC\\u5206\\u5c42\\u6a21\\u5f0f","icon":"bars","content":"\\u4f7f\\u7528MVC\\u5e94\\u7528\\u7a0b\\u5e8f\\u88ab\\u5206\\u6210\\u4e09\\u4e2a\\u6838\\u5fc3\\u90e8\\u4ef6\\uff1a\\u6a21\\u578b\\uff08M\\uff09\\u3001\\u89c6\\u56fe\\uff08V\\uff09\\u3001\\u63a7\\u5236\\u5668\\uff08C\\uff09\\uff0c\\u4ed6\\u4e0d\\u662f\\u4e00\\u4e2a\\u65b0\\u7684\\u6982\\u5ff5\\uff0c\\u53ea\\u662fThinkCMF\\u5c06\\u5176\\u53d1\\u6325\\u5230\\u4e86\\u6781\\u81f4\\u3002"},{"title":"\\u7528\\u6237\\u7ba1\\u7406","icon":"group","content":"ThinkCMF\\u5185\\u7f6e\\u4e86\\u7075\\u6d3b\\u7684\\u7528\\u6237\\u7ba1\\u7406\\u65b9\\u5f0f\\uff0c\\u5e76\\u53ef\\u76f4\\u63a5\\u4e0e\\u7b2c\\u4e09\\u65b9\\u7ad9\\u70b9\\u8fdb\\u884c\\u4e92\\u8054\\u4e92\\u901a\\uff0c\\u5982\\u679c\\u4f60\\u613f\\u610f\\u751a\\u81f3\\u53ef\\u4ee5\\u5bf9\\u5355\\u4e2a\\u7528\\u6237\\u6216\\u7fa4\\u4f53\\u7528\\u6237\\u7684\\u884c\\u4e3a\\u8fdb\\u884c\\u8bb0\\u5f55\\u53ca\\u5206\\u4eab\\uff0c\\u4e3a\\u60a8\\u7684\\u8fd0\\u8425\\u51b3\\u7b56\\u63d0\\u4f9b\\u6709\\u6548\\u53c2\\u8003\\u6570\\u636e\\u3002"},{"title":"\\u4e91\\u7aef\\u90e8\\u7f72","icon":"cloud","content":"\\u901a\\u8fc7\\u9a71\\u52a8\\u7684\\u65b9\\u5f0f\\u53ef\\u4ee5\\u8f7b\\u677e\\u652f\\u6301\\u4e91\\u5e73\\u53f0\\u7684\\u90e8\\u7f72\\uff0c\\u8ba9\\u4f60\\u7684\\u7f51\\u7ad9\\u65e0\\u7f1d\\u8fc1\\u79fb\\uff0c\\u5185\\u7f6e\\u5df2\\u7ecf\\u652f\\u6301SAE\\u3001BAE\\uff0c\\u6b63\\u5f0f\\u7248\\u5c06\\u5bf9\\u4e91\\u7aef\\u90e8\\u7f72\\u8fdb\\u884c\\u8fdb\\u4e00\\u6b65\\u4f18\\u5316\\u3002"},{"title":"\\u5b89\\u5168\\u7b56\\u7565","icon":"heart","content":"\\u63d0\\u4f9b\\u7684\\u7a33\\u5065\\u7684\\u5b89\\u5168\\u7b56\\u7565\\uff0c\\u5305\\u62ec\\u5907\\u4efd\\u6062\\u590d\\uff0c\\u5bb9\\u9519\\uff0c\\u9632\\u6cbb\\u6076\\u610f\\u653b\\u51fb\\u767b\\u9646\\uff0c\\u7f51\\u9875\\u9632\\u7be1\\u6539\\u7b49\\u591a\\u9879\\u5b89\\u5168\\u7ba1\\u7406\\u529f\\u80fd\\uff0c\\u4fdd\\u8bc1\\u7cfb\\u7edf\\u5b89\\u5168\\uff0c\\u53ef\\u9760\\uff0c\\u7a33\\u5b9a\\u7684\\u8fd0\\u884c\\u3002"},{"title":"\\u5e94\\u7528\\u6a21\\u5757\\u5316","icon":"cubes","content":"\\u63d0\\u51fa\\u5168\\u65b0\\u7684\\u5e94\\u7528\\u6a21\\u5f0f\\u8fdb\\u884c\\u6269\\u5c55\\uff0c\\u4e0d\\u7ba1\\u662f\\u4f60\\u5f00\\u53d1\\u4e00\\u4e2a\\u5c0f\\u529f\\u80fd\\u8fd8\\u662f\\u4e00\\u4e2a\\u5168\\u65b0\\u7684\\u7ad9\\u70b9\\uff0c\\u5728ThinkCMF\\u4e2d\\u4f60\\u53ea\\u662f\\u589e\\u52a0\\u4e86\\u4e00\\u4e2aAPP\\uff0c\\u6bcf\\u4e2a\\u72ec\\u7acb\\u8fd0\\u884c\\u4e92\\u4e0d\\u5f71\\u54cd\\uff0c\\u4fbf\\u4e8e\\u7075\\u6d3b\\u6269\\u5c55\\u548c\\u4e8c\\u6b21\\u5f00\\u53d1\\u3002"},{"title":"\\u514d\\u8d39\\u5f00\\u6e90","icon":"certificate","content":"\\u4ee3\\u7801\\u9075\\u5faaApache2\\u5f00\\u6e90\\u534f\\u8bae\\uff0c\\u514d\\u8d39\\u4f7f\\u7528\\uff0c\\u5bf9\\u5546\\u4e1a\\u7528\\u6237\\u4e5f\\u65e0\\u4efb\\u4f55\\u9650\\u5236\\u3002"}],"type":"array","item":{"title":{"title":"\\u6807\\u9898","value":"","type":"text","rule":{"require":true}},"icon":{"title":"\\u56fe\\u6807","value":"","type":"text"},"content":{"title":"\\u63cf\\u8ff0","value":"","type":"textarea"}},"tip":""}}},"last_news":{"title":"\\u6700\\u65b0\\u8d44\\u8baf","display":"1","vars":{"last_news_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/Category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', NULL),
-(12, 0, 10, 'yssy', '文章列表页', 'portal/List/index', 'portal/list', '文章列表模板文件', '{"vars":[],"widgets":{"hottest_articles":{"title":"\\u70ed\\u95e8\\u6587\\u7ae0","display":"1","vars":{"hottest_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}},"last_articles":{"title":"\\u6700\\u65b0\\u53d1\\u5e03","display":"1","vars":{"last_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', '{"vars":[],"widgets":{"hottest_articles":{"title":"\\u70ed\\u95e8\\u6587\\u7ae0","display":"1","vars":{"hottest_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}},"last_articles":{"title":"\\u6700\\u65b0\\u53d1\\u5e03","display":"1","vars":{"last_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', NULL),
-(13, 0, 10, 'yssy', '单页面', 'portal/Page/index', 'portal/page', '单页面模板文件', '{"widgets":{"hottest_articles":{"title":"\\u70ed\\u95e8\\u6587\\u7ae0","display":"1","vars":{"hottest_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}},"last_articles":{"title":"\\u6700\\u65b0\\u53d1\\u5e03","display":"1","vars":{"last_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', '{"widgets":{"hottest_articles":{"title":"\\u70ed\\u95e8\\u6587\\u7ae0","display":"1","vars":{"hottest_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}},"last_articles":{"title":"\\u6700\\u65b0\\u53d1\\u5e03","display":"1","vars":{"last_articles_category_id":{"title":"\\u6587\\u7ae0\\u5206\\u7c7bID","value":"","type":"text","dataSource":{"api":"portal\\/category\\/index","multi":true},"placeholder":"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b","tip":"","rule":{"require":true}}}}}}', NULL),
-(14, 0, 10, 'yssy', '搜索页面', 'portal/search/index', 'portal/search', '搜索模板文件', '{"vars":{"varName1":{"title":"\\u70ed\\u95e8\\u641c\\u7d22","value":"1","type":"text","tip":"\\u8fd9\\u662f\\u4e00\\u4e2atext","rule":{"require":true}}}}', '{"vars":{"varName1":{"title":"\\u70ed\\u95e8\\u641c\\u7d22","value":"1","type":"text","tip":"\\u8fd9\\u662f\\u4e00\\u4e2atext","rule":{"require":true}}}}', NULL),
-(15, 1, 0, 'yssy', '模板全局配置', 'public/Config', 'public/config', '模板全局配置文件', '{"vars":{"enable_mobile":{"title":"\\u624b\\u673a\\u6ce8\\u518c","value":1,"type":"select","options":{"1":"\\u5f00\\u542f","0":"\\u5173\\u95ed"},"tip":""}}}', '{"vars":{"enable_mobile":{"title":"\\u624b\\u673a\\u6ce8\\u518c","value":1,"type":"select","options":{"1":"\\u5f00\\u542f","0":"\\u5173\\u95ed"},"tip":""}}}', NULL),
-(16, 1, 1, 'yssy', '导航条', 'public/Nav', 'public/nav', '导航条模板文件', '{"vars":{"company_name":{"title":"\\u516c\\u53f8\\u540d\\u79f0","name":"company_name","value":"ThinkCMF","type":"text","tip":"","rule":[]}}}', '{"vars":{"company_name":{"title":"\\u516c\\u53f8\\u540d\\u79f0","name":"company_name","value":"ThinkCMF","type":"text","tip":"","rule":[]}}}', NULL);
+(1, 0, 10, 'simpleboot3', '文章页', 'portal/Article/index', 'portal/article', '文章页模板文件', '{\"vars\":{\"hot_articles_category_id\":{\"title\":\"Hot Articles\\u5206\\u7c7bID\",\"value\":\"1\",\"type\":\"text\",\"tip\":\"\",\"rule\":[]}}}', '{\"vars\":{\"hot_articles_category_id\":{\"title\":\"Hot Articles\\u5206\\u7c7bID\",\"value\":\"1\",\"type\":\"text\",\"tip\":\"\",\"rule\":[]}}}', NULL),
+(2, 0, 10, 'simpleboot3', '联系我们页', 'portal/Page/index', 'portal/contact', '联系我们页模板文件', '{\"vars\":{\"baidu_map_info_window_text\":{\"title\":\"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57\",\"name\":\"baidu_map_info_window_text\",\"value\":\"ThinkCMF<br\\/><span class=\'\'>\\u5730\\u5740\\uff1a\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def2601\\u53f7<\\/span>\",\"type\":\"text\",\"tip\":\"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57,\\u652f\\u6301\\u7b80\\u5355html\\u4ee3\\u7801\",\"rule\":[]},\"company_location\":{\"title\":\"\\u516c\\u53f8\\u5750\\u6807\",\"value\":\"\",\"type\":\"location\",\"tip\":\"\",\"rule\":{\"require\":true}},\"address_cn\":{\"title\":\"\\u516c\\u53f8\\u5730\\u5740\",\"value\":\"\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def0001\\u53f7\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"address_en\":{\"title\":\"\\u516c\\u53f8\\u5730\\u5740\\uff08\\u82f1\\u6587\\uff09\",\"value\":\"NO.0001 Xie Tu Road, Shanghai China\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"email\":{\"title\":\"\\u516c\\u53f8\\u90ae\\u7bb1\",\"value\":\"catman@thinkcmf.com\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"phone_cn\":{\"title\":\"\\u516c\\u53f8\\u7535\\u8bdd\",\"value\":\"021 1000 0001\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"phone_en\":{\"title\":\"\\u516c\\u53f8\\u7535\\u8bdd\\uff08\\u82f1\\u6587\\uff09\",\"value\":\"+8621 1000 0001\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"qq\":{\"title\":\"\\u8054\\u7cfbQQ\",\"value\":\"478519726\",\"type\":\"text\",\"tip\":\"\\u591a\\u4e2a QQ\\u4ee5\\u82f1\\u6587\\u9017\\u53f7\\u9694\\u5f00\",\"rule\":{\"require\":true}}}}', '{\"vars\":{\"baidu_map_info_window_text\":{\"title\":\"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57\",\"name\":\"baidu_map_info_window_text\",\"value\":\"ThinkCMF<br\\/><span class=\'\'>\\u5730\\u5740\\uff1a\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def2601\\u53f7<\\/span>\",\"type\":\"text\",\"tip\":\"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57,\\u652f\\u6301\\u7b80\\u5355html\\u4ee3\\u7801\",\"rule\":[]},\"company_location\":{\"title\":\"\\u516c\\u53f8\\u5750\\u6807\",\"value\":\"\",\"type\":\"location\",\"tip\":\"\",\"rule\":{\"require\":true}},\"address_cn\":{\"title\":\"\\u516c\\u53f8\\u5730\\u5740\",\"value\":\"\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def0001\\u53f7\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"address_en\":{\"title\":\"\\u516c\\u53f8\\u5730\\u5740\\uff08\\u82f1\\u6587\\uff09\",\"value\":\"NO.0001 Xie Tu Road, Shanghai China\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"email\":{\"title\":\"\\u516c\\u53f8\\u90ae\\u7bb1\",\"value\":\"catman@thinkcmf.com\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"phone_cn\":{\"title\":\"\\u516c\\u53f8\\u7535\\u8bdd\",\"value\":\"021 1000 0001\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"phone_en\":{\"title\":\"\\u516c\\u53f8\\u7535\\u8bdd\\uff08\\u82f1\\u6587\\uff09\",\"value\":\"+8621 1000 0001\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"qq\":{\"title\":\"\\u8054\\u7cfbQQ\",\"value\":\"478519726\",\"type\":\"text\",\"tip\":\"\\u591a\\u4e2a QQ\\u4ee5\\u82f1\\u6587\\u9017\\u53f7\\u9694\\u5f00\",\"rule\":{\"require\":true}}}}', NULL),
+(3, 0, 5, 'simpleboot3', '首页', 'portal/Index/index', 'portal/index', '首页模板文件', '{\"vars\":{\"top_slide\":{\"title\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"admin\\/Slide\\/index\",\"multi\":false},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"tip\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"rule\":{\"require\":true}}},\"widgets\":{\"features\":{\"title\":\"\\u5feb\\u901f\\u4e86\\u89e3ThinkCMF\",\"display\":\"1\",\"vars\":{\"sub_title\":{\"title\":\"\\u526f\\u6807\\u9898\",\"value\":\"Quickly understand the ThinkCMF\",\"type\":\"text\",\"placeholder\":\"\\u8bf7\\u8f93\\u5165\\u526f\\u6807\\u9898\",\"tip\":\"\",\"rule\":{\"require\":true}},\"features\":{\"title\":\"\\u7279\\u6027\\u4ecb\\u7ecd\",\"value\":[{\"title\":\"MVC\\u5206\\u5c42\\u6a21\\u5f0f\",\"icon\":\"bars\",\"content\":\"\\u4f7f\\u7528MVC\\u5e94\\u7528\\u7a0b\\u5e8f\\u88ab\\u5206\\u6210\\u4e09\\u4e2a\\u6838\\u5fc3\\u90e8\\u4ef6\\uff1a\\u6a21\\u578b\\uff08M\\uff09\\u3001\\u89c6\\u56fe\\uff08V\\uff09\\u3001\\u63a7\\u5236\\u5668\\uff08C\\uff09\\uff0c\\u4ed6\\u4e0d\\u662f\\u4e00\\u4e2a\\u65b0\\u7684\\u6982\\u5ff5\\uff0c\\u53ea\\u662fThinkCMF\\u5c06\\u5176\\u53d1\\u6325\\u5230\\u4e86\\u6781\\u81f4\\u3002\"},{\"title\":\"\\u7528\\u6237\\u7ba1\\u7406\",\"icon\":\"group\",\"content\":\"ThinkCMF\\u5185\\u7f6e\\u4e86\\u7075\\u6d3b\\u7684\\u7528\\u6237\\u7ba1\\u7406\\u65b9\\u5f0f\\uff0c\\u5e76\\u53ef\\u76f4\\u63a5\\u4e0e\\u7b2c\\u4e09\\u65b9\\u7ad9\\u70b9\\u8fdb\\u884c\\u4e92\\u8054\\u4e92\\u901a\\uff0c\\u5982\\u679c\\u4f60\\u613f\\u610f\\u751a\\u81f3\\u53ef\\u4ee5\\u5bf9\\u5355\\u4e2a\\u7528\\u6237\\u6216\\u7fa4\\u4f53\\u7528\\u6237\\u7684\\u884c\\u4e3a\\u8fdb\\u884c\\u8bb0\\u5f55\\u53ca\\u5206\\u4eab\\uff0c\\u4e3a\\u60a8\\u7684\\u8fd0\\u8425\\u51b3\\u7b56\\u63d0\\u4f9b\\u6709\\u6548\\u53c2\\u8003\\u6570\\u636e\\u3002\"},{\"title\":\"\\u4e91\\u7aef\\u90e8\\u7f72\",\"icon\":\"cloud\",\"content\":\"\\u901a\\u8fc7\\u9a71\\u52a8\\u7684\\u65b9\\u5f0f\\u53ef\\u4ee5\\u8f7b\\u677e\\u652f\\u6301\\u4e91\\u5e73\\u53f0\\u7684\\u90e8\\u7f72\\uff0c\\u8ba9\\u4f60\\u7684\\u7f51\\u7ad9\\u65e0\\u7f1d\\u8fc1\\u79fb\\uff0c\\u5185\\u7f6e\\u5df2\\u7ecf\\u652f\\u6301SAE\\u3001BAE\\uff0c\\u6b63\\u5f0f\\u7248\\u5c06\\u5bf9\\u4e91\\u7aef\\u90e8\\u7f72\\u8fdb\\u884c\\u8fdb\\u4e00\\u6b65\\u4f18\\u5316\\u3002\"},{\"title\":\"\\u5b89\\u5168\\u7b56\\u7565\",\"icon\":\"heart\",\"content\":\"\\u63d0\\u4f9b\\u7684\\u7a33\\u5065\\u7684\\u5b89\\u5168\\u7b56\\u7565\\uff0c\\u5305\\u62ec\\u5907\\u4efd\\u6062\\u590d\\uff0c\\u5bb9\\u9519\\uff0c\\u9632\\u6cbb\\u6076\\u610f\\u653b\\u51fb\\u767b\\u9646\\uff0c\\u7f51\\u9875\\u9632\\u7be1\\u6539\\u7b49\\u591a\\u9879\\u5b89\\u5168\\u7ba1\\u7406\\u529f\\u80fd\\uff0c\\u4fdd\\u8bc1\\u7cfb\\u7edf\\u5b89\\u5168\\uff0c\\u53ef\\u9760\\uff0c\\u7a33\\u5b9a\\u7684\\u8fd0\\u884c\\u3002\"},{\"title\":\"\\u5e94\\u7528\\u6a21\\u5757\\u5316\",\"icon\":\"cubes\",\"content\":\"\\u63d0\\u51fa\\u5168\\u65b0\\u7684\\u5e94\\u7528\\u6a21\\u5f0f\\u8fdb\\u884c\\u6269\\u5c55\\uff0c\\u4e0d\\u7ba1\\u662f\\u4f60\\u5f00\\u53d1\\u4e00\\u4e2a\\u5c0f\\u529f\\u80fd\\u8fd8\\u662f\\u4e00\\u4e2a\\u5168\\u65b0\\u7684\\u7ad9\\u70b9\\uff0c\\u5728ThinkCMF\\u4e2d\\u4f60\\u53ea\\u662f\\u589e\\u52a0\\u4e86\\u4e00\\u4e2aAPP\\uff0c\\u6bcf\\u4e2a\\u72ec\\u7acb\\u8fd0\\u884c\\u4e92\\u4e0d\\u5f71\\u54cd\\uff0c\\u4fbf\\u4e8e\\u7075\\u6d3b\\u6269\\u5c55\\u548c\\u4e8c\\u6b21\\u5f00\\u53d1\\u3002\"},{\"title\":\"\\u514d\\u8d39\\u5f00\\u6e90\",\"icon\":\"certificate\",\"content\":\"\\u4ee3\\u7801\\u9075\\u5faaApache2\\u5f00\\u6e90\\u534f\\u8bae\\uff0c\\u514d\\u8d39\\u4f7f\\u7528\\uff0c\\u5bf9\\u5546\\u4e1a\\u7528\\u6237\\u4e5f\\u65e0\\u4efb\\u4f55\\u9650\\u5236\\u3002\"}],\"type\":\"array\",\"item\":{\"title\":{\"title\":\"\\u6807\\u9898\",\"value\":\"\",\"type\":\"text\",\"rule\":{\"require\":true}},\"icon\":{\"title\":\"\\u56fe\\u6807\",\"value\":\"\",\"type\":\"text\"},\"content\":{\"title\":\"\\u63cf\\u8ff0\",\"value\":\"\",\"type\":\"textarea\"}},\"tip\":\"\"}}},\"last_news\":{\"title\":\"\\u6700\\u65b0\\u8d44\\u8baf\",\"display\":\"1\",\"vars\":{\"last_news_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/Category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', '{\"vars\":{\"top_slide\":{\"title\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"admin\\/Slide\\/index\",\"multi\":false},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"tip\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"rule\":{\"require\":true}}},\"widgets\":{\"features\":{\"title\":\"\\u5feb\\u901f\\u4e86\\u89e3ThinkCMF\",\"display\":\"1\",\"vars\":{\"sub_title\":{\"title\":\"\\u526f\\u6807\\u9898\",\"value\":\"Quickly understand the ThinkCMF\",\"type\":\"text\",\"placeholder\":\"\\u8bf7\\u8f93\\u5165\\u526f\\u6807\\u9898\",\"tip\":\"\",\"rule\":{\"require\":true}},\"features\":{\"title\":\"\\u7279\\u6027\\u4ecb\\u7ecd\",\"value\":[{\"title\":\"MVC\\u5206\\u5c42\\u6a21\\u5f0f\",\"icon\":\"bars\",\"content\":\"\\u4f7f\\u7528MVC\\u5e94\\u7528\\u7a0b\\u5e8f\\u88ab\\u5206\\u6210\\u4e09\\u4e2a\\u6838\\u5fc3\\u90e8\\u4ef6\\uff1a\\u6a21\\u578b\\uff08M\\uff09\\u3001\\u89c6\\u56fe\\uff08V\\uff09\\u3001\\u63a7\\u5236\\u5668\\uff08C\\uff09\\uff0c\\u4ed6\\u4e0d\\u662f\\u4e00\\u4e2a\\u65b0\\u7684\\u6982\\u5ff5\\uff0c\\u53ea\\u662fThinkCMF\\u5c06\\u5176\\u53d1\\u6325\\u5230\\u4e86\\u6781\\u81f4\\u3002\"},{\"title\":\"\\u7528\\u6237\\u7ba1\\u7406\",\"icon\":\"group\",\"content\":\"ThinkCMF\\u5185\\u7f6e\\u4e86\\u7075\\u6d3b\\u7684\\u7528\\u6237\\u7ba1\\u7406\\u65b9\\u5f0f\\uff0c\\u5e76\\u53ef\\u76f4\\u63a5\\u4e0e\\u7b2c\\u4e09\\u65b9\\u7ad9\\u70b9\\u8fdb\\u884c\\u4e92\\u8054\\u4e92\\u901a\\uff0c\\u5982\\u679c\\u4f60\\u613f\\u610f\\u751a\\u81f3\\u53ef\\u4ee5\\u5bf9\\u5355\\u4e2a\\u7528\\u6237\\u6216\\u7fa4\\u4f53\\u7528\\u6237\\u7684\\u884c\\u4e3a\\u8fdb\\u884c\\u8bb0\\u5f55\\u53ca\\u5206\\u4eab\\uff0c\\u4e3a\\u60a8\\u7684\\u8fd0\\u8425\\u51b3\\u7b56\\u63d0\\u4f9b\\u6709\\u6548\\u53c2\\u8003\\u6570\\u636e\\u3002\"},{\"title\":\"\\u4e91\\u7aef\\u90e8\\u7f72\",\"icon\":\"cloud\",\"content\":\"\\u901a\\u8fc7\\u9a71\\u52a8\\u7684\\u65b9\\u5f0f\\u53ef\\u4ee5\\u8f7b\\u677e\\u652f\\u6301\\u4e91\\u5e73\\u53f0\\u7684\\u90e8\\u7f72\\uff0c\\u8ba9\\u4f60\\u7684\\u7f51\\u7ad9\\u65e0\\u7f1d\\u8fc1\\u79fb\\uff0c\\u5185\\u7f6e\\u5df2\\u7ecf\\u652f\\u6301SAE\\u3001BAE\\uff0c\\u6b63\\u5f0f\\u7248\\u5c06\\u5bf9\\u4e91\\u7aef\\u90e8\\u7f72\\u8fdb\\u884c\\u8fdb\\u4e00\\u6b65\\u4f18\\u5316\\u3002\"},{\"title\":\"\\u5b89\\u5168\\u7b56\\u7565\",\"icon\":\"heart\",\"content\":\"\\u63d0\\u4f9b\\u7684\\u7a33\\u5065\\u7684\\u5b89\\u5168\\u7b56\\u7565\\uff0c\\u5305\\u62ec\\u5907\\u4efd\\u6062\\u590d\\uff0c\\u5bb9\\u9519\\uff0c\\u9632\\u6cbb\\u6076\\u610f\\u653b\\u51fb\\u767b\\u9646\\uff0c\\u7f51\\u9875\\u9632\\u7be1\\u6539\\u7b49\\u591a\\u9879\\u5b89\\u5168\\u7ba1\\u7406\\u529f\\u80fd\\uff0c\\u4fdd\\u8bc1\\u7cfb\\u7edf\\u5b89\\u5168\\uff0c\\u53ef\\u9760\\uff0c\\u7a33\\u5b9a\\u7684\\u8fd0\\u884c\\u3002\"},{\"title\":\"\\u5e94\\u7528\\u6a21\\u5757\\u5316\",\"icon\":\"cubes\",\"content\":\"\\u63d0\\u51fa\\u5168\\u65b0\\u7684\\u5e94\\u7528\\u6a21\\u5f0f\\u8fdb\\u884c\\u6269\\u5c55\\uff0c\\u4e0d\\u7ba1\\u662f\\u4f60\\u5f00\\u53d1\\u4e00\\u4e2a\\u5c0f\\u529f\\u80fd\\u8fd8\\u662f\\u4e00\\u4e2a\\u5168\\u65b0\\u7684\\u7ad9\\u70b9\\uff0c\\u5728ThinkCMF\\u4e2d\\u4f60\\u53ea\\u662f\\u589e\\u52a0\\u4e86\\u4e00\\u4e2aAPP\\uff0c\\u6bcf\\u4e2a\\u72ec\\u7acb\\u8fd0\\u884c\\u4e92\\u4e0d\\u5f71\\u54cd\\uff0c\\u4fbf\\u4e8e\\u7075\\u6d3b\\u6269\\u5c55\\u548c\\u4e8c\\u6b21\\u5f00\\u53d1\\u3002\"},{\"title\":\"\\u514d\\u8d39\\u5f00\\u6e90\",\"icon\":\"certificate\",\"content\":\"\\u4ee3\\u7801\\u9075\\u5faaApache2\\u5f00\\u6e90\\u534f\\u8bae\\uff0c\\u514d\\u8d39\\u4f7f\\u7528\\uff0c\\u5bf9\\u5546\\u4e1a\\u7528\\u6237\\u4e5f\\u65e0\\u4efb\\u4f55\\u9650\\u5236\\u3002\"}],\"type\":\"array\",\"item\":{\"title\":{\"title\":\"\\u6807\\u9898\",\"value\":\"\",\"type\":\"text\",\"rule\":{\"require\":true}},\"icon\":{\"title\":\"\\u56fe\\u6807\",\"value\":\"\",\"type\":\"text\"},\"content\":{\"title\":\"\\u63cf\\u8ff0\",\"value\":\"\",\"type\":\"textarea\"}},\"tip\":\"\"}}},\"last_news\":{\"title\":\"\\u6700\\u65b0\\u8d44\\u8baf\",\"display\":\"1\",\"vars\":{\"last_news_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/Category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', NULL),
+(4, 0, 10, 'simpleboot3', '文章列表页', 'portal/List/index', 'portal/list', '文章列表模板文件', '{\"vars\":[],\"widgets\":{\"hottest_articles\":{\"title\":\"\\u70ed\\u95e8\\u6587\\u7ae0\",\"display\":\"1\",\"vars\":{\"hottest_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}},\"last_articles\":{\"title\":\"\\u6700\\u65b0\\u53d1\\u5e03\",\"display\":\"1\",\"vars\":{\"last_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', '{\"vars\":[],\"widgets\":{\"hottest_articles\":{\"title\":\"\\u70ed\\u95e8\\u6587\\u7ae0\",\"display\":\"1\",\"vars\":{\"hottest_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}},\"last_articles\":{\"title\":\"\\u6700\\u65b0\\u53d1\\u5e03\",\"display\":\"1\",\"vars\":{\"last_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', NULL),
+(5, 0, 10, 'simpleboot3', '单页面', 'portal/Page/index', 'portal/page', '单页面模板文件', '{\"widgets\":{\"hottest_articles\":{\"title\":\"\\u70ed\\u95e8\\u6587\\u7ae0\",\"display\":\"1\",\"vars\":{\"hottest_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}},\"last_articles\":{\"title\":\"\\u6700\\u65b0\\u53d1\\u5e03\",\"display\":\"1\",\"vars\":{\"last_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', '{\"widgets\":{\"hottest_articles\":{\"title\":\"\\u70ed\\u95e8\\u6587\\u7ae0\",\"display\":\"1\",\"vars\":{\"hottest_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}},\"last_articles\":{\"title\":\"\\u6700\\u65b0\\u53d1\\u5e03\",\"display\":\"1\",\"vars\":{\"last_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', NULL),
+(6, 0, 10, 'simpleboot3', '搜索页面', 'portal/search/index', 'portal/search', '搜索模板文件', '{\"vars\":{\"varName1\":{\"title\":\"\\u70ed\\u95e8\\u641c\\u7d22\",\"value\":\"1\",\"type\":\"text\",\"tip\":\"\\u8fd9\\u662f\\u4e00\\u4e2atext\",\"rule\":{\"require\":true}}}}', '{\"vars\":{\"varName1\":{\"title\":\"\\u70ed\\u95e8\\u641c\\u7d22\",\"value\":\"1\",\"type\":\"text\",\"tip\":\"\\u8fd9\\u662f\\u4e00\\u4e2atext\",\"rule\":{\"require\":true}}}}', NULL),
+(7, 1, 0, 'simpleboot3', '模板全局配置', 'public/Config', 'public/config', '模板全局配置文件', '{\"vars\":{\"enable_mobile\":{\"title\":\"\\u624b\\u673a\\u6ce8\\u518c\",\"value\":1,\"type\":\"select\",\"options\":{\"1\":\"\\u5f00\\u542f\",\"0\":\"\\u5173\\u95ed\"},\"tip\":\"\"}}}', '{\"vars\":{\"enable_mobile\":{\"title\":\"\\u624b\\u673a\\u6ce8\\u518c\",\"value\":1,\"type\":\"select\",\"options\":{\"1\":\"\\u5f00\\u542f\",\"0\":\"\\u5173\\u95ed\"},\"tip\":\"\"}}}', NULL),
+(8, 1, 1, 'simpleboot3', '导航条', 'public/Nav', 'public/nav', '导航条模板文件', '{\"vars\":{\"company_name\":{\"title\":\"\\u516c\\u53f8\\u540d\\u79f0\",\"name\":\"company_name\",\"value\":\"ThinkCMF\",\"type\":\"text\",\"tip\":\"\",\"rule\":[]}}}', '{\"vars\":{\"company_name\":{\"title\":\"\\u516c\\u53f8\\u540d\\u79f0\",\"name\":\"company_name\",\"value\":\"ThinkCMF\",\"type\":\"text\",\"tip\":\"\",\"rule\":[]}}}', NULL),
+(9, 0, 10, 'yssy', '文章页', 'portal/Article/index', 'portal/article', '文章页模板文件', '{\"vars\":{\"hot_articles_category_id\":{\"title\":\"Hot Articles\\u5206\\u7c7bID\",\"value\":\"1\",\"type\":\"text\",\"tip\":\"\",\"rule\":[]}}}', '{\"vars\":{\"hot_articles_category_id\":{\"title\":\"Hot Articles\\u5206\\u7c7bID\",\"value\":\"1\",\"type\":\"text\",\"tip\":\"\",\"rule\":[]}}}', NULL),
+(10, 0, 10, 'yssy', '联系我们页', 'portal/Page/index', 'portal/contact', '联系我们页模板文件', '{\"vars\":{\"baidu_map_info_window_text\":{\"title\":\"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57\",\"name\":\"baidu_map_info_window_text\",\"value\":\"ThinkCMF<br\\/><span class=\'\'>\\u5730\\u5740\\uff1a\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def2601\\u53f7<\\/span>\",\"type\":\"text\",\"tip\":\"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57,\\u652f\\u6301\\u7b80\\u5355html\\u4ee3\\u7801\",\"rule\":[]},\"company_location\":{\"title\":\"\\u516c\\u53f8\\u5750\\u6807\",\"value\":\"\",\"type\":\"location\",\"tip\":\"\",\"rule\":{\"require\":true}},\"address_cn\":{\"title\":\"\\u516c\\u53f8\\u5730\\u5740\",\"value\":\"\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def0001\\u53f7\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"address_en\":{\"title\":\"\\u516c\\u53f8\\u5730\\u5740\\uff08\\u82f1\\u6587\\uff09\",\"value\":\"NO.0001 Xie Tu Road, Shanghai China\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"email\":{\"title\":\"\\u516c\\u53f8\\u90ae\\u7bb1\",\"value\":\"catman@thinkcmf.com\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"phone_cn\":{\"title\":\"\\u516c\\u53f8\\u7535\\u8bdd\",\"value\":\"021 1000 0001\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"phone_en\":{\"title\":\"\\u516c\\u53f8\\u7535\\u8bdd\\uff08\\u82f1\\u6587\\uff09\",\"value\":\"+8621 1000 0001\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"qq\":{\"title\":\"\\u8054\\u7cfbQQ\",\"value\":\"478519726\",\"type\":\"text\",\"tip\":\"\\u591a\\u4e2a QQ\\u4ee5\\u82f1\\u6587\\u9017\\u53f7\\u9694\\u5f00\",\"rule\":{\"require\":true}}}}', '{\"vars\":{\"baidu_map_info_window_text\":{\"title\":\"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57\",\"name\":\"baidu_map_info_window_text\",\"value\":\"ThinkCMF<br\\/><span class=\'\'>\\u5730\\u5740\\uff1a\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def2601\\u53f7<\\/span>\",\"type\":\"text\",\"tip\":\"\\u767e\\u5ea6\\u5730\\u56fe\\u6807\\u6ce8\\u6587\\u5b57,\\u652f\\u6301\\u7b80\\u5355html\\u4ee3\\u7801\",\"rule\":[]},\"company_location\":{\"title\":\"\\u516c\\u53f8\\u5750\\u6807\",\"value\":\"\",\"type\":\"location\",\"tip\":\"\",\"rule\":{\"require\":true}},\"address_cn\":{\"title\":\"\\u516c\\u53f8\\u5730\\u5740\",\"value\":\"\\u4e0a\\u6d77\\u5e02\\u5f90\\u6c47\\u533a\\u659c\\u571f\\u8def0001\\u53f7\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"address_en\":{\"title\":\"\\u516c\\u53f8\\u5730\\u5740\\uff08\\u82f1\\u6587\\uff09\",\"value\":\"NO.0001 Xie Tu Road, Shanghai China\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"email\":{\"title\":\"\\u516c\\u53f8\\u90ae\\u7bb1\",\"value\":\"catman@thinkcmf.com\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"phone_cn\":{\"title\":\"\\u516c\\u53f8\\u7535\\u8bdd\",\"value\":\"021 1000 0001\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"phone_en\":{\"title\":\"\\u516c\\u53f8\\u7535\\u8bdd\\uff08\\u82f1\\u6587\\uff09\",\"value\":\"+8621 1000 0001\",\"type\":\"text\",\"tip\":\"\",\"rule\":{\"require\":true}},\"qq\":{\"title\":\"\\u8054\\u7cfbQQ\",\"value\":\"478519726\",\"type\":\"text\",\"tip\":\"\\u591a\\u4e2a QQ\\u4ee5\\u82f1\\u6587\\u9017\\u53f7\\u9694\\u5f00\",\"rule\":{\"require\":true}}}}', NULL),
+(11, 0, 5, 'yssy', '首页', 'portal/Index/index', 'portal/index', '首页模板文件', '{\"vars\":{\"top_slide\":{\"title\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"admin\\/Slide\\/index\",\"multi\":false},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"tip\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"rule\":{\"require\":true}}},\"widgets\":{\"features\":{\"title\":\"\\u5feb\\u901f\\u4e86\\u89e3ThinkCMF\",\"display\":\"1\",\"vars\":{\"sub_title\":{\"title\":\"\\u526f\\u6807\\u9898\",\"value\":\"Quickly understand the ThinkCMF\",\"type\":\"text\",\"placeholder\":\"\\u8bf7\\u8f93\\u5165\\u526f\\u6807\\u9898\",\"tip\":\"\",\"rule\":{\"require\":true}},\"features\":{\"title\":\"\\u7279\\u6027\\u4ecb\\u7ecd\",\"value\":[{\"title\":\"MVC\\u5206\\u5c42\\u6a21\\u5f0f\",\"icon\":\"bars\",\"content\":\"\\u4f7f\\u7528MVC\\u5e94\\u7528\\u7a0b\\u5e8f\\u88ab\\u5206\\u6210\\u4e09\\u4e2a\\u6838\\u5fc3\\u90e8\\u4ef6\\uff1a\\u6a21\\u578b\\uff08M\\uff09\\u3001\\u89c6\\u56fe\\uff08V\\uff09\\u3001\\u63a7\\u5236\\u5668\\uff08C\\uff09\\uff0c\\u4ed6\\u4e0d\\u662f\\u4e00\\u4e2a\\u65b0\\u7684\\u6982\\u5ff5\\uff0c\\u53ea\\u662fThinkCMF\\u5c06\\u5176\\u53d1\\u6325\\u5230\\u4e86\\u6781\\u81f4\\u3002\"},{\"title\":\"\\u7528\\u6237\\u7ba1\\u7406\",\"icon\":\"group\",\"content\":\"ThinkCMF\\u5185\\u7f6e\\u4e86\\u7075\\u6d3b\\u7684\\u7528\\u6237\\u7ba1\\u7406\\u65b9\\u5f0f\\uff0c\\u5e76\\u53ef\\u76f4\\u63a5\\u4e0e\\u7b2c\\u4e09\\u65b9\\u7ad9\\u70b9\\u8fdb\\u884c\\u4e92\\u8054\\u4e92\\u901a\\uff0c\\u5982\\u679c\\u4f60\\u613f\\u610f\\u751a\\u81f3\\u53ef\\u4ee5\\u5bf9\\u5355\\u4e2a\\u7528\\u6237\\u6216\\u7fa4\\u4f53\\u7528\\u6237\\u7684\\u884c\\u4e3a\\u8fdb\\u884c\\u8bb0\\u5f55\\u53ca\\u5206\\u4eab\\uff0c\\u4e3a\\u60a8\\u7684\\u8fd0\\u8425\\u51b3\\u7b56\\u63d0\\u4f9b\\u6709\\u6548\\u53c2\\u8003\\u6570\\u636e\\u3002\"},{\"title\":\"\\u4e91\\u7aef\\u90e8\\u7f72\",\"icon\":\"cloud\",\"content\":\"\\u901a\\u8fc7\\u9a71\\u52a8\\u7684\\u65b9\\u5f0f\\u53ef\\u4ee5\\u8f7b\\u677e\\u652f\\u6301\\u4e91\\u5e73\\u53f0\\u7684\\u90e8\\u7f72\\uff0c\\u8ba9\\u4f60\\u7684\\u7f51\\u7ad9\\u65e0\\u7f1d\\u8fc1\\u79fb\\uff0c\\u5185\\u7f6e\\u5df2\\u7ecf\\u652f\\u6301SAE\\u3001BAE\\uff0c\\u6b63\\u5f0f\\u7248\\u5c06\\u5bf9\\u4e91\\u7aef\\u90e8\\u7f72\\u8fdb\\u884c\\u8fdb\\u4e00\\u6b65\\u4f18\\u5316\\u3002\"},{\"title\":\"\\u5b89\\u5168\\u7b56\\u7565\",\"icon\":\"heart\",\"content\":\"\\u63d0\\u4f9b\\u7684\\u7a33\\u5065\\u7684\\u5b89\\u5168\\u7b56\\u7565\\uff0c\\u5305\\u62ec\\u5907\\u4efd\\u6062\\u590d\\uff0c\\u5bb9\\u9519\\uff0c\\u9632\\u6cbb\\u6076\\u610f\\u653b\\u51fb\\u767b\\u9646\\uff0c\\u7f51\\u9875\\u9632\\u7be1\\u6539\\u7b49\\u591a\\u9879\\u5b89\\u5168\\u7ba1\\u7406\\u529f\\u80fd\\uff0c\\u4fdd\\u8bc1\\u7cfb\\u7edf\\u5b89\\u5168\\uff0c\\u53ef\\u9760\\uff0c\\u7a33\\u5b9a\\u7684\\u8fd0\\u884c\\u3002\"},{\"title\":\"\\u5e94\\u7528\\u6a21\\u5757\\u5316\",\"icon\":\"cubes\",\"content\":\"\\u63d0\\u51fa\\u5168\\u65b0\\u7684\\u5e94\\u7528\\u6a21\\u5f0f\\u8fdb\\u884c\\u6269\\u5c55\\uff0c\\u4e0d\\u7ba1\\u662f\\u4f60\\u5f00\\u53d1\\u4e00\\u4e2a\\u5c0f\\u529f\\u80fd\\u8fd8\\u662f\\u4e00\\u4e2a\\u5168\\u65b0\\u7684\\u7ad9\\u70b9\\uff0c\\u5728ThinkCMF\\u4e2d\\u4f60\\u53ea\\u662f\\u589e\\u52a0\\u4e86\\u4e00\\u4e2aAPP\\uff0c\\u6bcf\\u4e2a\\u72ec\\u7acb\\u8fd0\\u884c\\u4e92\\u4e0d\\u5f71\\u54cd\\uff0c\\u4fbf\\u4e8e\\u7075\\u6d3b\\u6269\\u5c55\\u548c\\u4e8c\\u6b21\\u5f00\\u53d1\\u3002\"},{\"title\":\"\\u514d\\u8d39\\u5f00\\u6e90\",\"icon\":\"certificate\",\"content\":\"\\u4ee3\\u7801\\u9075\\u5faaApache2\\u5f00\\u6e90\\u534f\\u8bae\\uff0c\\u514d\\u8d39\\u4f7f\\u7528\\uff0c\\u5bf9\\u5546\\u4e1a\\u7528\\u6237\\u4e5f\\u65e0\\u4efb\\u4f55\\u9650\\u5236\\u3002\"}],\"type\":\"array\",\"item\":{\"title\":{\"title\":\"\\u6807\\u9898\",\"value\":\"\",\"type\":\"text\",\"rule\":{\"require\":true}},\"icon\":{\"title\":\"\\u56fe\\u6807\",\"value\":\"\",\"type\":\"text\"},\"content\":{\"title\":\"\\u63cf\\u8ff0\",\"value\":\"\",\"type\":\"textarea\"}},\"tip\":\"\"}}},\"last_news\":{\"title\":\"\\u6700\\u65b0\\u8d44\\u8baf\",\"display\":\"1\",\"vars\":{\"last_news_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/Category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', '{\"vars\":{\"top_slide\":{\"title\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"admin\\/Slide\\/index\",\"multi\":false},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"tip\":\"\\u9876\\u90e8\\u5e7b\\u706f\\u7247\",\"rule\":{\"require\":true}}},\"widgets\":{\"features\":{\"title\":\"\\u5feb\\u901f\\u4e86\\u89e3ThinkCMF\",\"display\":\"1\",\"vars\":{\"sub_title\":{\"title\":\"\\u526f\\u6807\\u9898\",\"value\":\"Quickly understand the ThinkCMF\",\"type\":\"text\",\"placeholder\":\"\\u8bf7\\u8f93\\u5165\\u526f\\u6807\\u9898\",\"tip\":\"\",\"rule\":{\"require\":true}},\"features\":{\"title\":\"\\u7279\\u6027\\u4ecb\\u7ecd\",\"value\":[{\"title\":\"MVC\\u5206\\u5c42\\u6a21\\u5f0f\",\"icon\":\"bars\",\"content\":\"\\u4f7f\\u7528MVC\\u5e94\\u7528\\u7a0b\\u5e8f\\u88ab\\u5206\\u6210\\u4e09\\u4e2a\\u6838\\u5fc3\\u90e8\\u4ef6\\uff1a\\u6a21\\u578b\\uff08M\\uff09\\u3001\\u89c6\\u56fe\\uff08V\\uff09\\u3001\\u63a7\\u5236\\u5668\\uff08C\\uff09\\uff0c\\u4ed6\\u4e0d\\u662f\\u4e00\\u4e2a\\u65b0\\u7684\\u6982\\u5ff5\\uff0c\\u53ea\\u662fThinkCMF\\u5c06\\u5176\\u53d1\\u6325\\u5230\\u4e86\\u6781\\u81f4\\u3002\"},{\"title\":\"\\u7528\\u6237\\u7ba1\\u7406\",\"icon\":\"group\",\"content\":\"ThinkCMF\\u5185\\u7f6e\\u4e86\\u7075\\u6d3b\\u7684\\u7528\\u6237\\u7ba1\\u7406\\u65b9\\u5f0f\\uff0c\\u5e76\\u53ef\\u76f4\\u63a5\\u4e0e\\u7b2c\\u4e09\\u65b9\\u7ad9\\u70b9\\u8fdb\\u884c\\u4e92\\u8054\\u4e92\\u901a\\uff0c\\u5982\\u679c\\u4f60\\u613f\\u610f\\u751a\\u81f3\\u53ef\\u4ee5\\u5bf9\\u5355\\u4e2a\\u7528\\u6237\\u6216\\u7fa4\\u4f53\\u7528\\u6237\\u7684\\u884c\\u4e3a\\u8fdb\\u884c\\u8bb0\\u5f55\\u53ca\\u5206\\u4eab\\uff0c\\u4e3a\\u60a8\\u7684\\u8fd0\\u8425\\u51b3\\u7b56\\u63d0\\u4f9b\\u6709\\u6548\\u53c2\\u8003\\u6570\\u636e\\u3002\"},{\"title\":\"\\u4e91\\u7aef\\u90e8\\u7f72\",\"icon\":\"cloud\",\"content\":\"\\u901a\\u8fc7\\u9a71\\u52a8\\u7684\\u65b9\\u5f0f\\u53ef\\u4ee5\\u8f7b\\u677e\\u652f\\u6301\\u4e91\\u5e73\\u53f0\\u7684\\u90e8\\u7f72\\uff0c\\u8ba9\\u4f60\\u7684\\u7f51\\u7ad9\\u65e0\\u7f1d\\u8fc1\\u79fb\\uff0c\\u5185\\u7f6e\\u5df2\\u7ecf\\u652f\\u6301SAE\\u3001BAE\\uff0c\\u6b63\\u5f0f\\u7248\\u5c06\\u5bf9\\u4e91\\u7aef\\u90e8\\u7f72\\u8fdb\\u884c\\u8fdb\\u4e00\\u6b65\\u4f18\\u5316\\u3002\"},{\"title\":\"\\u5b89\\u5168\\u7b56\\u7565\",\"icon\":\"heart\",\"content\":\"\\u63d0\\u4f9b\\u7684\\u7a33\\u5065\\u7684\\u5b89\\u5168\\u7b56\\u7565\\uff0c\\u5305\\u62ec\\u5907\\u4efd\\u6062\\u590d\\uff0c\\u5bb9\\u9519\\uff0c\\u9632\\u6cbb\\u6076\\u610f\\u653b\\u51fb\\u767b\\u9646\\uff0c\\u7f51\\u9875\\u9632\\u7be1\\u6539\\u7b49\\u591a\\u9879\\u5b89\\u5168\\u7ba1\\u7406\\u529f\\u80fd\\uff0c\\u4fdd\\u8bc1\\u7cfb\\u7edf\\u5b89\\u5168\\uff0c\\u53ef\\u9760\\uff0c\\u7a33\\u5b9a\\u7684\\u8fd0\\u884c\\u3002\"},{\"title\":\"\\u5e94\\u7528\\u6a21\\u5757\\u5316\",\"icon\":\"cubes\",\"content\":\"\\u63d0\\u51fa\\u5168\\u65b0\\u7684\\u5e94\\u7528\\u6a21\\u5f0f\\u8fdb\\u884c\\u6269\\u5c55\\uff0c\\u4e0d\\u7ba1\\u662f\\u4f60\\u5f00\\u53d1\\u4e00\\u4e2a\\u5c0f\\u529f\\u80fd\\u8fd8\\u662f\\u4e00\\u4e2a\\u5168\\u65b0\\u7684\\u7ad9\\u70b9\\uff0c\\u5728ThinkCMF\\u4e2d\\u4f60\\u53ea\\u662f\\u589e\\u52a0\\u4e86\\u4e00\\u4e2aAPP\\uff0c\\u6bcf\\u4e2a\\u72ec\\u7acb\\u8fd0\\u884c\\u4e92\\u4e0d\\u5f71\\u54cd\\uff0c\\u4fbf\\u4e8e\\u7075\\u6d3b\\u6269\\u5c55\\u548c\\u4e8c\\u6b21\\u5f00\\u53d1\\u3002\"},{\"title\":\"\\u514d\\u8d39\\u5f00\\u6e90\",\"icon\":\"certificate\",\"content\":\"\\u4ee3\\u7801\\u9075\\u5faaApache2\\u5f00\\u6e90\\u534f\\u8bae\\uff0c\\u514d\\u8d39\\u4f7f\\u7528\\uff0c\\u5bf9\\u5546\\u4e1a\\u7528\\u6237\\u4e5f\\u65e0\\u4efb\\u4f55\\u9650\\u5236\\u3002\"}],\"type\":\"array\",\"item\":{\"title\":{\"title\":\"\\u6807\\u9898\",\"value\":\"\",\"type\":\"text\",\"rule\":{\"require\":true}},\"icon\":{\"title\":\"\\u56fe\\u6807\",\"value\":\"\",\"type\":\"text\"},\"content\":{\"title\":\"\\u63cf\\u8ff0\",\"value\":\"\",\"type\":\"textarea\"}},\"tip\":\"\"}}},\"last_news\":{\"title\":\"\\u6700\\u65b0\\u8d44\\u8baf\",\"display\":\"1\",\"vars\":{\"last_news_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/Category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', NULL),
+(12, 0, 10, 'yssy', '文章列表页', 'portal/List/index', 'portal/list', '文章列表模板文件', '{\"vars\":[],\"widgets\":{\"hottest_articles\":{\"title\":\"\\u70ed\\u95e8\\u6587\\u7ae0\",\"display\":\"1\",\"vars\":{\"hottest_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}},\"last_articles\":{\"title\":\"\\u6700\\u65b0\\u53d1\\u5e03\",\"display\":\"1\",\"vars\":{\"last_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', '{\"vars\":[],\"widgets\":{\"hottest_articles\":{\"title\":\"\\u70ed\\u95e8\\u6587\\u7ae0\",\"display\":\"1\",\"vars\":{\"hottest_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}},\"last_articles\":{\"title\":\"\\u6700\\u65b0\\u53d1\\u5e03\",\"display\":\"1\",\"vars\":{\"last_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', NULL),
+(13, 0, 10, 'yssy', '单页面', 'portal/Page/index', 'portal/page', '单页面模板文件', '{\"widgets\":{\"hottest_articles\":{\"title\":\"\\u70ed\\u95e8\\u6587\\u7ae0\",\"display\":\"1\",\"vars\":{\"hottest_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}},\"last_articles\":{\"title\":\"\\u6700\\u65b0\\u53d1\\u5e03\",\"display\":\"1\",\"vars\":{\"last_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', '{\"widgets\":{\"hottest_articles\":{\"title\":\"\\u70ed\\u95e8\\u6587\\u7ae0\",\"display\":\"1\",\"vars\":{\"hottest_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}},\"last_articles\":{\"title\":\"\\u6700\\u65b0\\u53d1\\u5e03\",\"display\":\"1\",\"vars\":{\"last_articles_category_id\":{\"title\":\"\\u6587\\u7ae0\\u5206\\u7c7bID\",\"value\":\"\",\"type\":\"text\",\"dataSource\":{\"api\":\"portal\\/category\\/index\",\"multi\":true},\"placeholder\":\"\\u8bf7\\u9009\\u62e9\\u5206\\u7c7b\",\"tip\":\"\",\"rule\":{\"require\":true}}}}}}', NULL),
+(14, 0, 10, 'yssy', '搜索页面', 'portal/search/index', 'portal/search', '搜索模板文件', '{\"vars\":{\"varName1\":{\"title\":\"\\u70ed\\u95e8\\u641c\\u7d22\",\"value\":\"1\",\"type\":\"text\",\"tip\":\"\\u8fd9\\u662f\\u4e00\\u4e2atext\",\"rule\":{\"require\":true}}}}', '{\"vars\":{\"varName1\":{\"title\":\"\\u70ed\\u95e8\\u641c\\u7d22\",\"value\":\"1\",\"type\":\"text\",\"tip\":\"\\u8fd9\\u662f\\u4e00\\u4e2atext\",\"rule\":{\"require\":true}}}}', NULL),
+(15, 1, 0, 'yssy', '模板全局配置', 'public/Config', 'public/config', '模板全局配置文件', '{\"vars\":{\"enable_mobile\":{\"title\":\"\\u624b\\u673a\\u6ce8\\u518c\",\"value\":1,\"type\":\"select\",\"options\":{\"1\":\"\\u5f00\\u542f\",\"0\":\"\\u5173\\u95ed\"},\"tip\":\"\"}}}', '{\"vars\":{\"enable_mobile\":{\"title\":\"\\u624b\\u673a\\u6ce8\\u518c\",\"value\":1,\"type\":\"select\",\"options\":{\"1\":\"\\u5f00\\u542f\",\"0\":\"\\u5173\\u95ed\"},\"tip\":\"\"}}}', NULL),
+(16, 1, 1, 'yssy', '导航条', 'public/Nav', 'public/nav', '导航条模板文件', '{\"vars\":{\"company_name\":{\"title\":\"\\u516c\\u53f8\\u540d\\u79f0\",\"name\":\"company_name\",\"value\":\"ThinkCMF\",\"type\":\"text\",\"tip\":\"\",\"rule\":[]}}}', '{\"vars\":{\"company_name\":{\"title\":\"\\u516c\\u53f8\\u540d\\u79f0\",\"name\":\"company_name\",\"value\":\"ThinkCMF\",\"type\":\"text\",\"tip\":\"\",\"rule\":[]}}}', NULL);
 
 -- --------------------------------------------------------
 
@@ -986,14 +978,14 @@ INSERT INTO `cmf_theme_file` (`id`, `is_public`, `list_order`, `theme`, `name`, 
 -- 表的结构 `cmf_third_party_user`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_third_party_user` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '本站用户id',
-  `last_login_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最后登录时间',
-  `expire_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'access_token过期时间',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '绑定时间',
-  `login_times` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '登录次数',
-  `status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '状态;1:正常;0:禁用',
+CREATE TABLE `cmf_third_party_user` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '本站用户id',
+  `last_login_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '最后登录时间',
+  `expire_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'access_token过期时间',
+  `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '绑定时间',
+  `login_times` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '登录次数',
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态;1:正常;0:禁用',
   `nickname` varchar(50) NOT NULL DEFAULT '' COMMENT '用户昵称',
   `third_party` varchar(20) NOT NULL DEFAULT '' COMMENT '第三方惟一码',
   `app_id` varchar(64) NOT NULL DEFAULT '' COMMENT '第三方应用 id',
@@ -1001,9 +993,8 @@ CREATE TABLE IF NOT EXISTS `cmf_third_party_user` (
   `access_token` varchar(512) NOT NULL DEFAULT '' COMMENT '第三方授权码',
   `openid` varchar(40) NOT NULL DEFAULT '' COMMENT '第三方用户id',
   `union_id` varchar(64) NOT NULL DEFAULT '' COMMENT '第三方用户多个产品中的惟一 id,(如:微信平台)',
-  `more` text COMMENT '扩展信息',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='第三方用户表' AUTO_INCREMENT=1 ;
+  `more` text COMMENT '扩展信息'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='第三方用户表';
 
 -- --------------------------------------------------------
 
@@ -1011,17 +1002,17 @@ CREATE TABLE IF NOT EXISTS `cmf_third_party_user` (
 -- 表的结构 `cmf_user`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_user` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_type` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '用户类型;1:admin;2:会员',
+CREATE TABLE `cmf_user` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_type` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '用户类型;1:admin;2:会员',
   `sex` tinyint(2) NOT NULL DEFAULT '0' COMMENT '性别;0:保密,1:男,2:女',
   `birthday` int(11) NOT NULL DEFAULT '0' COMMENT '生日',
   `last_login_time` int(11) NOT NULL DEFAULT '0' COMMENT '最后登录时间',
   `score` int(11) NOT NULL DEFAULT '0' COMMENT '用户积分',
-  `coin` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '金币',
+  `coin` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '金币',
   `balance` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '余额',
   `create_time` int(11) NOT NULL DEFAULT '0' COMMENT '注册时间',
-  `user_status` tinyint(3) unsigned NOT NULL DEFAULT '1' COMMENT '用户状态;0:禁用,1:正常,2:未验证',
+  `user_status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '用户状态;0:禁用,1:正常,2:未验证',
   `user_login` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '用户名',
   `user_pass` varchar(64) NOT NULL DEFAULT '' COMMENT '登录密码;cmf_password加密',
   `user_nickname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '用户昵称',
@@ -1032,18 +1023,15 @@ CREATE TABLE IF NOT EXISTS `cmf_user` (
   `last_login_ip` varchar(15) NOT NULL DEFAULT '' COMMENT '最后登录ip',
   `user_activation_key` varchar(60) NOT NULL DEFAULT '' COMMENT '激活码',
   `mobile` varchar(20) NOT NULL DEFAULT '' COMMENT '用户手机号',
-  `more` text COMMENT '扩展属性',
-  PRIMARY KEY (`id`),
-  KEY `user_login` (`user_login`),
-  KEY `user_nickname` (`user_nickname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='用户表' AUTO_INCREMENT=2 ;
+  `more` text COMMENT '扩展属性'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
 
 --
 -- 转存表中的数据 `cmf_user`
 --
 
 INSERT INTO `cmf_user` (`id`, `user_type`, `sex`, `birthday`, `last_login_time`, `score`, `coin`, `balance`, `create_time`, `user_status`, `user_login`, `user_pass`, `user_nickname`, `user_email`, `user_url`, `avatar`, `signature`, `last_login_ip`, `user_activation_key`, `mobile`, `more`) VALUES
-(1, 1, 0, 0, 1517659538, 0, 0, '0.00', 1517659530, 1, 'admin', '###2958a21fbd1af17e3ed7f68af545dc59', 'admin', '164466159@qq.com', '', '', '', '127.0.0.1', '', '', NULL);
+(1, 1, 0, 0, 1517746218, 0, 0, '0.00', 1517659530, 1, 'admin', '###2958a21fbd1af17e3ed7f68af545dc59', 'admin', '164466159@qq.com', '', '', '', '127.0.0.1', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -1051,19 +1039,18 @@ INSERT INTO `cmf_user` (`id`, `user_type`, `sex`, `birthday`, `last_login_time`,
 -- 表的结构 `cmf_user_action`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_user_action` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cmf_user_action` (
+  `id` int(11) NOT NULL,
   `score` int(11) NOT NULL DEFAULT '0' COMMENT '更改积分，可以为负',
   `coin` int(11) NOT NULL DEFAULT '0' COMMENT '更改金币，可以为负',
   `reward_number` int(11) NOT NULL DEFAULT '0' COMMENT '奖励次数',
-  `cycle_type` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '周期类型;0:不限;1:按天;2:按小时;3:永久',
-  `cycle_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '周期时间值',
+  `cycle_type` tinyint(1) UNSIGNED NOT NULL DEFAULT '0' COMMENT '周期类型;0:不限;1:按天;2:按小时;3:永久',
+  `cycle_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '周期时间值',
   `name` varchar(50) NOT NULL DEFAULT '' COMMENT '用户操作名称',
   `action` varchar(50) NOT NULL DEFAULT '' COMMENT '用户操作名称',
   `app` varchar(50) NOT NULL DEFAULT '' COMMENT '操作所在应用名或插件名等',
-  `url` text COMMENT '执行操作的url',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='用户操作表' AUTO_INCREMENT=2 ;
+  `url` text COMMENT '执行操作的url'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户操作表';
 
 --
 -- 转存表中的数据 `cmf_user_action`
@@ -1078,18 +1065,15 @@ INSERT INTO `cmf_user_action` (`id`, `score`, `coin`, `reward_number`, `cycle_ty
 -- 表的结构 `cmf_user_action_log`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_user_action_log` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
-  `count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '访问次数',
-  `last_visit_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最后访问时间',
+CREATE TABLE `cmf_user_action_log` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '用户id',
+  `count` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '访问次数',
+  `last_visit_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '最后访问时间',
   `object` varchar(100) NOT NULL DEFAULT '' COMMENT '访问对象的id,格式:不带前缀的表名+id;如posts1表示xx_posts表里id为1的记录',
   `action` varchar(50) NOT NULL DEFAULT '' COMMENT '操作名称;格式:应用名+控制器+操作名,也可自己定义格式只要不发生冲突且惟一;',
-  `ip` varchar(15) NOT NULL DEFAULT '' COMMENT '用户ip',
-  PRIMARY KEY (`id`),
-  KEY `user_object_action` (`user_id`,`object`,`action`),
-  KEY `user_object_action_ip` (`user_id`,`object`,`action`,`ip`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='访问记录表' AUTO_INCREMENT=1 ;
+  `ip` varchar(15) NOT NULL DEFAULT '' COMMENT '用户ip'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='访问记录表';
 
 -- --------------------------------------------------------
 
@@ -1097,16 +1081,15 @@ CREATE TABLE IF NOT EXISTS `cmf_user_action_log` (
 -- 表的结构 `cmf_user_balance_log`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_user_balance_log` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cmf_user_balance_log` (
+  `id` int(10) UNSIGNED NOT NULL,
   `user_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '用户 id',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '创建时间',
   `change` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '更改余额',
   `balance` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '更改后余额',
   `description` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
-  `remark` varchar(255) NOT NULL DEFAULT '' COMMENT '备注',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户余额变更日志表' AUTO_INCREMENT=1 ;
+  `remark` varchar(255) NOT NULL DEFAULT '' COMMENT '备注'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户余额变更日志表';
 
 -- --------------------------------------------------------
 
@@ -1114,18 +1097,16 @@ CREATE TABLE IF NOT EXISTS `cmf_user_balance_log` (
 -- 表的结构 `cmf_user_favorite`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_user_favorite` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '用户 id',
+CREATE TABLE `cmf_user_favorite` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '用户 id',
   `title` varchar(100) NOT NULL DEFAULT '' COMMENT '收藏内容的标题',
   `url` varchar(255) CHARACTER SET utf8 DEFAULT '' COMMENT '收藏内容的原文地址，不带域名',
   `description` varchar(500) CHARACTER SET utf8 DEFAULT '' COMMENT '收藏内容的描述',
   `table_name` varchar(64) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '收藏实体以前所在表,不带前缀',
-  `object_id` int(10) unsigned DEFAULT '0' COMMENT '收藏内容原来的主键id',
-  `create_time` int(10) unsigned DEFAULT '0' COMMENT '收藏时间',
-  PRIMARY KEY (`id`),
-  KEY `uid` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户收藏表' AUTO_INCREMENT=1 ;
+  `object_id` int(10) UNSIGNED DEFAULT '0' COMMENT '收藏内容原来的主键id',
+  `create_time` int(10) UNSIGNED DEFAULT '0' COMMENT '收藏时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户收藏表';
 
 -- --------------------------------------------------------
 
@@ -1133,15 +1114,14 @@ CREATE TABLE IF NOT EXISTS `cmf_user_favorite` (
 -- 表的结构 `cmf_user_login_attempt`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_user_login_attempt` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `login_attempts` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '尝试次数',
-  `attempt_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '尝试登录时间',
-  `locked_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '锁定时间',
+CREATE TABLE `cmf_user_login_attempt` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `login_attempts` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '尝试次数',
+  `attempt_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '尝试登录时间',
+  `locked_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '锁定时间',
   `ip` varchar(15) NOT NULL DEFAULT '' COMMENT '用户 ip',
-  `account` varchar(100) NOT NULL DEFAULT '' COMMENT '用户账号,手机号,邮箱或用户名',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='用户登录尝试表' AUTO_INCREMENT=1 ;
+  `account` varchar(100) NOT NULL DEFAULT '' COMMENT '用户账号,手机号,邮箱或用户名'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户登录尝试表' ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -1149,15 +1129,14 @@ CREATE TABLE IF NOT EXISTS `cmf_user_login_attempt` (
 -- 表的结构 `cmf_user_score_log`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_user_score_log` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cmf_user_score_log` (
+  `id` int(11) NOT NULL,
   `user_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '用户 id',
   `create_time` int(11) NOT NULL DEFAULT '0' COMMENT '创建时间',
   `action` varchar(50) NOT NULL DEFAULT '' COMMENT '用户操作名称',
   `score` int(11) NOT NULL DEFAULT '0' COMMENT '更改积分，可以为负',
-  `coin` int(11) NOT NULL DEFAULT '0' COMMENT '更改金币，可以为负',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户操作积分等奖励日志表' AUTO_INCREMENT=1 ;
+  `coin` int(11) NOT NULL DEFAULT '0' COMMENT '更改金币，可以为负'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户操作积分等奖励日志表';
 
 -- --------------------------------------------------------
 
@@ -1165,15 +1144,14 @@ CREATE TABLE IF NOT EXISTS `cmf_user_score_log` (
 -- 表的结构 `cmf_user_token`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_user_token` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cmf_user_token` (
+  `id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '用户id',
-  `expire_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT ' 过期时间',
-  `create_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `expire_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT ' 过期时间',
+  `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '创建时间',
   `token` varchar(64) NOT NULL DEFAULT '' COMMENT 'token',
-  `device_type` varchar(10) NOT NULL DEFAULT '' COMMENT '设备类型;mobile,android,iphone,ipad,web,pc,mac,wxapp',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='用户客户端登录 token 表' AUTO_INCREMENT=2 ;
+  `device_type` varchar(10) NOT NULL DEFAULT '' COMMENT '设备类型;mobile,android,iphone,ipad,web,pc,mac,wxapp'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户客户端登录 token 表';
 
 --
 -- 转存表中的数据 `cmf_user_token`
@@ -1188,15 +1166,473 @@ INSERT INTO `cmf_user_token` (`id`, `user_id`, `expire_time`, `create_time`, `to
 -- 表的结构 `cmf_verification_code`
 --
 
-CREATE TABLE IF NOT EXISTS `cmf_verification_code` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '表id',
-  `count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '当天已经发送成功的次数',
-  `send_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最后发送成功时间',
-  `expire_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '验证码过期时间',
+CREATE TABLE `cmf_verification_code` (
+  `id` bigint(20) UNSIGNED NOT NULL COMMENT '表id',
+  `count` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '当天已经发送成功的次数',
+  `send_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '最后发送成功时间',
+  `expire_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '验证码过期时间',
   `code` varchar(8) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '最后发送成功的验证码',
-  `account` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '手机号或者邮箱',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='手机邮箱数字验证码表' AUTO_INCREMENT=1 ;
+  `account` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '手机号或者邮箱'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='手机邮箱数字验证码表';
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cmf_admin_menu`
+--
+ALTER TABLE `cmf_admin_menu`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `status` (`status`),
+  ADD KEY `parent_id` (`parent_id`),
+  ADD KEY `controller` (`controller`);
+
+--
+-- Indexes for table `cmf_asset`
+--
+ALTER TABLE `cmf_asset`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_auth_access`
+--
+ALTER TABLE `cmf_auth_access`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `role_id` (`role_id`),
+  ADD KEY `rule_name` (`rule_name`) USING BTREE;
+
+--
+-- Indexes for table `cmf_auth_rule`
+--
+ALTER TABLE `cmf_auth_rule`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`) USING BTREE,
+  ADD KEY `module` (`app`,`status`,`type`);
+
+--
+-- Indexes for table `cmf_comment`
+--
+ALTER TABLE `cmf_comment`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `table_id_status` (`table_name`,`object_id`,`status`),
+  ADD KEY `object_id` (`object_id`) USING BTREE,
+  ADD KEY `status` (`status`) USING BTREE,
+  ADD KEY `parent_id` (`parent_id`) USING BTREE,
+  ADD KEY `create_time` (`create_time`) USING BTREE;
+
+--
+-- Indexes for table `cmf_hook`
+--
+ALTER TABLE `cmf_hook`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_hook_plugin`
+--
+ALTER TABLE `cmf_hook_plugin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_link`
+--
+ALTER TABLE `cmf_link`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `status` (`status`);
+
+--
+-- Indexes for table `cmf_nav`
+--
+ALTER TABLE `cmf_nav`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_nav_menu`
+--
+ALTER TABLE `cmf_nav_menu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_option`
+--
+ALTER TABLE `cmf_option`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `option_name` (`option_name`);
+
+--
+-- Indexes for table `cmf_plugin`
+--
+ALTER TABLE `cmf_plugin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_portal_category`
+--
+ALTER TABLE `cmf_portal_category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_portal_category_post`
+--
+ALTER TABLE `cmf_portal_category_post`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `term_taxonomy_id` (`category_id`);
+
+--
+-- Indexes for table `cmf_portal_post`
+--
+ALTER TABLE `cmf_portal_post`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `type_status_date` (`post_type`,`post_status`,`create_time`,`id`),
+  ADD KEY `parent_id` (`parent_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `create_time` (`create_time`) USING BTREE;
+
+--
+-- Indexes for table `cmf_portal_tag`
+--
+ALTER TABLE `cmf_portal_tag`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_portal_tag_post`
+--
+ALTER TABLE `cmf_portal_tag_post`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `post_id` (`post_id`);
+
+--
+-- Indexes for table `cmf_recycle_bin`
+--
+ALTER TABLE `cmf_recycle_bin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_role`
+--
+ALTER TABLE `cmf_role`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `parent_id` (`parent_id`),
+  ADD KEY `status` (`status`);
+
+--
+-- Indexes for table `cmf_role_user`
+--
+ALTER TABLE `cmf_role_user`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `role_id` (`role_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `cmf_route`
+--
+ALTER TABLE `cmf_route`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_slide`
+--
+ALTER TABLE `cmf_slide`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_slide_item`
+--
+ALTER TABLE `cmf_slide_item`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `slide_id` (`slide_id`);
+
+--
+-- Indexes for table `cmf_theme`
+--
+ALTER TABLE `cmf_theme`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_theme_file`
+--
+ALTER TABLE `cmf_theme_file`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_third_party_user`
+--
+ALTER TABLE `cmf_third_party_user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_user`
+--
+ALTER TABLE `cmf_user`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_login` (`user_login`),
+  ADD KEY `user_nickname` (`user_nickname`);
+
+--
+-- Indexes for table `cmf_user_action`
+--
+ALTER TABLE `cmf_user_action`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_user_action_log`
+--
+ALTER TABLE `cmf_user_action_log`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_object_action` (`user_id`,`object`,`action`),
+  ADD KEY `user_object_action_ip` (`user_id`,`object`,`action`,`ip`);
+
+--
+-- Indexes for table `cmf_user_balance_log`
+--
+ALTER TABLE `cmf_user_balance_log`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_user_favorite`
+--
+ALTER TABLE `cmf_user_favorite`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `uid` (`user_id`);
+
+--
+-- Indexes for table `cmf_user_login_attempt`
+--
+ALTER TABLE `cmf_user_login_attempt`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_user_score_log`
+--
+ALTER TABLE `cmf_user_score_log`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_user_token`
+--
+ALTER TABLE `cmf_user_token`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cmf_verification_code`
+--
+ALTER TABLE `cmf_verification_code`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 在导出的表使用AUTO_INCREMENT
+--
+
+--
+-- 使用表AUTO_INCREMENT `cmf_admin_menu`
+--
+ALTER TABLE `cmf_admin_menu`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_asset`
+--
+ALTER TABLE `cmf_asset`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_auth_access`
+--
+ALTER TABLE `cmf_auth_access`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_auth_rule`
+--
+ALTER TABLE `cmf_auth_rule`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '规则id,自增主键', AUTO_INCREMENT=162;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_comment`
+--
+ALTER TABLE `cmf_comment`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_hook`
+--
+ALTER TABLE `cmf_hook`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_hook_plugin`
+--
+ALTER TABLE `cmf_hook_plugin`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_link`
+--
+ALTER TABLE `cmf_link`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_nav`
+--
+ALTER TABLE `cmf_nav`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_nav_menu`
+--
+ALTER TABLE `cmf_nav_menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_option`
+--
+ALTER TABLE `cmf_option`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_plugin`
+--
+ALTER TABLE `cmf_plugin`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增id';
+
+--
+-- 使用表AUTO_INCREMENT `cmf_portal_category`
+--
+ALTER TABLE `cmf_portal_category`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '分类id', AUTO_INCREMENT=9;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_portal_category_post`
+--
+ALTER TABLE `cmf_portal_category_post`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_portal_post`
+--
+ALTER TABLE `cmf_portal_post`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_portal_tag`
+--
+ALTER TABLE `cmf_portal_tag`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '分类id';
+
+--
+-- 使用表AUTO_INCREMENT `cmf_portal_tag_post`
+--
+ALTER TABLE `cmf_portal_tag_post`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_recycle_bin`
+--
+ALTER TABLE `cmf_recycle_bin`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_role`
+--
+ALTER TABLE `cmf_role`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_role_user`
+--
+ALTER TABLE `cmf_role_user`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_route`
+--
+ALTER TABLE `cmf_route`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '路由id';
+
+--
+-- 使用表AUTO_INCREMENT `cmf_slide`
+--
+ALTER TABLE `cmf_slide`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_slide_item`
+--
+ALTER TABLE `cmf_slide_item`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_theme`
+--
+ALTER TABLE `cmf_theme`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_theme_file`
+--
+ALTER TABLE `cmf_theme_file`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_third_party_user`
+--
+ALTER TABLE `cmf_third_party_user`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_user`
+--
+ALTER TABLE `cmf_user`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_user_action`
+--
+ALTER TABLE `cmf_user_action`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_user_action_log`
+--
+ALTER TABLE `cmf_user_action_log`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_user_balance_log`
+--
+ALTER TABLE `cmf_user_balance_log`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_user_favorite`
+--
+ALTER TABLE `cmf_user_favorite`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_user_login_attempt`
+--
+ALTER TABLE `cmf_user_login_attempt`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_user_score_log`
+--
+ALTER TABLE `cmf_user_score_log`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_user_token`
+--
+ALTER TABLE `cmf_user_token`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- 使用表AUTO_INCREMENT `cmf_verification_code`
+--
+ALTER TABLE `cmf_verification_code`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '表id';
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -5,8 +5,8 @@
     <!--需要定位的导航-->
     <div class="nav-hidden nav-hidden-position clearfix" data-click='nav-one'>
         <div class="container">
-            <a class="image-p pull-left" href="index.html">
-                <img src="/style/img/logo-piao.png" />
+            <a class="image-p pull-left" href="/">
+                <img src="{:cmf_get_image_url($site_info.site_logo_p)}" />
             </a>
             <div class="nav-back pull-right">
                 <span class="nav-top fs24 DINPro-Bold">BACK&nbsp;TOP</span>
@@ -21,8 +21,8 @@
     <!--头部导航-->
     <div class="nav-hidden nav-jianbian clearfix" data-click='nav-two'>
         <div class="container">
-            <a class="image pull-left" href="index.html">
-                <img src="/style/img/logo.png" />
+            <a class="image pull-left" href="/">
+                <img src="{:cmf_get_image_url($site_info.site_logo)}" />
             </a>
             <div class="nav-back pull-right">
                 <span class="nav-top fs26 DINPro-Bold">BACK&nbsp;TOP</span>
@@ -36,8 +36,8 @@
     </div>
     <div class="nav-show ptb60 clearfix">
         <div class="container pro-base-lineb">
-            <a class="image pb60 pull-left" href="index.html">
-                <img src="/style/img/logo2.png" />
+            <a class="image pb60 pull-left" href="/">
+                <img src="{:cmf_get_image_url($site_info.site_logo_z)}" />
             </a>
             <div class="nav-bottom pull-right clearfix">
                 <i></i>
@@ -62,110 +62,64 @@
                 </div>
                 <div class="tab-pane" id="category_02">
                     <ul class="nav-mian-list fs16">
-                        <li>
-                            有数广告是一家深耕商业摄影领域多年的视觉服务商，自<span class="DINPro-biao">2011</span>年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国
-                            多年的视觉服务商，自<span class="DINPro-biao">2011</span>年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国
-                            多年的视觉服务商，自<span class="DINPro-biao">2011</span>年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国
-                        </li>
-                        <li class="DINPro-biao">
-                            2our website, it is our
-                            understanding that you are granting your
-                            consent website, it is our
-                            understanding that you are granting your
-                            consent website, it is our
-                            understanding that you are granting your
-                            consent to the use of cookies. You may obta
-                            understanding thes to make it easier for
-                            you to browse our website. If you, a
-                            s a user, visit our website, it is our
-                            understanding th our website, it is our
-                            understanding that you are granting your
-                            consent to the use of cookies. You may obta
-                            understanding thes to make it easier for
-                            you to browse our website. If you, a
-                            s a user, visit our website, it is our
-                            understanding th our website, it is our
-                            understanding that you are granting your
-                            consent to the use of cookies. You may obta
-                            understanding thes to make it easier for
-                            you to browse our website. If you, a
-                            s a user, visit our website, it is our
-                            understanding th our website, it is our
-                            understanding that you are granting your
-                            consent to the use of cookies. You may obta
-                            understanding thes to make it easier for
-                            you to browse our website. If you, a
-                            s a user, visit our website, it is our
-                            understanding th
-                        </li>
+                        <php>
+                            $where5 = ['id'=>5];
+                        </php>
+                        <portal:categories where="$where5" item="vo">
+                            <li>
+                                {$vo.description_cn|default=''}
+                            </li>
+                            <li class="DINPro-biao">
+                                {$vo.description_en|default=''}
+                            </li>
+                        </portal:categories>
+
                     </ul>
                 </div>
                 <div class="tab-pane" id="category_03">
                     <ul class="nav-mian-list">
-                        <li>
-                            <p>
-                                <span>+86 028 68333800</span>
-                            </p>
-                            <p>
-                                <span>usure@foxmail.com</span>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <span>成都有数广告有限责任公司</span>
-                            </p>
-                            <p>
-                                <span>Chengdu USURE CREATION Co., Ltd.</span>
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                <span>成都市高新区环球中心W2区1502室</span>
-                            </p>
-                            <p>
-                                <span>1502, W2 Zone, Global Center, High-Tech District, Chengdu</span>
-                            </p>
-                        </li>
+                        <portal:articles limit="3" categoryIds="6" order="post.published_time asc">
+                            <li>
+                                <p>
+                                    <span>{$vo.post_source}</span>
+                                </p>
+                                <p>
+                                    <span>{$vo.post_excerpt}</span>
+                                </p>
+                            </li>
+                        </portal:articles>
                     </ul>
                 </div>
                 <div class="tab-pane" id="category_04">
                     <ul class="nav-mian-list clearfix">
-                        <li>
-                            We are a passionate and subjective initiative of the team, founded in 2016the company, you are welcome to join
-                            我们是一个富有热情和主观能动性的团队创办于2016年的公司，欢迎您的加入,以下是我们的招聘职位
-                        </li>
-                        <li>
-                            <div class="text">
-                                <p><span>设计师</span> <span>designer</span></p>
-                                <p>去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="text">
-                                <p><span>设计师</span> <span>designer</span></p>
-                                <p>去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="text">
-                                <p><span>设计师</span> <span>designer</span></p>
-                                <p>去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。</p>
-                            </div>
-                        </li>
+                        <php>
+                            $where7 = ['id'=>7];
+                        </php>
+                        <portal:categories where="$where7" item="vo">
+                            <li>
+                                {$vo.description|default=''}
+                            </li>
+                        </portal:categories>
+                        <portal:articles categoryIds="7" order="post.published_time asc" limit="3">
+                            <li>
+                                <div class="text">
+                                    <p><span>{$vo.post_title|default=''}</span> <span>{$vo.post_title_fu|default=''}</span></p>
+                                    <p>{$vo.post_source|default=''}</p>
+                                </div>
+                            </li>
+                        </portal:articles>
                     </ul>
                 </div>
                 <div class="tab-pane" id="category_05">
                     <ul class="nav-mian-list">
                         <li>
-                            <p>本网站版权属成都有数广告有限责任公司所有，未经成都有数广告有限责任公司书面授权，任何企业、网站、个人不得转载、摘编、镜像或利用其它方式使用本站内容。违者本网站将依法追究其法律责任。</p>
-                            <p>The copyright of this website is owned by Chengdu USURE
-                                CREATION Co.,
-                                Ltd. Without the written authori-zation of Chengdu
-                                USURE CREATION Co., Ltd. any en-terprise, website or
-                                individual may not reproduce, ex-cerpt, mirror or otherwise
-                                use the contents of this website. Violators of this site
-                                will be held legally respon-sible.
-                            </p>
+                            <php>
+                                $where8 = ['id'=>8];
+                            </php>
+                            <portal:categories where="$where8" item="vo">
+                                <p>{$vo.description_cn|default=''}</p>
+                                <p>{$vo.description_en|default=''}</p>
+                            </portal:categories>
                         </li>
                     </ul>
                 </div>
@@ -180,24 +134,44 @@
 			            	</span>
                     </li>
                     <li id="category_title02">
-			            	<span>
-			            		ABOUT&nbsp;US
+                        <php>
+                            $where5 = ['id'=>5];
+                        </php>
+                        <portal:categories where="$where5" item="vo">
+                            <span>
+			            		{$vo.name}
 			            	</span>
+                        </portal:categories>
                     </li>
                     <li id="category_title03">
-			            	<span>
-			            		CONTACT&nbsp;US
+                        <php>
+                            $where6 = ['id'=>6];
+                        </php>
+                        <portal:categories where="$where6" item="vo">
+                            <span>
+			            		{$vo.name}
 			            	</span>
+                        </portal:categories>
                     </li>
                     <li id="category_title04">
-			            	<span>
-			            		JOIN&nbsp;US
+                        <php>
+                            $where7 = ['id'=>7];
+                        </php>
+                        <portal:categories where="$where7" item="vo">
+                            <span>
+			            		{$vo.name}
 			            	</span>
+                        </portal:categories>
                     </li>
                     <li id="category_title05">
-			            	<span>
-			            		COPYRIGHT
+                        <php>
+                            $where8 = ['id'=>8];
+                        </php>
+                        <portal:categories where="$where8" item="vo">
+                            <span>
+			            		{$vo.name}
 			            	</span>
+                        </portal:categories>
                     </li>
                 </ul>
             </div>
@@ -222,24 +196,35 @@
         <!--<a class="about-us-more fs20" href="#"> MORE</a>-->
         <div class="col-md-8">
             <div class="text">
-                <div class="ying DINPro-biao">
-                    FOCUS ON<br />
-                    COMMERCIAL PHOTOGRAPHY
-                </div>
-                <div class="zhong">
-                    特别有数的商业摄影
-                </div>
-                <div class="fs18 mg70 text-zhong w956">
-                    有数广告是一家深耕商业摄影领域多年的视觉服务商，自<span class="DINPro-biao">2011</span>年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国内外领先企业提供着专业的传统广告拍摄和线上商品展示服务。在一味追求差异化视觉表达的当下，有数广告强调事无巨细地前期沟通，坚持从项目核心诉求出发，充分考虑视觉受众，在满足易用性的前提下，以小而美的创意提升画面趣味。秉持这种平衡的创作理念，有数广告致力于为客户打造既适应营销又兼具观赏性的优质商业影像。”
-                </div>
-                <div class="fs18 mt66 DINPro-Bold text-ying">
-                    "A number of advertising is a deep field of commercial photography for many years in the field of visual service providers, since its inception in Chengdu, China since 2011, has been for a number of clothing from footwear, space design, retail department stores at home and abroad leading enterprises to provide professional traditional advertising And online goods display services in the blind pursuit of differentiated visual expression of the moment, there are several ads stressed that the size of the early communication, insisted from the project core demands, fully consider the visual audience, to meet the premise of ease of use to small And the creativity of the United States to enhance the picture fun. Uphold the balance of the creative concept, there are several ads committed to customers to create both to adapt to both marketing and ornamental high - quality commercial images.
-                </div>
+                <php>
+                    $where = ['id'=>1];
+                </php>
+                <portal:categories where="$where" item="vo">
+                    <div class="ying DINPro-biao">
+                        {$vo.description|default=''}<br />
+                        {$vo.description_en|default=''}
+                    </div>
+                    <div class="zhong">
+                        {$vo.description_cn|default=''}
+                    </div>
+                </portal:categories>
+                <php>
+                    $wheres = ['id'=>4];
+                </php>
+                <portal:categories where="$wheres" item="vo">
+                    <div class="fs18 mg70 text-zhong w956">
+                        {$vo.description_cn|default=''}
+                    </div>
+                    <div class="fs18 mt66 DINPro-Bold text-ying">
+                        {$vo.description_en|default=''}
+                    </div>
+                </portal:categories>
+
             </div>
         </div>
         <div class="col-md-4">
             <div class="image">
-                <img src="/style/img/01.png"/>
+                <img src="{:cmf_get_image_url($vo['more']['thumbnail'])}"/>
             </div>
         </div>
     </div>
