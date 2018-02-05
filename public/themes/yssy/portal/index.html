@@ -238,640 +238,285 @@
             <!--a的属性data-width是展示大图的时候的宽度，可用百分比可用px-->
             <!--img src 属性不用管，就固定用bg.png-->
             <!--1排2列-->
-            <a href="/style/img/01.jpg" rel="YLlightbox" data-width="100%" class="w504 h747">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="10" limit="1" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="w504 h747">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/1.jpg" rel="YLlightbox" data-width="75%" class="h747 w1120">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/1.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+                </a>
+            </portal:articles>
+            <portal:articles categoryIds="10" limit="1,1" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h747 w1120">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
+
             <!--2排3列-->
-            <a href="/style/img/2.jpg" rel="YLlightbox" data-width="100%" class="h588 w392">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/2.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="11" limit="2" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h588 w392">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/3.jpg" rel="YLlightbox" data-width="75%" class="h588 w392">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/3.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+                </a>
+            </portal:articles>
+            <portal:articles categoryIds="11" limit="2,1" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h588 w784">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/4.jpg" rel="YLlightbox" data-width="25%" class="h588 w784">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/4.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+                </a>
+            </portal:articles>
+            <portal:articles categoryIds="12" limit="2" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h588 w392">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/5.jpg" rel="YLlightbox" data-width="25%" class="h588 w392">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/5.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+                </a>
+            </portal:articles>
+            <portal:articles categoryIds="12" limit="2,1" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h588 w784">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/6.jpg" rel="YLlightbox" data-width="25%" class="h588 w392">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/6.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/7.jpg" rel="YLlightbox" data-width="25%" class="h588 w784">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/7.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
             <!--1排3列-->
-            <a href="/style/img/8.jpg" rel="YLlightbox" data-width="25%" class="h785 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/8.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="13" limit="3" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h785 w522">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/9.jpg" rel="YLlightbox" data-width="25%" class="h785 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/9.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/10.jpg" rel="YLlightbox" data-width="25%" class="h785 w523">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/10.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
             <!--11-->
-            <a href="/style/img/11.jpg" rel="YLlightbox" data-width="25%" class="h785 w1120">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/11.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="14" limit="1" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h785 w1120">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/12.jpg" rel="YLlightbox" data-width="25%" class="h785 w504">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/12.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+                </a>
+            </portal:articles>
+            <portal:articles categoryIds="14" limit="1,1" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h785 w504">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
             <!--1排4列-->
-            <a href="/style/img/13.jpg" rel="YLlightbox" data-width="25%" class="h567 w378">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/13.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="15" limit="4" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h567 w378">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/14.jpg" rel="YLlightbox" data-width="25%" class="h567 w378">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/14.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/16.jpg" rel="YLlightbox" data-width="25%" class="h567 w378">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/16.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/15.jpg" rel="YLlightbox" data-width="25%" class="h567 w378">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/15.jpg">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
             <!--17-->
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h1120 w1680">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="16" limit="1" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h1120 w1680">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
             <!--18-->
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h540 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="17" limit="4" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h540 w812">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h540 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h540 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h540 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
             <!--1排4列-->
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h567 w378">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="18" limit="4" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h567 w378">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h567 w378">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+                </a>
+            </portal:articles>
+            <portal:articles categoryIds="19" limit="4" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h540 w812">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h567 w378">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h567 w378">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h540 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png" class="h540">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h540 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h540 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h540 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
             <!--3排3列-->
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="20" limit="9" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h780 w522">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+                </a>
+            </portal:articles>
+            <portal:articles categoryIds="21" limit="2" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h1216 w812">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w523">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+                </a>
+            </portal:articles>
+            <portal:articles categoryIds="22" limit="6" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h780 w522">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+                </a>
+            </portal:articles>
+            <portal:articles categoryIds="23" limit="2" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h1216 w812">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w523">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w523">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h1216 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h1216 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w523">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w523">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h1216 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h1216 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
+
             <!--2排3列-->
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="24" limit="6" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h780 w522">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w523">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w523">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
             <!--2排1列-->
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h1120 w1680">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="25" limit="2" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h1120 w1680">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h1120 w1680">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
             <!--1排2列-->
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h540 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="26" limit="2" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h540 w812">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h540 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
             <!--1排1列-->
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h1120 w1680">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="27" limit="1" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h1120 w1680">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+                </a>
+            </portal:articles>
+            <portal:articles categoryIds="28" limit="3" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h780 w522">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w522">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h780 w523">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
             <!--3排2列-->
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%" class="h610 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
+            <portal:articles categoryIds="29" limit="6" order="post.published_time asc">
+                <a href="{:cmf_get_image_url($vo['more']['thumbnail'])}" rel="YLlightbox" data-width="{$vo.radio}%" class="h610 w812">
+                    <img class="lazy" src="{:cmf_get_image_url($vo['more']['thumbnail'])}" data-original="{:cmf_get_image_url($vo['more']['thumbnail'])}">
+                    <div class="ys-photo-bg">
+                        <div class="main">
+                            <p>{$vo.post_title|default=''}</p>
+                            <p>{$vo.post_title_fu|default=''}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%"  class="h610 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%"  class="h610 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%"  class="h610 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%"  class="h610 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
-            <a href="/style/img/01.png" rel="YLlightbox" data-width="25%"  class="h610 w812">
-                <img class="lazy" src="/style/img/bg.png" data-original="/style/img/01.png">
-                <div class="ys-photo-bg">
-                    <div class="main">
-                        <p>NIBOUL JEANS</p>
-                        <p>By ZhangJunlin</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </portal:articles>
         </div>
     </div>
 </div>

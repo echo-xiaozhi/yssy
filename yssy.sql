@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2018-02-04 21:18:33
+-- Generation Time: 2018-02-05 21:20:48
 -- 服务器版本： 5.6.39
 -- PHP Version: 7.2.2
 
@@ -240,7 +240,24 @@ INSERT INTO `cmf_asset` (`id`, `user_id`, `file_size`, `create_time`, `status`, 
 (1, 1, 1438811, 1517744107, 1, 0, '6e35c239bff3513537f81cca6ce599bdd7ac318f70bc0a3f7462467580648d3f', '01.png', 'portal/20180204/921b6af12f2f86621f0f4bdb28e55c1a.png', '6e35c239bff3513537f81cca6ce599bd', '4d25f048340f8d5ef70da4a063770d5a9436421c', 'png', NULL),
 (2, 1, 4524, 1517749736, 1, 0, '8b2e9e7855e9975ec37bb7971043cf2896093953c4a542a01a3e7dcd70b571b0', 'logo.png', 'admin/20180204/39eb4e974a37c29e71fc3eddd669d9ad.png', '8b2e9e7855e9975ec37bb7971043cf28', 'dc78916d838e34733ba12cdae235ff8126a1773d', 'png', NULL),
 (3, 1, 4691, 1517749894, 1, 0, 'e3efbc655af1d4d7be960b87742d83ed5cbbc8b095d81bba197210fd8b85c43c', 'logo-piao.png', 'admin/20180204/b3099f26d8d9e47cc3216b635609a142.png', 'e3efbc655af1d4d7be960b87742d83ed', 'e82fb150955eea7b4ef04d73a866b0d6b019ce36', 'png', NULL),
-(4, 1, 27269, 1517749902, 1, 0, '9cf21409d4ed08a74cf581fb9d39160e61bb4329239861184c7c88954e62b426', 'logo2.png', 'admin/20180204/205566a13488d45e3a4ed12e986f69d8.png', '9cf21409d4ed08a74cf581fb9d39160e', '19942d4305f99201f439c005214d3f2e1647677b', 'png', NULL);
+(4, 1, 27269, 1517749902, 1, 0, '9cf21409d4ed08a74cf581fb9d39160e61bb4329239861184c7c88954e62b426', 'logo2.png', 'admin/20180204/205566a13488d45e3a4ed12e986f69d8.png', '9cf21409d4ed08a74cf581fb9d39160e', '19942d4305f99201f439c005214d3f2e1647677b', 'png', NULL),
+(5, 1, 133447, 1517830660, 1, 0, '4229a8658925f1e9ba444acd34c3c4b1ec8dbe1ff7361190a0a912c882ea6445', '01.jpg', 'portal/20180205/c64ba3d25a249e3f8b97a6553cb25b93.jpg', '4229a8658925f1e9ba444acd34c3c4b1', '2efc1e0805df71c6ddf53024ab5c86f321863cf5', 'jpg', NULL),
+(6, 1, 281587, 1517830749, 1, 0, 'f01ad86b9495bc719b7739d7bcd84328ca421bc5bf3b5b080c269c792e27b0d5', '1.jpg', 'portal/20180205/1c6eca232bd7cebd40c158dbf5276692.jpg', 'f01ad86b9495bc719b7739d7bcd84328', '981d55757f44055b942754d193d2599a8522aa3b', 'jpg', NULL),
+(7, 1, 119029, 1517831100, 1, 0, 'f675efa2dba90564a270bf549e86357d8a4e1e3eafd6e6ea5d5698cfade1522c', '2.jpg', 'portal/20180205/b9bee1794a83b30ae1f2d149e9e21d9c.jpg', 'f675efa2dba90564a270bf549e86357d', '896ea5ee13bc5b5f1c7a028b0e501ebcd40a46c6', 'jpg', NULL),
+(8, 1, 103394, 1517831160, 1, 0, '6fc27047e778f7954dc43436957354810629f0d536a25da3e4ffc9be4068f36f', '3.jpg', 'portal/20180205/ad7624ebfec554826f53a5bd7d0ee718.jpg', '6fc27047e778f7954dc4343695735481', '33292f61b5993ac630fbdf61d738a4fac03d887c', 'jpg', NULL),
+(9, 1, 220172, 1517831177, 1, 0, '5b3c6b62c5aa7da686bd9b2c8ff9dcdddeddae8d327a56513d0066ae30c36e8c', '4.jpg', 'portal/20180205/57bf8a66fb02488462ab729822c7be9a.jpg', '5b3c6b62c5aa7da686bd9b2c8ff9dcdd', '3bce297a79035456abdb9662d43f096b7557c771', 'jpg', NULL),
+(10, 1, 82826, 1517831240, 1, 0, 'a4beae6660d8035074addb6f1a38f00eb9c67596135a5c6fdde7787deefd65a1', '5.jpg', 'portal/20180205/fd6f139c46290bb3bdbf18e97faa6b4a.jpg', 'a4beae6660d8035074addb6f1a38f00e', '9f7d1a27a635de5c85e050b4ddbaa02774b1e06e', 'jpg', NULL),
+(11, 1, 67127, 1517831262, 1, 0, '6c1b55ed52026f39eac2c85685c53cc81ae420d53b4f463d393350a4e136ad4d', '6.jpg', 'portal/20180205/7dac6b2b27555e6fed432a8aaf052b94.jpg', '6c1b55ed52026f39eac2c85685c53cc8', '62c681c9f941c143fd788f9e167ee557d98bb9b8', 'jpg', NULL),
+(12, 1, 219144, 1517831284, 1, 0, 'ea3cbc96a929d68860e49bf448df232fc3ea4343c832ef2ef0bf8ccb53a36842', '7.jpg', 'portal/20180205/9ee5b4f452287f0cc87bc17c34e105fd.jpg', 'ea3cbc96a929d68860e49bf448df232f', 'a6715372a6f988631a8182b202983cca14b01c7d', 'jpg', NULL),
+(13, 1, 254578, 1517831415, 1, 0, '466ffdb4cfdcad469e311871fef202cfaa1684c8fed5cc52708d23b55005324f', '8.jpg', 'portal/20180205/5355de1546fb27fb1a40a48b9efac6c7.jpg', '466ffdb4cfdcad469e311871fef202cf', '738fd38997397ac386de59ab8147fe216eb23490', 'jpg', NULL),
+(14, 1, 173975, 1517831435, 1, 0, 'e279ee4a3ae6a421223045b536507a383fb9efe729a0570e162ae118e4ea56a8', '9.jpg', 'portal/20180205/87c334748ac30431f923114b0079925e.jpg', 'e279ee4a3ae6a421223045b536507a38', 'cc45b30cc08d4756f1ded56881cb32b44a264595', 'jpg', NULL),
+(15, 1, 195672, 1517831456, 1, 0, '860f1d49f03ac31db2f4e2b069f4bf2542b3699e95d0f63e75fba0eed7600ac7', '10.jpg', 'portal/20180205/6e540d514799e1003384f602ce537d59.jpg', '860f1d49f03ac31db2f4e2b069f4bf25', 'a60e5e4142183f8b772ca1f1a339c6d5c9a8eb43', 'jpg', NULL),
+(16, 1, 357797, 1517831488, 1, 0, '3cebb2e80bfe37bd9e1d7d4ffb6487becdd690f0c20a10219e1414f01860f87b', '11.jpg', 'portal/20180205/8dffda5208324782a878f6f7935901af.jpg', '3cebb2e80bfe37bd9e1d7d4ffb6487be', '184ea9f27aa1a69863c175a4cf33011d356a4c14', 'jpg', NULL),
+(17, 1, 113194, 1517831512, 1, 0, 'befd664c9364f02736e2837d202228656e1a7d2d6738c72dbd40e6fc33cd94eb', '12.jpg', 'portal/20180205/d34c6a88427154b15e38e62207acea21.jpg', 'befd664c9364f02736e2837d20222865', '184817925a58793f4806e13d646612bf51dd2b16', 'jpg', NULL),
+(18, 1, 86629, 1517831548, 1, 0, '3dc7708daf0a49b53f20f4d1cedff3b65130b62b367b038264df0457ca4fcdfe', '13.jpg', 'portal/20180205/1b39ab8b3304ddf0ec8377a69f610d0f.jpg', '3dc7708daf0a49b53f20f4d1cedff3b6', '7204032830945e689ba33a0ab2ae00a48cb60680', 'jpg', NULL),
+(19, 1, 89131, 1517831569, 1, 0, 'b5a4a621dcdbb65c36cef53013617c9334925a999313d562a6730c044d39f0ad', '14.jpg', 'portal/20180205/c4c4e33ab8cea06895dbae682a2c7ca2.jpg', 'b5a4a621dcdbb65c36cef53013617c93', '90f34527423b61c8912a6f9e5e6f1cf50d2c9274', 'jpg', NULL),
+(20, 1, 102301, 1517831590, 1, 0, 'e51842896b9372453a5104eee2951c935598633521c2a0196a256fe2374f0b2d', '15.jpg', 'portal/20180205/e3e31f5d28467ef3cb9fe5eb4aecbbec.jpg', 'e51842896b9372453a5104eee2951c93', '5df04dcbbd2f8fc3d791f429b792fc48b9a0dfa4', 'jpg', NULL),
+(21, 1, 136374, 1517831618, 1, 0, '61c85b4710b326868f752bdf32b168b4c0fd00cf1df8379330649b13ab7d93cd', '16.jpg', 'portal/20180205/4e91150fda819badfc2d054688dd724a.jpg', '61c85b4710b326868f752bdf32b168b4', '1f911a2c2e0ba74f51132396cd794de6bc1d8dd8', 'jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -622,7 +639,7 @@ CREATE TABLE `cmf_option` (
 --
 
 INSERT INTO `cmf_option` (`id`, `autoload`, `option_name`, `option_value`) VALUES
-(1, 1, 'site_info', '{\"site_name\":\"\\u6709\\u6570\\u6444\\u5f71\",\"site_seo_title\":\"\\u6709\\u6570\\u6444\\u5f71\",\"site_seo_keywords\":\"\\u6709\\u6570\\u5e7f\\u544a\\uff0c\\u5546\\u4e1a\\u6444\\u5f71\",\"site_seo_description\":\"\\u6709\\u6570\\u5e7f\\u544a\\u662f\\u4e00\\u5bb6\\u6df1\\u8015\\u5546\\u4e1a\\u6444\\u5f71\\u9886\\u57df\\u591a\\u5e74\\u7684\\u89c6\\u89c9\\u670d\\u52a1\\u5546\",\"site_icp\":\"\",\"site_admin_email\":\"\",\"site_analytics\":\"\",\"urlmode\":\"1\",\"html_suffix\":\"\",\"site_logo\":\"admin\\/20180204\\/39eb4e974a37c29e71fc3eddd669d9ad.png\",\"site_logo_p\":\"admin\\/20180204\\/b3099f26d8d9e47cc3216b635609a142.png\",\"site_logo_z\":\"admin\\/20180204\\/205566a13488d45e3a4ed12e986f69d8.png\"}'),
+(1, 1, 'site_info', '{\"site_name\":\"\\u6709\\u6570\\u6444\\u5f71\",\"site_seo_title\":\"\\u6709\\u6570\\u6444\\u5f71\",\"site_seo_keywords\":\"\\u6709\\u6570\\u5e7f\\u544a\\uff0c\\u5546\\u4e1a\\u6444\\u5f71\",\"site_seo_description\":\"\\u6709\\u6570\\u5e7f\\u544a\\u662f\\u4e00\\u5bb6\\u6df1\\u8015\\u5546\\u4e1a\\u6444\\u5f71\\u9886\\u57df\\u591a\\u5e74\\u7684\\u89c6\\u89c9\\u670d\\u52a1\\u5546\",\"site_icp\":\"\",\"site_admin_email\":\"\",\"site_analytics\":\"\",\"urlmode\":\"1\",\"html_suffix\":\"\",\"site_logo\":\"admin\\/20180204\\/39eb4e974a37c29e71fc3eddd669d9ad.png\",\"site_logo_p\":\"admin\\/20180204\\/b3099f26d8d9e47cc3216b635609a142.png\",\"site_logo_z\":\"admin\\/20180204\\/205566a13488d45e3a4ed12e986f69d8.png\",\"site_banquan_en\":\"COPYRIGHT \\u00a9 2011 - 2017 USURE CREATION. All RIGHTS RESERVED.\",\"site_banquan\":\"\\u6709\\u6570\\u5e7f\\u544a \\u7248\\u6743\\u6240\\u6709 \\/ \\u4eacIPC\\u8bc1130164\\u53f7\"}'),
 (2, 1, 'cmf_settings', '{\"open_registration\":\"0\",\"banned_usernames\":\"\"}'),
 (3, 1, 'cdn_settings', '{\"cdn_static_root\":\"\"}'),
 (4, 1, 'admin_settings', '{\"admin_password\":\"\",\"admin_style\":\"flatadmin\"}'),
@@ -689,7 +706,28 @@ INSERT INTO `cmf_portal_category` (`id`, `parent_id`, `post_count`, `status`, `d
 (5, 0, 0, 1, 0, 10000, 'ABOUT US', '', '有数广告是一家深耕商业摄影领域多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国 多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国 多年的视觉服务商，自2011年在中国成都创立以来，一直为多家来自服装鞋履、空间设计、零售百货的国', '2our website, it is our understanding that you are granting your consent website, it is our understanding that you are granting your consent website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th our website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th our website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th our website, it is our understanding that you are granting your consent to the use of cookies. You may obta understanding thes to make it easier for you to browse our website. If you, a s a user, visit our website, it is our understanding th', '0-5', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
 (6, 0, 0, 1, 0, 10000, 'CONTACT US', '', '', '', '0-6', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
 (7, 0, 0, 1, 0, 10000, 'JOIN US', 'WE ARE A PASSIONATE AND SUBJECTIVE INITIATIVE OF THE TEAM, FOUNDED IN 2016THE COMPANY, YOU ARE WELCOME TO JOIN 我们是一个富有热情和主观能动性的团队创办于2016年的公司，欢迎您的加入,以下是我们的招聘职位', '', '', '0-7', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
-(8, 0, 0, 1, 0, 10000, 'COPYRIGHT', '', '本网站版权属成都有数广告有限责任公司所有，未经成都有数广告有限责任公司书面授权，任何企业、网站、个人不得转载、摘编、镜像或利用其它方式使用本站内容。违者本网站将依法追究其法律责任。', 'The copyright of this website is owned by Chengdu USURE CREATION Co., Ltd. Without the written authori-zation of Chengdu USURE CREATION Co., Ltd. any en-terprise, website or individual may not reproduce, ex-cerpt, mirror or otherwise use the contents of this website. Violators of this site will be held legally respon-sible.', '0-8', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}');
+(8, 0, 0, 1, 0, 10000, 'COPYRIGHT', '', '本网站版权属成都有数广告有限责任公司所有，未经成都有数广告有限责任公司书面授权，任何企业、网站、个人不得转载、摘编、镜像或利用其它方式使用本站内容。违者本网站将依法追究其法律责任。', 'The copyright of this website is owned by Chengdu USURE CREATION Co., Ltd. Without the written authori-zation of Chengdu USURE CREATION Co., Ltd. any en-terprise, website or individual may not reproduce, ex-cerpt, mirror or otherwise use the contents of this website. Violators of this site will be held legally respon-sible.', '0-8', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(9, 0, 0, 1, 0, 10000, '首页图片', '', '', '', '0-9', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(10, 9, 0, 1, 0, 10000, '左小右大', '', '', '', '0-9-10', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(11, 9, 0, 1, 0, 10000, '左二小右一大1', '', '', '', '0-9-11', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(12, 9, 0, 1, 0, 10000, '左二小右一大2', '', '', '', '0-9-12', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(13, 9, 0, 1, 0, 10000, '平均三1', '', '', '', '0-9-13', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(14, 9, 0, 1, 0, 10000, '左大右小', '', '', '', '0-9-14', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(15, 9, 0, 1, 0, 10000, '平均四1', '', '', '', '0-9-15', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(16, 9, 0, 1, 0, 10000, '一大1', '', '', '', '0-9-16', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(17, 9, 0, 1, 0, 10000, '平均二*2', '', '', '', '0-9-17', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(18, 9, 0, 1, 0, 10000, '平均四2', '', '', '', '0-9-18', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(19, 9, 0, 1, 0, 10000, '平均二*22', '', '', '', '0-9-19', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(20, 9, 0, 1, 0, 10000, '平均三*3', '', '', '', '0-9-20', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(21, 9, 0, 1, 0, 10000, '平均二1', '', '', '', '0-9-21', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(22, 9, 0, 1, 0, 10000, '平均三*2', '', '', '', '0-9-22', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(23, 9, 0, 1, 0, 10000, '平均二2', '', '', '', '0-9-23', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(24, 9, 0, 1, 0, 10000, '平均三*22', '', '', '', '0-9-24', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(25, 9, 0, 1, 0, 10000, '一大*2', '', '', '', '0-9-25', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(26, 9, 0, 1, 0, 10000, '平均二3', '', '', '', '0-9-26', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(27, 9, 0, 1, 0, 10000, '一大2', '', '', '', '0-9-27', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(28, 9, 0, 1, 0, 10000, '平均三2', '', '', '', '0-9-28', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}'),
+(29, 9, 0, 1, 0, 10000, '平均二*3', '', '', '', '0-9-29', '', '', '', 'list', 'article', '{\"thumbnail\":\"\"}');
 
 -- --------------------------------------------------------
 
@@ -715,7 +753,73 @@ INSERT INTO `cmf_portal_category_post` (`id`, `post_id`, `category_id`, `list_or
 (3, 3, 6, 10000, 1),
 (4, 4, 7, 10000, 1),
 (5, 5, 7, 10000, 1),
-(6, 6, 7, 10000, 1);
+(6, 6, 7, 10000, 1),
+(7, 7, 10, 10000, 1),
+(8, 8, 10, 10000, 1),
+(9, 9, 11, 10000, 1),
+(10, 10, 11, 10000, 1),
+(11, 11, 11, 10000, 1),
+(12, 12, 12, 10000, 1),
+(13, 13, 12, 10000, 1),
+(14, 14, 12, 10000, 1),
+(15, 15, 13, 10000, 1),
+(16, 16, 13, 10000, 1),
+(17, 17, 13, 10000, 1),
+(18, 18, 14, 10000, 1),
+(19, 19, 14, 10000, 1),
+(20, 20, 15, 10000, 1),
+(21, 21, 15, 10000, 1),
+(22, 22, 15, 10000, 1),
+(23, 23, 15, 10000, 1),
+(24, 24, 16, 10000, 1),
+(25, 25, 17, 10000, 1),
+(26, 26, 17, 10000, 1),
+(27, 27, 17, 10000, 1),
+(28, 28, 17, 10000, 1),
+(29, 29, 18, 10000, 1),
+(30, 30, 18, 10000, 1),
+(31, 31, 18, 10000, 1),
+(32, 32, 18, 10000, 1),
+(33, 33, 19, 10000, 1),
+(34, 34, 19, 10000, 1),
+(35, 35, 19, 10000, 1),
+(36, 36, 19, 10000, 1),
+(37, 37, 20, 10000, 1),
+(38, 38, 20, 10000, 1),
+(39, 39, 20, 10000, 1),
+(40, 40, 20, 10000, 1),
+(41, 41, 20, 10000, 1),
+(42, 42, 20, 10000, 1),
+(43, 43, 21, 10000, 1),
+(44, 44, 21, 10000, 1),
+(45, 45, 22, 10000, 1),
+(46, 46, 22, 10000, 1),
+(47, 47, 22, 10000, 1),
+(48, 48, 22, 10000, 1),
+(49, 49, 22, 10000, 1),
+(50, 50, 22, 10000, 1),
+(51, 51, 23, 10000, 1),
+(52, 52, 23, 10000, 1),
+(53, 53, 24, 10000, 1),
+(54, 54, 24, 10000, 1),
+(55, 55, 24, 10000, 1),
+(56, 56, 24, 10000, 1),
+(57, 57, 24, 10000, 1),
+(58, 58, 24, 10000, 1),
+(59, 59, 25, 10000, 1),
+(60, 60, 25, 10000, 1),
+(61, 61, 26, 10000, 1),
+(62, 62, 26, 10000, 1),
+(63, 63, 27, 10000, 1),
+(64, 64, 28, 10000, 1),
+(65, 65, 28, 10000, 1),
+(66, 66, 28, 10000, 1),
+(67, 67, 29, 10000, 1),
+(68, 68, 29, 10000, 1),
+(69, 69, 29, 10000, 1),
+(70, 70, 29, 10000, 1),
+(71, 71, 29, 10000, 1),
+(72, 72, 29, 10000, 1);
 
 -- --------------------------------------------------------
 
@@ -747,20 +851,87 @@ CREATE TABLE `cmf_portal_post` (
   `post_source` varchar(500) NOT NULL DEFAULT '' COMMENT '转载文章的来源',
   `post_content` text COMMENT '文章内容',
   `post_content_filtered` text COMMENT '处理过的文章内容',
-  `more` text COMMENT '扩展属性,如缩略图;格式为json'
+  `more` text COMMENT '扩展属性,如缩略图;格式为json',
+  `radio` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='portal应用 文章表' ROW_FORMAT=COMPACT;
 
 --
 -- 转存表中的数据 `cmf_portal_post`
 --
 
-INSERT INTO `cmf_portal_post` (`id`, `parent_id`, `post_type`, `post_format`, `user_id`, `post_status`, `comment_status`, `is_top`, `recommended`, `post_hits`, `post_like`, `comment_count`, `create_time`, `update_time`, `published_time`, `delete_time`, `post_title`, `post_title_fu`, `post_keywords`, `post_excerpt`, `post_source`, `post_content`, `post_content_filtered`, `more`) VALUES
-(1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748229, 1517748606, 1517748120, 0, '电话&amp;邮箱', '', '', 'usure@foxmail.com', '+86 028 68333800', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}'),
-(2, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748265, 1517748278, 1517748240, 0, '公司', '', '', 'Chengdu USURE CREATION Co., Ltd.', '成都有数广告有限责任公司', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}'),
-(3, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748294, 1517748294, 1517748280, 0, '地址', '', '', '1502, W2 Zone, Global Center, High-Tech District, Chengdu', '成都市高新区环球中心W2区1502室', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}'),
-(4, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748953, 1517748953, 1517748884, 0, '设计师', 'DESIGNER', '', '', '去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}'),
-(5, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748983, 1517748983, 1517748957, 0, '设计师', 'DESIGNER', '', '', '去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}'),
-(6, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748999, 1517748999, 1517748986, 0, '设计师', 'DESIGNER', '', '', '去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}');
+INSERT INTO `cmf_portal_post` (`id`, `parent_id`, `post_type`, `post_format`, `user_id`, `post_status`, `comment_status`, `is_top`, `recommended`, `post_hits`, `post_like`, `comment_count`, `create_time`, `update_time`, `published_time`, `delete_time`, `post_title`, `post_title_fu`, `post_keywords`, `post_excerpt`, `post_source`, `post_content`, `post_content_filtered`, `more`, `radio`) VALUES
+(1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748229, 1517748606, 1517748120, 0, '电话&amp;邮箱', '', '', 'usure@foxmail.com', '+86 028 68333800', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}', ''),
+(2, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748265, 1517748278, 1517748240, 0, '公司', '', '', 'Chengdu USURE CREATION Co., Ltd.', '成都有数广告有限责任公司', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}', ''),
+(3, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748294, 1517748294, 1517748280, 0, '地址', '', '', '1502, W2 Zone, Global Center, High-Tech District, Chengdu', '成都市高新区环球中心W2区1502室', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}', ''),
+(4, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748953, 1517748953, 1517748884, 0, '设计师', 'DESIGNER', '', '', '去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}', ''),
+(5, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748983, 1517748983, 1517748957, 0, '设计师', 'DESIGNER', '', '', '去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}', ''),
+(6, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517748999, 1517748999, 1517748986, 0, '设计师', 'DESIGNER', '', '', '去设计而不是去拼凑，善于发现美好也善于展现自己为这个世界增添更多的美丽。', NULL, NULL, '{\"thumbnail\":\"\",\"template\":\"\"}', ''),
+(7, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517830677, 1517830677, 1517830608, 0, 'NIBOUL JEANS', 'By ZhangJunlin', '', '', '', '', NULL, '{\"thumbnail\":\"portal\\/20180205\\/c64ba3d25a249e3f8b97a6553cb25b93.jpg\",\"template\":\"\"}', '100'),
+(8, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517830769, 1517830769, 1517830680, 0, 'NIBOUL JEANS', 'By ZhangJunlin', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/1c6eca232bd7cebd40c158dbf5276692.jpg\",\"template\":\"\"}', '75'),
+(9, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831108, 1517831108, 1517830943, 0, 'NIBOUL JEANS', 'By ZhangJunlin', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/b9bee1794a83b30ae1f2d149e9e21d9c.jpg\",\"template\":\"\"}', '100'),
+(10, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831163, 1517831163, 1517831111, 0, 'ZhANG JUNlIN', 'By ZhangJunlin', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/ad7624ebfec554826f53a5bd7d0ee718.jpg\",\"template\":\"\"}', '75'),
+(11, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831207, 1517831207, 1517831167, 0, 'ZhANG JUNlIN', 'By ZhangJunLin', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/57bf8a66fb02488462ab729822c7be9a.jpg\",\"template\":\"\"}', '50'),
+(12, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831244, 1517831244, 1517831213, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/fd6f139c46290bb3bdbf18e97faa6b4a.jpg\",\"template\":\"\"}', '75'),
+(13, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831269, 1517831269, 1517831249, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/7dac6b2b27555e6fed432a8aaf052b94.jpg\",\"template\":\"\"}', '50'),
+(14, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831287, 1517831287, 1517831273, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/9ee5b4f452287f0cc87bc17c34e105fd.jpg\",\"template\":\"\"}', '100'),
+(15, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831420, 1517831420, 1517831401, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/5355de1546fb27fb1a40a48b9efac6c7.jpg\",\"template\":\"\"}', '50'),
+(16, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831441, 1517831441, 1517831423, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/87c334748ac30431f923114b0079925e.jpg\",\"template\":\"\"}', '50'),
+(17, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831459, 1517831459, 1517831444, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/6e540d514799e1003384f602ce537d59.jpg\",\"template\":\"\"}', '75'),
+(18, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831492, 1517831492, 1517831474, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/8dffda5208324782a878f6f7935901af.jpg\",\"template\":\"\"}', '100'),
+(19, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831517, 1517831517, 1517831497, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/d34c6a88427154b15e38e62207acea21.jpg\",\"template\":\"\"}', '50'),
+(20, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831553, 1517831553, 1517831530, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/1b39ab8b3304ddf0ec8377a69f610d0f.jpg\",\"template\":\"\"}', '50'),
+(21, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831574, 1517831574, 1517831556, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/c4c4e33ab8cea06895dbae682a2c7ca2.jpg\",\"template\":\"\"}', '75'),
+(22, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831593, 1517831593, 1517831577, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/e3e31f5d28467ef3cb9fe5eb4aecbbec.jpg\",\"template\":\"\"}', '50'),
+(23, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831628, 1517831628, 1517831599, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180205\\/4e91150fda819badfc2d054688dd724a.jpg\",\"template\":\"\"}', '50'),
+(24, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831716, 1517831716, 1517831682, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '50'),
+(25, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831763, 1517831763, 1517831741, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '50'),
+(26, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831788, 1517831788, 1517831772, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '75'),
+(27, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831809, 1517831809, 1517831793, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '75'),
+(28, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831837, 1517831837, 1517831821, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '50'),
+(29, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831864, 1517831864, 1517831845, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '50'),
+(30, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831884, 1517831884, 1517831867, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(31, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831913, 1517831913, 1517831895, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '75'),
+(32, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831931, 1517831931, 1517831916, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(33, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831970, 1517831970, 1517831948, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(34, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517831990, 1517831990, 1517831973, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '50'),
+(35, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517832018, 1517832018, 1517831999, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '75'),
+(36, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517832042, 1517832042, 1517832026, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(37, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517832098, 1517832098, 1517832065, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '50'),
+(38, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517832812, 1517832812, 1517832767, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '75'),
+(39, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517832854, 1517832854, 1517832822, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(40, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517833456, 1517833456, 1517833433, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(41, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517833473, 1517833495, 1517833440, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(42, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517834656, 1517834656, 1517834643, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(43, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517834726, 1517834726, 1517834708, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(44, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517834747, 1517834747, 1517834728, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '75'),
+(45, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517834833, 1517834833, 1517834813, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(46, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517834854, 1517834854, 1517834836, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(47, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517834874, 1517834874, 1517834858, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '75'),
+(48, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517834904, 1517834904, 1517834884, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(49, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517834925, 1517834925, 1517834906, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(50, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517834943, 1517834943, 1517834928, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(51, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835012, 1517835012, 1517834998, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(52, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835029, 1517835029, 1517835015, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(53, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835064, 1517835064, 1517835050, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(54, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835083, 1517835083, 1517835067, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(55, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835111, 1517835111, 1517835092, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(56, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835136, 1517835136, 1517835119, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(57, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835152, 1517835152, 1517835139, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(58, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835174, 1517835174, 1517835160, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(59, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835201, 1517835201, 1517835185, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(60, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835218, 1517835218, 1517835205, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(61, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835249, 1517835249, 1517835224, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(62, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835268, 1517835268, 1517835252, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(63, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835320, 1517835320, 1517835289, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(64, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835346, 1517835346, 1517835332, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(65, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835372, 1517835372, 1517835357, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(66, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835422, 1517835422, 1517835405, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(67, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835446, 1517835446, 1517835432, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(68, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835462, 1517835462, 1517835449, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(69, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835480, 1517835480, 1517835466, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(70, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835506, 1517835506, 1517835490, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(71, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835521, 1517835521, 1517835508, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100'),
+(72, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1517835537, 1517835537, 1517835524, 0, 'ZhANG JUNlIN', 'DESIGNER', '', '', '', NULL, NULL, '{\"thumbnail\":\"portal\\/20180204\\/921b6af12f2f86621f0f4bdb28e55c1a.png\",\"template\":\"\"}', '100');
 
 -- --------------------------------------------------------
 
@@ -1031,7 +1202,7 @@ CREATE TABLE `cmf_user` (
 --
 
 INSERT INTO `cmf_user` (`id`, `user_type`, `sex`, `birthday`, `last_login_time`, `score`, `coin`, `balance`, `create_time`, `user_status`, `user_login`, `user_pass`, `user_nickname`, `user_email`, `user_url`, `avatar`, `signature`, `last_login_ip`, `user_activation_key`, `mobile`, `more`) VALUES
-(1, 1, 0, 0, 1517746218, 0, 0, '0.00', 1517659530, 1, 'admin', '###2958a21fbd1af17e3ed7f68af545dc59', 'admin', '164466159@qq.com', '', '', '', '127.0.0.1', '', '', NULL);
+(1, 1, 0, 0, 1517829043, 0, 0, '0.00', 1517659530, 1, 'admin', '###2958a21fbd1af17e3ed7f68af545dc59', 'admin', '164466159@qq.com', '', '', '', '127.0.0.1', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -1433,7 +1604,7 @@ ALTER TABLE `cmf_admin_menu`
 -- 使用表AUTO_INCREMENT `cmf_asset`
 --
 ALTER TABLE `cmf_asset`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- 使用表AUTO_INCREMENT `cmf_auth_access`
@@ -1499,19 +1670,19 @@ ALTER TABLE `cmf_plugin`
 -- 使用表AUTO_INCREMENT `cmf_portal_category`
 --
 ALTER TABLE `cmf_portal_category`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '分类id', AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '分类id', AUTO_INCREMENT=30;
 
 --
 -- 使用表AUTO_INCREMENT `cmf_portal_category_post`
 --
 ALTER TABLE `cmf_portal_category_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- 使用表AUTO_INCREMENT `cmf_portal_post`
 --
 ALTER TABLE `cmf_portal_post`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- 使用表AUTO_INCREMENT `cmf_portal_tag`
