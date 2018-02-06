@@ -23,9 +23,13 @@ $(function(){
 	//懒加载。。。
 	$("img.lazy").lazyload({effect: "fadeIn"});
 	//点击横线出来菜单页
-	$('.nav-hidden-position .line').click(function(){
+	$('.nav-hidden-position .line,.footer .pull-right').click(function(){
 		$('.nav-jianbian .line').click();
 	})
+    $('.footer .pull-right').click(function(){
+        $('#category_title03').addClass('active').siblings().removeClass('active')
+        $('.ul-wapper').siblings('.tab-content').find('.tab-pane').eq(2).addClass('active').siblings().removeClass('active')
+    })
 	$('.nav-jianbian .line').click(function(){
 		var WindowHeight = $(window).scrollTop() 
 		$('.nav-show').css({'top':WindowHeight})

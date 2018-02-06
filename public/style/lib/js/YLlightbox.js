@@ -52,6 +52,11 @@ $(function(){
 				var widthEnd = 1800 * widthY * 0.01
 				$('.YLimgwrapTitle').css({width: widthEnd})
 				$('#YLimgwrap').fadeIn();
+				//获取文字
+				var textOne = $(this).find('.main').children('p').eq(0).text();
+				var textTwo = $(this).find('.main').children('p').eq(1).text();
+				$('#YLimgcon .YLimgwrapTitle').find('p').eq(0).text(textOne);
+				$('#YLimgcon .YLimgwrapTitle').find('p').eq(1).text(textTwo);
 				//获取图片尺寸
 				var tranImg=new Image();
 				tranImg.src=$('#YLimg').attr('src');
@@ -79,6 +84,11 @@ $(function(){
 				$('#YLimg').addClass('nav-jianbian').height("").attr('src',imgSrcArray[a_flag_index -1]).css({width: imgWidthArray[a_flag_index -1]});
 				var widthY = $('#YLimg').width()
 				$('.YLimgwrapTitle').css({width: widthY})
+				//设置文本
+				var textOne = $('#YLlightbox a[rel="YLlightbox"]').eq(a_flag_index -1).find('p').eq(0).text();
+				var textTwo = $('#YLlightbox a[rel="YLlightbox"]').eq(a_flag_index -1).find('p').eq(1).text();
+				$('#YLimgcon .YLimgwrapTitle').find('p').eq(0).text(textOne);
+				$('#YLimgcon .YLimgwrapTitle').find('p').eq(1).text(textTwo);
 				//获取图片尺寸
 				var tranImg=new Image();
 				tranImg.src=$('#YLimg').attr('src');
@@ -102,6 +112,11 @@ $(function(){
 				var widthY = $('#YLimg').width()
 //				var widthEnd = 1860 * widthY * 0.01
 				$('.YLimgwrapTitle').css({width: widthY})
+				//设置文本
+				var textOne = $('#YLlightbox a[rel="YLlightbox"]').eq(a_flag_index +1).find('p').eq(0).text();
+				var textTwo = $('#YLlightbox a[rel="YLlightbox"]').eq(a_flag_index +1).find('p').eq(1).text();
+				$('#YLimgcon .YLimgwrapTitle').find('p').eq(0).text(textOne);
+				$('#YLimgcon .YLimgwrapTitle').find('p').eq(1).text(textTwo);
 				//获取图片尺寸
 				var tranImg=new Image();
 				tranImg.src=$('#YLimg').attr('src');
