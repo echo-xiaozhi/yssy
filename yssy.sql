@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 2018-02-05 21:20:48
+-- Generation Time: 2018-02-06 11:54:25
 -- 服务器版本： 5.6.39
 -- PHP Version: 7.2.2
 
@@ -16,7 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `yssy`
@@ -38,10 +38,10 @@ CREATE TABLE `cmf_admin_menu` (
   `controller` varchar(30) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '控制器名',
   `action` varchar(30) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '操作名称',
   `param` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '额外参数',
-  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '菜单名称',
+  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '菜单名称',
   `icon` varchar(20) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '菜单图标',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='后台菜单表';
+  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '备注'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='后台菜单表';
 
 --
 -- 转存表中的数据 `cmf_admin_menu`
@@ -224,13 +224,13 @@ CREATE TABLE `cmf_asset` (
   `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态;1:可用,0:不可用',
   `download_times` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '下载次数',
   `file_key` varchar(64) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '文件惟一码',
-  `filename` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '文件名',
+  `filename` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '文件名',
   `file_path` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '文件路径,相对于upload目录,可以为url',
   `file_md5` varchar(32) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '文件md5值',
   `file_sha1` varchar(40) CHARACTER SET utf8 NOT NULL DEFAULT '',
   `suffix` varchar(10) NOT NULL DEFAULT '' COMMENT '文件后缀名,不包括点',
   `more` text COMMENT '其它详细信息,JSON格式'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='资源表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='资源表';
 
 --
 -- 转存表中的数据 `cmf_asset`
@@ -257,7 +257,9 @@ INSERT INTO `cmf_asset` (`id`, `user_id`, `file_size`, `create_time`, `status`, 
 (18, 1, 86629, 1517831548, 1, 0, '3dc7708daf0a49b53f20f4d1cedff3b65130b62b367b038264df0457ca4fcdfe', '13.jpg', 'portal/20180205/1b39ab8b3304ddf0ec8377a69f610d0f.jpg', '3dc7708daf0a49b53f20f4d1cedff3b6', '7204032830945e689ba33a0ab2ae00a48cb60680', 'jpg', NULL),
 (19, 1, 89131, 1517831569, 1, 0, 'b5a4a621dcdbb65c36cef53013617c9334925a999313d562a6730c044d39f0ad', '14.jpg', 'portal/20180205/c4c4e33ab8cea06895dbae682a2c7ca2.jpg', 'b5a4a621dcdbb65c36cef53013617c93', '90f34527423b61c8912a6f9e5e6f1cf50d2c9274', 'jpg', NULL),
 (20, 1, 102301, 1517831590, 1, 0, 'e51842896b9372453a5104eee2951c935598633521c2a0196a256fe2374f0b2d', '15.jpg', 'portal/20180205/e3e31f5d28467ef3cb9fe5eb4aecbbec.jpg', 'e51842896b9372453a5104eee2951c93', '5df04dcbbd2f8fc3d791f429b792fc48b9a0dfa4', 'jpg', NULL),
-(21, 1, 136374, 1517831618, 1, 0, '61c85b4710b326868f752bdf32b168b4c0fd00cf1df8379330649b13ab7d93cd', '16.jpg', 'portal/20180205/4e91150fda819badfc2d054688dd724a.jpg', '61c85b4710b326868f752bdf32b168b4', '1f911a2c2e0ba74f51132396cd794de6bc1d8dd8', 'jpg', NULL);
+(21, 1, 136374, 1517831618, 1, 0, '61c85b4710b326868f752bdf32b168b4c0fd00cf1df8379330649b13ab7d93cd', '16.jpg', 'portal/20180205/4e91150fda819badfc2d054688dd724a.jpg', '61c85b4710b326868f752bdf32b168b4', '1f911a2c2e0ba74f51132396cd794de6bc1d8dd8', 'jpg', NULL),
+(22, 1, 2774, 1517883698, 1, 0, 'ad329ec41645c86b424eb9b91430ff92aadf05c3289d51c16c7fff79fa3d9f89', '微信图片_20180206102101.png', 'admin/20180206/71591fe3bab79ada3cd93cf2efa4ff5b.png', 'ad329ec41645c86b424eb9b91430ff92', 'e32937188dcb71a05c132c15a9c5d452edd01cee', 'png', NULL),
+(23, 1, 8264, 1517884252, 1, 0, '70f2c66d4b6f2bd581dca37ac2be4c4526b829af4b0a804c889fef0b95a84474', 'logo002.png', 'admin/20180206/010318040be8dced213445d315822145.png', '70f2c66d4b6f2bd581dca37ac2be4c45', 'ba8930f8b31a46225a80660d08bc23ffae4a3f80', 'png', NULL);
 
 -- --------------------------------------------------------
 
@@ -285,9 +287,9 @@ CREATE TABLE `cmf_auth_rule` (
   `type` varchar(30) NOT NULL DEFAULT '' COMMENT '权限规则分类，请加应用前缀,如admin_',
   `name` varchar(100) NOT NULL DEFAULT '' COMMENT '规则唯一英文标识,全小写',
   `param` varchar(100) NOT NULL DEFAULT '' COMMENT '额外url参数',
-  `title` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '规则描述',
+  `title` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '规则描述',
   `condition` varchar(200) NOT NULL DEFAULT '' COMMENT '规则附加条件'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='权限规则表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限规则表';
 
 --
 -- 转存表中的数据 `cmf_auth_rule`
@@ -480,8 +482,8 @@ CREATE TABLE `cmf_comment` (
   `email` varchar(255) NOT NULL DEFAULT '' COMMENT '评论者邮箱',
   `path` varchar(255) NOT NULL DEFAULT '' COMMENT '层级关系',
   `url` text COMMENT '原文地址',
-  `content` text CHARACTER SET utf8mb4 COMMENT '评论内容',
-  `more` text CHARACTER SET utf8mb4 COMMENT '扩展属性'
+  `content` text CHARACTER SET utf8 COMMENT '评论内容',
+  `more` text CHARACTER SET utf8 COMMENT '扩展属性'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='评论表';
 
 -- --------------------------------------------------------
@@ -498,7 +500,7 @@ CREATE TABLE `cmf_hook` (
   `hook` varchar(50) NOT NULL DEFAULT '' COMMENT '钩子',
   `app` varchar(15) NOT NULL DEFAULT '' COMMENT '应用名(只有应用钩子才用)',
   `description` varchar(255) NOT NULL DEFAULT '' COMMENT '描述'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='系统钩子表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统钩子表';
 
 --
 -- 转存表中的数据 `cmf_hook`
@@ -553,7 +555,7 @@ CREATE TABLE `cmf_hook_plugin` (
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态(0:禁用,1:启用)',
   `hook` varchar(50) NOT NULL DEFAULT '' COMMENT '钩子名',
   `plugin` varchar(50) NOT NULL DEFAULT '' COMMENT '插件'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='系统钩子插件表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统钩子插件表';
 
 -- --------------------------------------------------------
 
@@ -568,11 +570,11 @@ CREATE TABLE `cmf_link` (
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
   `description` varchar(255) NOT NULL DEFAULT '' COMMENT '友情链接描述',
   `url` varchar(255) NOT NULL DEFAULT '' COMMENT '友情链接地址',
-  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '友情链接名称',
+  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '友情链接名称',
   `image` varchar(100) NOT NULL DEFAULT '' COMMENT '友情链接图标',
   `target` varchar(10) NOT NULL DEFAULT '' COMMENT '友情链接打开方式',
   `rel` varchar(50) NOT NULL DEFAULT '' COMMENT '链接与网站的关系'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='友情链接表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='友情链接表';
 
 -- --------------------------------------------------------
 
@@ -583,9 +585,9 @@ CREATE TABLE `cmf_link` (
 CREATE TABLE `cmf_nav` (
   `id` int(10) UNSIGNED NOT NULL,
   `is_main` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '是否为主导航;1:是;0:不是',
-  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '导航位置名称',
+  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '导航位置名称',
   `remark` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '备注'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='前台导航位置表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='前台导航位置表';
 
 --
 -- 转存表中的数据 `cmf_nav`
@@ -607,12 +609,12 @@ CREATE TABLE `cmf_nav_menu` (
   `parent_id` int(11) NOT NULL COMMENT '父 id',
   `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态;1:显示;0:隐藏',
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '菜单名称',
+  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '菜单名称',
   `target` varchar(10) NOT NULL DEFAULT '' COMMENT '打开方式',
   `href` varchar(100) NOT NULL DEFAULT '' COMMENT '链接',
   `icon` varchar(20) NOT NULL DEFAULT '' COMMENT '图标',
   `path` varchar(255) NOT NULL DEFAULT '' COMMENT '层级关系'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='前台导航菜单表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='前台导航菜单表';
 
 --
 -- 转存表中的数据 `cmf_nav_menu`
@@ -631,15 +633,15 @@ CREATE TABLE `cmf_option` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `autoload` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '是否自动加载;1:自动加载;0:不自动加载',
   `option_name` varchar(64) NOT NULL DEFAULT '' COMMENT '配置名',
-  `option_value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT '配置值'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='全站配置表' ROW_FORMAT=COMPACT;
+  `option_value` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT '配置值'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='全站配置表' ROW_FORMAT=COMPACT;
 
 --
 -- 转存表中的数据 `cmf_option`
 --
 
 INSERT INTO `cmf_option` (`id`, `autoload`, `option_name`, `option_value`) VALUES
-(1, 1, 'site_info', '{\"site_name\":\"\\u6709\\u6570\\u6444\\u5f71\",\"site_seo_title\":\"\\u6709\\u6570\\u6444\\u5f71\",\"site_seo_keywords\":\"\\u6709\\u6570\\u5e7f\\u544a\\uff0c\\u5546\\u4e1a\\u6444\\u5f71\",\"site_seo_description\":\"\\u6709\\u6570\\u5e7f\\u544a\\u662f\\u4e00\\u5bb6\\u6df1\\u8015\\u5546\\u4e1a\\u6444\\u5f71\\u9886\\u57df\\u591a\\u5e74\\u7684\\u89c6\\u89c9\\u670d\\u52a1\\u5546\",\"site_icp\":\"\",\"site_admin_email\":\"\",\"site_analytics\":\"\",\"urlmode\":\"1\",\"html_suffix\":\"\",\"site_logo\":\"admin\\/20180204\\/39eb4e974a37c29e71fc3eddd669d9ad.png\",\"site_logo_p\":\"admin\\/20180204\\/b3099f26d8d9e47cc3216b635609a142.png\",\"site_logo_z\":\"admin\\/20180204\\/205566a13488d45e3a4ed12e986f69d8.png\",\"site_banquan_en\":\"COPYRIGHT \\u00a9 2011 - 2017 USURE CREATION. All RIGHTS RESERVED.\",\"site_banquan\":\"\\u6709\\u6570\\u5e7f\\u544a \\u7248\\u6743\\u6240\\u6709 \\/ \\u4eacIPC\\u8bc1130164\\u53f7\"}'),
+(1, 1, 'site_info', '{\"site_name\":\"\\u6709\\u6570\\u6444\\u5f71\",\"site_seo_title\":\"\\u6709\\u6570\\u6444\\u5f71\",\"site_seo_keywords\":\"\\u6709\\u6570\\u5e7f\\u544a\\uff0c\\u5546\\u4e1a\\u6444\\u5f71\",\"site_seo_description\":\"\\u6709\\u6570\\u5e7f\\u544a\\u662f\\u4e00\\u5bb6\\u6df1\\u8015\\u5546\\u4e1a\\u6444\\u5f71\\u9886\\u57df\\u591a\\u5e74\\u7684\\u89c6\\u89c9\\u670d\\u52a1\\u5546\",\"site_icp\":\"\",\"site_admin_email\":\"\",\"site_analytics\":\"\",\"urlmode\":\"1\",\"html_suffix\":\"\",\"site_logo\":\"admin\\/20180204\\/39eb4e974a37c29e71fc3eddd669d9ad.png\",\"site_logo_p\":\"admin\\/20180204\\/b3099f26d8d9e47cc3216b635609a142.png\",\"site_logo_z\":\"admin\\/20180206\\/010318040be8dced213445d315822145.png\",\"site_banquan_en\":\"COPYRIGHT \\u00a9 2011 - 2017 USURE CREATION. All RIGHTS RESERVED.\",\"site_banquan\":\"\\u6709\\u6570\\u5e7f\\u544a \\u7248\\u6743\\u6240\\u6709 \\/ \\u4eacIPC\\u8bc1130164\\u53f7\"}'),
 (2, 1, 'cmf_settings', '{\"open_registration\":\"0\",\"banned_usernames\":\"\"}'),
 (3, 1, 'cdn_settings', '{\"cdn_static_root\":\"\"}'),
 (4, 1, 'admin_settings', '{\"admin_password\":\"\",\"admin_style\":\"flatadmin\"}'),
@@ -658,15 +660,15 @@ CREATE TABLE `cmf_plugin` (
   `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态;1:开启;0:禁用',
   `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '插件安装时间',
   `name` varchar(50) NOT NULL DEFAULT '' COMMENT '插件标识名,英文字母(惟一)',
-  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '插件名称',
+  `title` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '插件名称',
   `demo_url` varchar(50) NOT NULL DEFAULT '' COMMENT '演示地址，带协议',
   `hooks` varchar(255) NOT NULL DEFAULT '' COMMENT '实现的钩子;以“,”分隔',
-  `author` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '插件作者',
+  `author` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '插件作者',
   `author_url` varchar(50) NOT NULL DEFAULT '' COMMENT '作者网站链接',
   `version` varchar(20) NOT NULL DEFAULT '' COMMENT '插件版本号',
   `description` varchar(255) NOT NULL COMMENT '插件描述',
   `config` text COMMENT '插件配置'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='插件表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='插件表';
 
 -- --------------------------------------------------------
 
@@ -681,7 +683,7 @@ CREATE TABLE `cmf_portal_category` (
   `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态,1:发布,0:不发布',
   `delete_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '删除时间',
   `list_order` float NOT NULL DEFAULT '10000' COMMENT '排序',
-  `name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '分类名称',
+  `name` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '分类名称',
   `description` text NOT NULL COMMENT '分类描述',
   `description_cn` text NOT NULL COMMENT '中文简介',
   `description_en` text NOT NULL COMMENT '英文简介',
@@ -692,7 +694,7 @@ CREATE TABLE `cmf_portal_category` (
   `list_tpl` varchar(50) NOT NULL DEFAULT '' COMMENT '分类列表模板',
   `one_tpl` varchar(50) NOT NULL DEFAULT '' COMMENT '分类文章页模板',
   `more` text COMMENT '扩展属性'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='portal应用 文章分类表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='portal应用 文章分类表';
 
 --
 -- 转存表中的数据 `cmf_portal_category`
@@ -844,7 +846,7 @@ CREATE TABLE `cmf_portal_post` (
   `update_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '更新时间',
   `published_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '发布时间',
   `delete_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '删除时间',
-  `post_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'post标题',
+  `post_title` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'post标题',
   `post_title_fu` varchar(255) NOT NULL,
   `post_keywords` varchar(150) NOT NULL DEFAULT '' COMMENT 'seo keywords',
   `post_excerpt` varchar(500) NOT NULL DEFAULT '' COMMENT 'post摘要',
@@ -853,7 +855,7 @@ CREATE TABLE `cmf_portal_post` (
   `post_content_filtered` text COMMENT '处理过的文章内容',
   `more` text COMMENT '扩展属性,如缩略图;格式为json',
   `radio` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='portal应用 文章表' ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='portal应用 文章表' ROW_FORMAT=COMPACT;
 
 --
 -- 转存表中的数据 `cmf_portal_post`
@@ -944,8 +946,8 @@ CREATE TABLE `cmf_portal_tag` (
   `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '状态,1:发布,0:不发布',
   `recommended` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT '是否推荐;1:推荐;0:不推荐',
   `post_count` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '标签文章数',
-  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '标签名称'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='portal应用 文章标签表';
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '标签名称'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='portal应用 文章标签表';
 
 -- --------------------------------------------------------
 
@@ -973,7 +975,7 @@ CREATE TABLE `cmf_recycle_bin` (
   `table_name` varchar(60) DEFAULT '' COMMENT '删除内容所在表名',
   `name` varchar(255) DEFAULT '' COMMENT '删除内容名称',
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0' COMMENT '用户id'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT=' 回收站';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT=' 回收站';
 
 --
 -- 转存表中的数据 `cmf_recycle_bin`
@@ -996,9 +998,9 @@ CREATE TABLE `cmf_role` (
   `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '创建时间',
   `update_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '更新时间',
   `list_order` float NOT NULL DEFAULT '0' COMMENT '排序',
-  `name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '角色名称',
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '角色名称',
   `remark` varchar(255) NOT NULL DEFAULT '' COMMENT '备注'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='角色表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色表';
 
 --
 -- 转存表中的数据 `cmf_role`
@@ -1033,7 +1035,7 @@ CREATE TABLE `cmf_route` (
   `type` tinyint(4) NOT NULL DEFAULT '1' COMMENT 'URL规则类型;1:用户自定义;2:别名添加',
   `full_url` varchar(255) NOT NULL DEFAULT '' COMMENT '完整url',
   `url` varchar(255) NOT NULL DEFAULT '' COMMENT '实际显示的url'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='url路由表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='url路由表';
 
 -- --------------------------------------------------------
 
@@ -1047,7 +1049,7 @@ CREATE TABLE `cmf_slide` (
   `delete_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '删除时间',
   `name` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '幻灯片分类',
   `remark` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '分类备注'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='幻灯片表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='幻灯片表';
 
 -- --------------------------------------------------------
 
@@ -1067,7 +1069,7 @@ CREATE TABLE `cmf_slide_item` (
   `description` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '幻灯片描述',
   `content` text CHARACTER SET utf8 COMMENT '幻灯片内容',
   `more` text COMMENT '链接打开方式'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='幻灯片子项表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='幻灯片子项表';
 
 -- --------------------------------------------------------
 
@@ -1165,7 +1167,7 @@ CREATE TABLE `cmf_third_party_user` (
   `openid` varchar(40) NOT NULL DEFAULT '' COMMENT '第三方用户id',
   `union_id` varchar(64) NOT NULL DEFAULT '' COMMENT '第三方用户多个产品中的惟一 id,(如:微信平台)',
   `more` text COMMENT '扩展信息'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='第三方用户表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='第三方用户表';
 
 -- --------------------------------------------------------
 
@@ -1184,9 +1186,9 @@ CREATE TABLE `cmf_user` (
   `balance` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '余额',
   `create_time` int(11) NOT NULL DEFAULT '0' COMMENT '注册时间',
   `user_status` tinyint(3) UNSIGNED NOT NULL DEFAULT '1' COMMENT '用户状态;0:禁用,1:正常,2:未验证',
-  `user_login` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '用户名',
+  `user_login` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '用户名',
   `user_pass` varchar(64) NOT NULL DEFAULT '' COMMENT '登录密码;cmf_password加密',
-  `user_nickname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '用户昵称',
+  `user_nickname` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '用户昵称',
   `user_email` varchar(100) NOT NULL DEFAULT '' COMMENT '用户登录邮箱',
   `user_url` varchar(100) NOT NULL DEFAULT '' COMMENT '用户个人网址',
   `avatar` varchar(255) NOT NULL DEFAULT '' COMMENT '用户头像',
@@ -1195,14 +1197,14 @@ CREATE TABLE `cmf_user` (
   `user_activation_key` varchar(60) NOT NULL DEFAULT '' COMMENT '激活码',
   `mobile` varchar(20) NOT NULL DEFAULT '' COMMENT '用户手机号',
   `more` text COMMENT '扩展属性'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 --
 -- 转存表中的数据 `cmf_user`
 --
 
 INSERT INTO `cmf_user` (`id`, `user_type`, `sex`, `birthday`, `last_login_time`, `score`, `coin`, `balance`, `create_time`, `user_status`, `user_login`, `user_pass`, `user_nickname`, `user_email`, `user_url`, `avatar`, `signature`, `last_login_ip`, `user_activation_key`, `mobile`, `more`) VALUES
-(1, 1, 0, 0, 1517829043, 0, 0, '0.00', 1517659530, 1, 'admin', '###2958a21fbd1af17e3ed7f68af545dc59', 'admin', '164466159@qq.com', '', '', '', '127.0.0.1', '', '', NULL);
+(1, 1, 0, 0, 1517883539, 0, 0, '0.00', 1517659530, 1, 'admin', '###2958a21fbd1af17e3ed7f68af545dc59', 'admin', '164466159@qq.com', '', '', '', '127.0.0.1', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -1221,7 +1223,7 @@ CREATE TABLE `cmf_user_action` (
   `action` varchar(50) NOT NULL DEFAULT '' COMMENT '用户操作名称',
   `app` varchar(50) NOT NULL DEFAULT '' COMMENT '操作所在应用名或插件名等',
   `url` text COMMENT '执行操作的url'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户操作表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户操作表';
 
 --
 -- 转存表中的数据 `cmf_user_action`
@@ -1244,7 +1246,7 @@ CREATE TABLE `cmf_user_action_log` (
   `object` varchar(100) NOT NULL DEFAULT '' COMMENT '访问对象的id,格式:不带前缀的表名+id;如posts1表示xx_posts表里id为1的记录',
   `action` varchar(50) NOT NULL DEFAULT '' COMMENT '操作名称;格式:应用名+控制器+操作名,也可自己定义格式只要不发生冲突且惟一;',
   `ip` varchar(15) NOT NULL DEFAULT '' COMMENT '用户ip'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='访问记录表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='访问记录表';
 
 -- --------------------------------------------------------
 
@@ -1260,7 +1262,7 @@ CREATE TABLE `cmf_user_balance_log` (
   `balance` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '更改后余额',
   `description` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
   `remark` varchar(255) NOT NULL DEFAULT '' COMMENT '备注'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户余额变更日志表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户余额变更日志表';
 
 -- --------------------------------------------------------
 
@@ -1277,7 +1279,7 @@ CREATE TABLE `cmf_user_favorite` (
   `table_name` varchar(64) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '收藏实体以前所在表,不带前缀',
   `object_id` int(10) UNSIGNED DEFAULT '0' COMMENT '收藏内容原来的主键id',
   `create_time` int(10) UNSIGNED DEFAULT '0' COMMENT '收藏时间'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户收藏表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户收藏表';
 
 -- --------------------------------------------------------
 
@@ -1292,7 +1294,7 @@ CREATE TABLE `cmf_user_login_attempt` (
   `locked_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '锁定时间',
   `ip` varchar(15) NOT NULL DEFAULT '' COMMENT '用户 ip',
   `account` varchar(100) NOT NULL DEFAULT '' COMMENT '用户账号,手机号,邮箱或用户名'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户登录尝试表' ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户登录尝试表' ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -1307,7 +1309,7 @@ CREATE TABLE `cmf_user_score_log` (
   `action` varchar(50) NOT NULL DEFAULT '' COMMENT '用户操作名称',
   `score` int(11) NOT NULL DEFAULT '0' COMMENT '更改积分，可以为负',
   `coin` int(11) NOT NULL DEFAULT '0' COMMENT '更改金币，可以为负'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户操作积分等奖励日志表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户操作积分等奖励日志表';
 
 -- --------------------------------------------------------
 
@@ -1322,7 +1324,7 @@ CREATE TABLE `cmf_user_token` (
   `create_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '创建时间',
   `token` varchar(64) NOT NULL DEFAULT '' COMMENT 'token',
   `device_type` varchar(10) NOT NULL DEFAULT '' COMMENT '设备类型;mobile,android,iphone,ipad,web,pc,mac,wxapp'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户客户端登录 token 表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户客户端登录 token 表';
 
 --
 -- 转存表中的数据 `cmf_user_token`
@@ -1344,7 +1346,7 @@ CREATE TABLE `cmf_verification_code` (
   `expire_time` int(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '验证码过期时间',
   `code` varchar(8) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '最后发送成功的验证码',
   `account` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '' COMMENT '手机号或者邮箱'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='手机邮箱数字验证码表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='手机邮箱数字验证码表';
 
 --
 -- Indexes for dumped tables
@@ -1604,7 +1606,7 @@ ALTER TABLE `cmf_admin_menu`
 -- 使用表AUTO_INCREMENT `cmf_asset`
 --
 ALTER TABLE `cmf_asset`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- 使用表AUTO_INCREMENT `cmf_auth_access`
